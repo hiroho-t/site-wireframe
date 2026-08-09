@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>footer-005</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* ============================================================
+   05 FOOTER / 左にロゴ・住所・DLボタン、右にサイトマップ3列
+   実測（1440基準）ロゴ h58 ／ 住所 14px lh26 ／ ボタン 376×62 r6
+   サイトマップ 見出し15px＋子13px（行間34）。下部は1px罫線＋小リンク＋コピーライト
+   ============================================================ */
+.ft5 { background: var(--c-white); }
+.ft5__top { top: 108px; display: flex; }
+.ft5__logo { font-size: 26px; font-weight: 700; letter-spacing: .06em; }
+.ft5__addr { margin-top: 34px; font-size: 14px; line-height: 26px; color: var(--c-sub); }
+.ft5__addr a { display: inline-block; margin-top: 6px; text-decoration: underline; color: var(--c-mute); }
+.ft5__dl { margin-top: 34px; width: 376px; height: 62px; border-radius: 6px; font-size: 15px; font-weight: 700; }
+.ft5__dl i { margin-left: 22px; }
+
+.ft5__nav { margin-left: auto; display: flex; gap: 84px; }
+.ft5__nav h3 { font-size: 15px; font-weight: 700; line-height: 1; }
+.ft5__nav h3 + h3 { margin-top: 34px; }
+.ft5__nav .sub { margin-top: 20px; }
+.ft5__nav .sub li { font-size: 13px; line-height: 1; margin-bottom: 22px; color: var(--c-mute); }
+.ft5__nav .one li { font-size: 15px; font-weight: 700; line-height: 1; margin-bottom: 34px; }
+
+.ft5__btm { top: 648px; border-top: 1px solid var(--c-line); padding-top: 26px; display: flex; align-items: center; font-size: 13px; }
+.ft5__btm .links { display: flex; gap: 30px; color: var(--c-sub); }
+.ft5__btm .copy { margin-left: auto; color: var(--c-mute); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf ft5">
+    <div class="wf__inner ft5__top">
+      <div>
+        <div class="ft5__logo en">LOGO</div>
+        <p class="ft5__addr">
+          〒000-0000 ダミー県ダミー市ダミー町0番0号<br>
+          <a class="en">Dummy MAP</a>
+        </p>
+        <div class="ft5__dl btn-black">ダミーボタンテキスト <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+      </div>
+
+      <div class="ft5__nav">
+        <div>
+          <h3>ダミー項目名</h3>
+          <ul class="sub">
+            <li>ダミー項目</li>
+            <li>ダミー項目名</li>
+            <li>ダミー</li>
+            <li>ダミー項目</li>
+            <li>ダミー・ダミー</li>
+          </ul>
+          <h3>ダミー項目名</h3>
+        </div>
+        <div>
+          <h3>ダミー項目名</h3>
+          <ul class="sub">
+            <li>ダミー項目名称</li>
+            <li>ダミー項目名</li>
+            <li>ダミー項目</li>
+            <li>ダミー（ダミー）</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="one">
+            <li>ダミー項目名</li>
+            <li>ダミー項目</li>
+            <li>ダミー</li>
+            <li>ダミー項目名</li>
+            <li>ダミー項目</li>
+            <li>ダミー項目名</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf__inner ft5__btm">
+      <div class="links"><span>ダミー項目名</span><span>ダミー項目名称</span></div>
+      <span class="copy en">©20XX Company.</span>
+    </div>
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>

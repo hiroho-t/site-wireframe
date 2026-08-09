@@ -29,19 +29,23 @@ cd ~/.claude/skills/site-wireframe && git pull
 
 | カテゴリ | 数 |
 |---|---|
-| `mv/` メインビジュアル | 3 |
-| `concept/` コンセプト | 1 |
-| `about/` 会社紹介 | 1 |
+| `mv/` メインビジュアル | 6 |
+| `concept/` コンセプト | 2 |
+| `about/` 会社紹介 | 2 |
+| `feature/` 特長 | 2 |
 | `report/` レポート | 1 |
-| `company/` 会社情報 | 1 |
+| `company/` 会社情報 | 2 |
 | `interview/` インタビュー | 1 |
-| `service/` サービス | 1 |
+| `service/` サービス | 2 |
+| `product/` 商品 | 1 |
 | `partner/` パートナー | 1 |
 | `case/` 導入事例 | 1 |
-| `news/` お知らせ | 3 |
-| `career/` 採用 | 1 |
-| `contact/` お問い合わせ | 1 |
-| `footer/` フッター | 3 |
+| `magazine/` メディア | 1 |
+| `news/` お知らせ | 5 |
+| `career/` 採用 | 2 |
+| `banner/` 誘導バナー | 1 |
+| `contact/` お問い合わせ | 2 |
+| `footer/` フッター | 6 |
 
 型の一覧と作り方のルールは [SKILL.md](SKILL.md) を参照。
 
