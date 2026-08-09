@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>footer-002</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* ============================================================
+   02 FOOTER / 濃色。背面に巨大な英字マーキー、中央リード、枠線の巨大ピルCTA、下部にリンク列
+   背景をダークにするのは、白抜き文字を成立させるため（視認性の例外）
+   マーキー 230px/700・不透明度7%（動かさず中央に静止させた状態）／ リード 28px/400 lh1.5
+   ピルCTA  幅1296・高さ190・radius 95・文字40px・丸49
+   ============================================================ */
+.ft2 { background: #2a2a2c; color: #ededee; }
+
+.ft2__mq { position: absolute; left: 0; top: 64px; width: 1440px; height: 230px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.ft2__mq p {
+  font-size: 230px; font-weight: 700; line-height: 1;
+  color: rgba(237,237,238,.07); white-space: nowrap; letter-spacing: .02em;
+}
+.ft2__lead {
+  position: absolute; left: 0; top: 190px; width: 1440px;
+  text-align: center; font-size: 28px; font-weight: 400; line-height: 1.5; letter-spacing: .03em;
+}
+
+.ft2__pill {
+  position: absolute; left: var(--wf-pad); top: 355px; width: var(--wf-content); height: 190px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 40px; padding: 0 83px 0 95px;
+  border: 1px solid rgba(237,237,238,.35); border-radius: 95px;
+}
+.ft2__pill p { font-size: 40px; font-weight: 400; line-height: 1.3; }
+.ft2__pill .cir {
+  width: 49px; height: 49px; border-radius: 50%; flex-shrink: 0;
+  background: #ededee; color: #2a2a2c;
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+
+.ft2__btm { top: 716px; display: flex; align-items: center; gap: 30px; }
+.ft2__btm span, .ft2__btm p { font-size: 12px; font-weight: 500; line-height: 1.2; }
+.ft2__btm .sp { flex: 1; }
+.ft2__sns { display: flex; gap: 16px; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf ft2">
+
+    <!-- 背面のマーキー -->
+    <div class="ft2__mq"><p class="en">CONTACT</p></div>
+
+    <!-- リード -->
+    <p class="ft2__lead">ダミーテキストダミーテキストダミーテキスト、<br>ダミーテキストダミーテキスト。</p>
+
+    <!-- 巨大ピルCTA -->
+    <div class="ft2__pill">
+      <p>ダミーのボタンテキストが入ります</p>
+      <span class="cir"><i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+
+    <!-- 下部リンク列 -->
+    <div class="wf__inner ft2__btm">
+      <span class="en">PRIVACY POLICY</span>
+      <span class="en">INFORMATION POLICY</span>
+      <span>ダミーリンク名</span>
+      <span class="sp"></span>
+      <span class="ft2__sns">
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-regular fa-note-sticky"></i>
+      </span>
+      <p class="en">© 20XX Company.</p>
+    </div>
+
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>

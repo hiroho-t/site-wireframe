@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mv-001</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* ============================================================
+   01 MV / メインビジュアル
+   アートボード 1440×800／コンテンツ幅 90%（left 72・width 1296）
+   実測（1440基準）
+   HEADER  ナビ白ピル 794×60 r30 ／ CTA 117×36 ／ ハンバーガー φ60
+   TITLE   56px/700 ls.14em lh70
+   LEAD    12px lh24 ＋ 左縦罫線1px
+   背景は全面画像のためグレーボックス（白抜き文字の視認性確保）
+   ============================================================ */
+.mv { background: var(--c-img-dark); color: var(--c-white); }
+
+/* ヘッダー */
+.mv__header {
+  top: 14px; height: 60px;
+  display: flex; align-items: center;
+}
+
+/* ロゴ（テキスト表記／Poppins） */
+.mv__logo {
+  font-size: 20px; font-weight: 700; letter-spacing: .08em; line-height: 1;
+  color: var(--c-white);
+}
+
+/* ヘッダー右グループ（ナビ＋ハンバーガー） */
+.mv__header-r {
+  margin-left: auto;
+  display: flex; align-items: center; gap: 30px;
+}
+
+/* ナビ（白ピル） */
+.mv__nav {
+  position: relative;
+  width: 794px; height: 60px;
+  background: var(--c-white);
+  border-radius: 30px;
+}
+.mv__nav-list {
+  position: absolute; left: 25px; top: 0;
+  height: 60px;
+  display: flex; align-items: center; gap: 32px;
+}
+.mv__nav-list li {
+  font-size: 12px; font-weight: 500; line-height: 1;
+  color: var(--c-text);
+}
+.mv__nav-cta {
+  position: absolute; left: 660px; top: 12px;
+  width: 117px; height: 36px;
+  font-size: 12px; font-weight: 500;
+}
+
+/* ハンバーガー */
+.mv__menu {
+  width: 60px; height: 60px; flex-shrink: 0;
+  background: var(--c-white); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--c-text);
+}
+
+/* 見出し */
+.mv__title {
+  position: absolute; left: var(--wf-pad); top: 477px;
+  font-size: 56px; font-weight: 700;
+  letter-spacing: 0.14em; line-height: 70px;
+  color: var(--c-white);
+}
+
+/* 下部テキストブロック（左に縦罫線） */
+.mv__foot {
+  position: absolute; left: var(--wf-pad); bottom: 0;
+  height: 134px;
+  padding-left: 25px;
+  border-left: 1px solid var(--c-white);
+}
+.mv__lead {
+  font-size: 12px; line-height: 24px; font-weight: 400;
+  color: var(--c-white);
+}
+.mv__count {
+  margin-top: 12px;
+  font-size: 13px; line-height: 20px; font-weight: 400;
+  color: rgba(255,255,255,.85);
+}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf mv">
+
+    <!-- ヘッダー -->
+    <header class="wf__inner mv__header">
+      <div class="mv__logo en">LOGO</div>
+
+      <div class="mv__header-r">
+        <nav class="mv__nav">
+          <ul class="mv__nav-list">
+            <li>ナビゲーション項目</li>
+            <li>メニュー項目</li>
+            <li>ダミーテキスト</li>
+            <li>ナビ項目</li>
+            <li>項目</li>
+            <li class="en">MENU</li>
+            <li>メニュー</li>
+          </ul>
+          <div class="mv__nav-cta btn-black">ダミーボタン</div>
+        </nav>
+
+        <div class="mv__menu"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </header>
+
+    <!-- メインコピー -->
+    <h1 class="mv__title">ダミーの見出し、<br>テキストダミー。</h1>
+
+    <!-- リード文＋カウンター -->
+    <div class="mv__foot">
+      <p class="mv__lead">
+        ダミーテキストダミーテキスト、<br>
+        ダミーテキストダミーテキストダミーテキストダミーテキストダミー、<br>
+        ダミーテキストダミーテキストダミーテキストダミーテキスト。
+      </p>
+      <p class="mv__count en">04 / 06</p>
+    </div>
+
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
