@@ -85,44 +85,52 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   01 FEATURE / ラベル＋和文大見出し、下に左：円形の画像／右：本文＋角丸ボタン
-   実測（1440基準）ラベル 14px（先頭ドット）／ 見出し 40px
-   画像 φ430 ／ 右本文 left500 幅640・15px lh30 ／ ボタン 290×62 r10
+   01 FEATURE / 特長・強みを3カラムのカードで並べる定番型
+   見出し 英字ラベル14px＋和文40px、リード16px
+   カード 幅400・gap48（3列で1296）。画像400×260＋番号＋見出し20px＋本文15px lh30
    ============================================================ */
 .fe { background: var(--c-white); }
-.fe__head { top: 96px; }
-.fe__lab { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--c-sub); }
-.fe__lab i { font-size: 8px; color: var(--c-mute); }
-.fe__ttl { margin-top: 22px; font-size: 40px; font-weight: 700; line-height: 1.3; }
+.fe__head { top: 80px; }
+.fe__en { font-size: 14px; font-weight: 700; line-height: 1; color: var(--c-mute); letter-spacing: .06em; }
+.fe__ttl { margin-top: 20px; font-size: 40px; font-weight: 700; line-height: 1.3; }
+.fe__lead { margin-top: 24px; font-size: 16px; line-height: 30px; color: var(--c-sub); }
 
-.fe__ph { position: absolute; left: 300px; top: 268px; width: 430px; height: 430px; border-radius: 50%; }
-.fe__body { position: absolute; left: 500px; top: 300px; width: 660px; }
-.fe__body p { font-size: 15px; line-height: 30px; }
-.fe__body .btn-black { margin-top: 40px; width: 290px; height: 62px; border-radius: 10px; font-size: 16px; font-weight: 700; }
-.fe__body .btn-black i { margin-left: 22px; }
+.fe__cards { position: absolute; left: var(--wf-pad); top: 304px; width: var(--wf-content); display: flex; gap: 48px; }
+.fe__card { width: 400px; }
+.fe__card .ph { width: 400px; height: 260px; }
+.fe__card .no { margin-top: 26px; font-size: 14px; font-weight: 700; line-height: 1; color: var(--c-light); }
+.fe__card h3 { margin-top: 14px; font-size: 20px; font-weight: 700; line-height: 1.6; }
+.fe__card p { margin-top: 16px; font-size: 15px; line-height: 30px; color: var(--c-sub); }
 </style>
 </head>
 <body>
 <div class="stage">
   <div class="wf fe">
     <div class="wf__inner fe__head">
-      <p class="fe__lab"><i class="fa-solid fa-circle"></i><span class="en">Dummy</span></p>
-      <h2 class="fe__ttl">ダミーテキストダミーテキスト</h2>
+      <p class="fe__en en">Feature</p>
+      <h2 class="fe__ttl">ダミーテキストの特長</h2>
+      <p class="fe__lead">ダミーテキストダミーテキストダミーテキストダミーテキストをご紹介します。</p>
     </div>
 
-    <div class="fe__ph img" data-l="IMAGE"></div>
-    <div class="fe__body">
-      <p>
-        ダミーテキストダミーテキストダミーテキストダミーテキストで、<br>
-        ダミーテキスト、ダミーテキスト、ダミーテキストなど、<br>
-        ダミーテキストダミーテキストで使用されています。<br>
-        ダミーテキストダミーテキストダミーテキストされ、<br>
-        ダミーテキストダミーテキストに「ダミーテキストダミー」<br>
-        であることが求められます。<br>
-        ダミーテキストダミーテキストダミーの結果、<br>
-        ダミーテキストダミーテキストダミーテキストに至っているのです。
-      </p>
-      <div class="btn-black">ダミーボタン <i class="fa-solid fa-arrow-right"></i></div>
+    <div class="fe__cards">
+      <div class="fe__card">
+        <div class="ph img" data-l="IMAGE"></div>
+        <p class="no en">01</p>
+        <h3>ダミーテキストダミー</h3>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      </div>
+      <div class="fe__card">
+        <div class="ph img" data-l="IMAGE"></div>
+        <p class="no en">02</p>
+        <h3>ダミーテキストダミーテキスト</h3>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      </div>
+      <div class="fe__card">
+        <div class="ph img" data-l="IMAGE"></div>
+        <p class="no en">03</p>
+        <h3>ダミーテキスト</h3>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      </div>
     </div>
   </div>
 </div>

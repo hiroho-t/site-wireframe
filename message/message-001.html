@@ -85,25 +85,41 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   01 MESSAGE / 上に全幅の小見出し、中央にロゴ画像＋本文＋リンク
-   URLからDOM実測（1440幅・セクション高746を800の中央に配置）
-   小見出し 16/600 lh24（全幅・中央）／ 画像 430×209 ／ 本文 16/400 lh32（幅484）
+   01 MESSAGE / 社長挨拶・理念メッセージの定番型
+   左に人物画像、右に「英字ラベル＋和文見出し＋本文＋署名」
+   画像 520×600 ／ テキスト left664 幅704
+   見出し 32px lh1.6 ／ 本文 16px lh32 ／ 役職14px＋氏名22px
    ============================================================ */
 .ms { background: var(--c-white); }
-.ms__ttl { position: absolute; left: 0; top: 106px; width: 1440px; text-align: center; font-size: 16px; font-weight: 600; line-height: 24px; }
-.ms__ph { position: absolute; left: 505px; top: 216px; width: 430px; height: 209px; }
-.ms__body { position: absolute; left: 505px; top: 460px; width: 484px; font-size: 16px; line-height: 32px; color: var(--c-sub); }
-.ms__link { position: absolute; left: 1085px; top: 671px; display: flex; align-items: center; gap: 14px; font-size: 15px; font-weight: 500; line-height: 22.5px; }
-.ms__link i { font-size: 10px; color: var(--c-mute); }
+.ms__ph { position: absolute; left: var(--wf-pad); top: 100px; width: 520px; height: 600px; }
+.ms__tx { position: absolute; left: 664px; top: 140px; width: 704px; }
+.ms__en { font-size: 14px; font-weight: 700; line-height: 1; color: var(--c-mute); letter-spacing: .06em; }
+.ms__ttl { margin-top: 22px; font-size: 32px; font-weight: 700; line-height: 1.6; }
+.ms__body { margin-top: 40px; font-size: 16px; line-height: 32px; color: var(--c-sub); }
+.ms__sign { margin-top: 48px; }
+.ms__sign .role { font-size: 14px; line-height: 1; color: var(--c-mute); }
+.ms__sign .name { margin-top: 14px; font-size: 22px; font-weight: 700; line-height: 1; }
 </style>
 </head>
 <body>
 <div class="stage">
   <div class="wf ms">
-    <p class="ms__ttl">ダミーテキストが目指すダミー</p>
-    <div class="ms__ph img" data-l="COPY"></div>
-    <p class="ms__body">ダミーテキストは「ダミーテキスト」「ダミーテキスト」にダミーず、ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト、ダミーテキストダミーテキストダミーテキストです。</p>
-    <p class="ms__link">ダミーテキストについて <i class="fa-solid fa-arrow-right"></i></p>
+    <div class="ms__ph img" data-l="IMAGE"></div>
+    <div class="ms__tx">
+      <p class="ms__en en">Message</p>
+      <h2 class="ms__ttl">ダミーテキストダミーテキスト、<br>ダミーテキストダミーテキストへ。</h2>
+      <p class="ms__body">
+        ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。<br>
+        ダミーテキストダミーテキストダミーテキストダミーテキスト、ダミーテキスト<br>
+        ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト。<br>
+        ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br>
+        ダミーテキストダミーテキストダミーテキストダミーです。
+      </p>
+      <div class="ms__sign">
+        <p class="role">ダミー役職名</p>
+        <p class="name">ダミー 太郎</p>
+      </div>
+    </div>
   </div>
 </div>
 <script>

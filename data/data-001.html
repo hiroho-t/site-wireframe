@@ -85,27 +85,25 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   01 DATA / 数字で見るセクション。見出し＋大きな数字のブロック
-   URLからDOM実測（1440幅・元セクション高1300 → 800に収めるため2ブロックに絞る）
-   見出し 英字14/500 → 和文28/600 lh42 → 本文14/400
-   ブロック 見出し16/600 ／ 単位24/500 lh36 ／ 数字60/600 ／ 注記13/500
+   01 DATA / 数字で見る。定番の4カラム均等グリッド
+   見出し 英字ラベル14px＋和文40px＋リード16px
+   数字カード 幅300・gap32（4列で1296）。ラベル16px＋数字60px＋単位20px＋注記13px
+   縦罫線で4つを等分に区切る
    ============================================================ */
 .dt { background: var(--c-bg-gray); }
-.dt__head { top: 127px; }
-.dt__en { font-size: 14px; font-weight: 500; line-height: 14px; }
-.dt__ttl { margin-top: 11px; font-size: 28px; font-weight: 600; line-height: 42px; }
-.dt__lead { margin-top: 23px; font-size: 14px; line-height: 22.4px; color: var(--c-sub); }
+.dt__head { top: 193px; }
+.dt__en { font-size: 14px; font-weight: 700; line-height: 1; color: var(--c-mute); letter-spacing: .06em; }
+.dt__ttl { margin-top: 20px; font-size: 40px; font-weight: 700; line-height: 1.3; }
+.dt__lead { margin-top: 24px; font-size: 16px; line-height: 30px; color: var(--c-sub); }
 
-.dt__blocks { position: absolute; left: var(--wf-pad); top: 317px; width: var(--wf-content); display: flex; }
-.dt__b { width: 903px; }
-.dt__b h3 { font-size: 16px; font-weight: 600; line-height: 24px; }
-.dt__num { display: flex; align-items: baseline; gap: 12px; margin-top: 34px; }
-.dt__num .u { font-size: 24px; font-weight: 500; line-height: 36px; }
-.dt__num .n { font-size: 60px; font-weight: 600; line-height: 60px; }
-.dt__note { display: block; font-size: 13px; font-weight: 500; line-height: 19.5px; color: var(--c-mute); }
-.dt__ph1 { position: absolute; left: 502px; top: 411px; width: 310px; height: 206px; }
-.dt__ph2 { position: absolute; left: 1048px; top: 516px; width: 200px; height: 133px; }
-.dt__src { position: absolute; left: 794px; top: 658px; font-size: 12px; color: var(--c-mute); }
+.dt__grid { position: absolute; left: var(--wf-pad); top: 467px; width: var(--wf-content); display: flex; }
+.dt__b { width: 324px; padding: 0 24px; border-left: 1px solid var(--c-line); }
+.dt__b:last-child { border-right: 1px solid var(--c-line); }
+.dt__b h3 { font-size: 16px; font-weight: 700; line-height: 1; }
+.dt__num { margin-top: 26px; display: flex; align-items: baseline; gap: 8px; }
+.dt__num .n { font-size: 60px; font-weight: 700; line-height: 1; }
+.dt__num .u { font-size: 20px; font-weight: 500; line-height: 1; }
+.dt__note { margin-top: 16px; font-size: 13px; line-height: 1.6; color: var(--c-mute); }
 </style>
 </head>
 <body>
@@ -113,29 +111,32 @@ a { color: inherit; text-decoration: none; }
   <div class="wf dt">
     <div class="wf__inner dt__head">
       <p class="dt__en en">Company Data</p>
-      <p class="dt__ttl">ダミーテキストで見るダミー</p>
-      <p class="dt__lead">ダミーテキストダミーテキストの実績など、ダミーテキストを通してダミーテキストをご紹介します。</p>
+      <h2 class="dt__ttl">数字で見るダミーテキスト</h2>
+      <p class="dt__lead">ダミーテキストダミーテキストを、数字を通してご紹介します。</p>
     </div>
 
-    <div class="dt__blocks">
+    <div class="dt__grid">
       <div class="dt__b">
         <h3>ダミー項目名</h3>
-        <div class="dt__num"><span class="u">ダミー</span><span class="n en">000</span><span class="u">名</span></div>
-        <div class="dt__num">
-          <span class="u">ダミー</span>
-          <span><span class="n en">0000</span><span class="dt__note">（ダミーテキスト含む）</span></span>
-          <span class="u">名</span>
-        </div>
+        <p class="dt__num"><span class="n en">000</span><span class="u">名</span></p>
+        <p class="dt__note">※ ダミーテキスト含む</p>
       </div>
       <div class="dt__b">
         <h3>ダミー項目</h3>
-        <div class="dt__num"><span class="u">ダミー</span><span class="n en">000</span><span class="u">ダミー</span></div>
+        <p class="dt__num"><span class="n en">0000</span><span class="u">店舗</span></p>
+        <p class="dt__note">※ 20XX年00月現在</p>
+      </div>
+      <div class="dt__b">
+        <h3>ダミー項目名称</h3>
+        <p class="dt__num"><span class="n en">00.0</span><span class="u">歳</span></p>
+        <p class="dt__note">※ ダミーテキスト</p>
+      </div>
+      <div class="dt__b">
+        <h3>ダミー項目名</h3>
+        <p class="dt__num"><span class="n en">00.0</span><span class="u">%</span></p>
+        <p class="dt__note">※ ダミーテキスト</p>
       </div>
     </div>
-
-    <div class="dt__ph1 img" data-l="GRAPHIC"></div>
-    <div class="dt__ph2 img" data-l="GRAPHIC"></div>
-    <p class="dt__src en">※ 20XX.00 現在</p>
   </div>
 </div>
 <script>
