@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>service-003</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* ============================================================
+   03 SERVICE / 左に全面画像＋見出し、右にカードを縦に積む（スクロール追従想定）
+   URLからDOM実測（1440幅）
+   左  画像 608×800（全面）／ 英字14/500 → 和文24/600 lh36 → 本文15/400 lh24（幅394）
+   右  カード 493×260（画像）＋見出し24/600 lh36。元は縦4枚・ピッチ353 → 800に収めるため2枚に絞る
+   ============================================================ */
+.sv3 { background: var(--c-white); }
+.sv3__ph { position: absolute; left: 0; top: 0; width: 608px; height: 800px; }
+.sv3__tx { position: absolute; left: var(--wf-pad); top: 178px; width: 394px; color: var(--c-white); }
+.sv3__en { font-size: 14px; font-weight: 500; line-height: 14px; }
+.sv3__ttl { margin-top: 11px; font-size: 24px; font-weight: 600; line-height: 36px; }
+.sv3__lead { margin-top: 27px; font-size: 15px; line-height: 24px; }
+
+.sv3__cards { position: absolute; left: 697px; top: 72px; }
+.sv3__card { width: 493px; margin-bottom: 32px; }
+.sv3__card .ph { position: relative; width: 493px; height: 260px; }
+.sv3__card .no {
+  position: absolute; left: 18px; top: 18px;
+  font-size: 18px; font-weight: 500; line-height: 18px; color: var(--c-white);
+}
+.sv3__card .no b { font-size: 24px; font-weight: 500; }
+.sv3__card h3 { margin-top: 16px; width: 493px; font-size: 24px; font-weight: 600; line-height: 36px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf sv3">
+    <div class="sv3__ph img img--dark" data-l="IMAGE"></div>
+    <div class="sv3__tx">
+      <p class="sv3__en en">Dummy Text</p>
+      <p class="sv3__ttl">ダミーテキストで働くということ</p>
+      <p class="sv3__lead">ダミーテキストがダミーの時代をつくる。ダミーテキストで働くダミーテキスト。</p>
+    </div>
+    <div class="sv3__cards">
+      <div class="sv3__card">
+        <div class="ph img img--dark" data-l="IMAGE"><span class="no en"><b>01</b> / 06</span></div>
+        <h3>ダミーテキストダミーで実感しながら働く</h3>
+      </div>
+      <div class="sv3__card">
+        <div class="ph img img--dark" data-l="IMAGE"><span class="no en"><b>02</b> / 06</span></div>
+        <h3>ダミーテキストのため社会活動へ取り組む</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
