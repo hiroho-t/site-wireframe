@@ -87,15 +87,15 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    09 FOOTER / 左にロゴ＋コーポレートサイトリンク＋コピーライト、右にリンクを2階層で縦積み
    URLからDOM実測（1440幅・元セクション高428を800の中央に配置）
-   ロゴ 240×63 ／ 親リンク 16px/500 lh24（行ピッチ48）／ 子リンク 16px/400 lh28
+   ロゴ LOGOテキスト（26px/700・行高63）／ 親リンク 16px/500 lh24（行ピッチ48）／ 子リンク 16px/400 lh28
    ============================================================ */
 .ft9 { background: var(--c-white); }
-.ft9__left { position: absolute; left: 80px; top: 305px; }
-.ft9__logo { width: 240px; height: 63px; }
+.ft9__left { position: absolute; left: 80px; top: 250px; }
+.ft9__logo { font-size: 26px; font-weight: 700; letter-spacing: .06em; line-height: 63px; }
 .ft9__corp { margin-top: 23px; display: flex; align-items: center; gap: 12px; font-size: 14px; line-height: 24.5px; color: var(--c-sub); }
 .ft9__copy { margin-top: 134px; font-size: 12px; line-height: 24px; color: var(--c-mute); }
 
-.ft9__nav { position: absolute; left: 911px; top: 305px; width: 449px; }
+.ft9__nav { position: absolute; left: 911px; top: 250px; width: 449px; }
 .ft9__nav > li { margin-bottom: 24px; font-size: 16px; font-weight: 500; line-height: 24px; }
 .ft9__nav .sub { display: flex; gap: 16px; margin-top: 6px; }
 .ft9__nav .sub span { font-size: 16px; font-weight: 400; line-height: 28px; color: var(--c-sub); }
@@ -105,7 +105,7 @@ a { color: inherit; text-decoration: none; }
 <div class="stage">
   <div class="wf ft9">
     <div class="ft9__left">
-      <div class="ft9__logo img"></div>
+      <div class="ft9__logo en">LOGO</div>
       <p class="ft9__corp">ダミーテキスト コーポレートサイト <i class="fa-solid fa-arrow-up-right-from-square"></i></p>
       <p class="ft9__copy en">© 20XX Company. All Rights Reserved.</p>
     </div>
