@@ -85,18 +85,28 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   14 MV / 左に英字110pxの3行コピー、右に和文リード。下に幅いっぱいのビジュアル
-   URLからDOM実測（1440幅・元セクション高1294 → 800に収めるため画像を770→280に）
-   英字 110px/120 lh132 ／ 小英字 18px/300 lh32.4 ／ 和文 23px/300 lh46
-   ビジュアル 1380×420（左右余白30）／ 丸ボタン φ150
+   14 MV / 上にヘッダー、左に英字の3行コピー、右に和文リード。下に幅いっぱいのビジュアル
+   URLからDOM実測（1440幅・元セクション高1294 → 800に収めるためコピー110→88px・画像770→270に）
+   ヘッダー 高さ128。ロゴ144×38（y45）／ 英字ナビ 14px/600（y54）／ Contactボタン 101×31
+   英字コピー 88px/200 lh106 ／ 小英字 18px/300 lh32.4 ／ 和文 23px/300 lh46
+   ビジュアル 1380×270（左右余白30）／ 丸ボタン φ150
    ============================================================ */
 .mv14 { background: var(--c-white); }
-.mv14__copy { position: absolute; left: 60px; top: 60px; font-size: 110px; font-weight: 200; line-height: 132px; letter-spacing: .01em; }
-.mv14__sub { position: absolute; left: 720px; top: 243px; width: 200px; font-size: 18px; font-weight: 300; line-height: 32.4px; }
-.mv14__jp { position: absolute; left: 1007px; top: 60px; width: 373px; font-size: 23px; font-weight: 300; line-height: 46px; }
-.mv14__visual { position: absolute; left: 30px; top: 490px; width: 1380px; height: 280px; }
+.mv14__hd { position: absolute; left: 0; top: 0; width: 1440px; height: 128px; padding: 0 60px; display: flex; align-items: center; }
+.mv14__logo { font-size: 22px; font-weight: 700; letter-spacing: .06em; }
+.mv14__nav { margin-left: auto; display: flex; align-items: center; gap: 34px; font-size: 14px; font-weight: 600; }
+.mv14__btn {
+  margin-left: 40px; width: 101px; height: 31px; border-radius: 16px;
+  border: 1px solid var(--c-line);
+  display: flex; align-items: center; justify-content: center; font-size: 13px;
+}
+
+.mv14__copy { position: absolute; left: 60px; top: 150px; font-size: 88px; font-weight: 200; line-height: 106px; letter-spacing: .01em; }
+.mv14__sub { position: absolute; left: 620px; top: 320px; width: 200px; font-size: 18px; font-weight: 300; line-height: 32.4px; }
+.mv14__jp { position: absolute; left: 1007px; top: 155px; width: 373px; font-size: 23px; font-weight: 300; line-height: 46px; }
+.mv14__visual { position: absolute; left: 30px; top: 500px; width: 1380px; height: 270px; }
 .mv14__cir {
-  position: absolute; left: 1147px; top: 415px; width: 150px; height: 150px; border-radius: 50%;
+  position: absolute; left: 1147px; top: 425px; width: 150px; height: 150px; border-radius: 50%;
   background: var(--c-black); color: var(--c-white);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
   font-size: 13px; font-weight: 500;
@@ -106,6 +116,14 @@ a { color: inherit; text-decoration: none; }
 <body>
 <div class="stage">
   <div class="wf mv14">
+    <header class="mv14__hd">
+      <div class="mv14__logo en">LOGO</div>
+      <nav class="mv14__nav en">
+        <span>Dummy</span><span>Dummy</span><span>Dummy</span><span>Dummy</span><span>Dummy</span>
+        <span class="mv14__btn">Contact</span>
+      </nav>
+    </header>
+
     <h1 class="mv14__copy en">Dummy Text<br>of the<br>Future</h1>
     <p class="mv14__sub en">Dummy text<br>and dummy text.</p>
     <p class="mv14__jp">ダミーとダミーテキストで、<br>ダミーテキストを咲かせる。</p>
