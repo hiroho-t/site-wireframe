@@ -30,29 +30,29 @@ cd ~/.claude/skills/site-wireframe && git pull
 | カテゴリ | 数 |
 |---|---|
 | `pagetitle/` 下層ページタイトル | 1 |
-| `mv/` メインビジュアル | 12 |
+| `mv/` メインビジュアル | 14 |
 | `concept/` コンセプト | 3 |
 | `message/` メッセージ | 3 |
-| `about/` 会社紹介 | 5 |
-| `feature/` 特長 | 7 |
+| `about/` 会社紹介 | 7 |
+| `feature/` 特長 | 8 |
 | `report/` レポート | 1 |
 | `data/` 数字で見る | 2 |
 | `history/` 沿革 | 1 |
-| `company/` 会社情報 | 4 |
-| `interview/` インタビュー | 3 |
-| `service/` サービス | 8 |
+| `company/` 会社情報 | 5 |
+| `interview/` インタビュー | 5 |
+| `service/` サービス | 9 |
 | `product/` 商品 | 1 |
 | `movie/` ムービー | 1 |
-| `gallery/` ギャラリー | 1 |
+| `gallery/` ギャラリー | 2 |
 | `partner/` パートナー | 1 |
-| `case/` 導入事例 | 2 |
+| `case/` 導入事例 | 3 |
 | `voice/` お客様の声 | 1 |
-| `magazine/` メディア | 3 |
-| `news/` お知らせ | 9 |
+| `magazine/` メディア | 4 |
+| `news/` お知らせ | 10 |
 | `career/` 採用 | 5 |
-| `banner/` 誘導バナー | 4 |
+| `banner/` 誘導バナー | 5 |
 | `contact/` お問い合わせ | 4 |
-| `footer/` フッター | 12 |
+| `footer/` フッター | 14 |
 
 型の一覧と作り方のルールは [SKILL.md](SKILL.md) を参照。
 

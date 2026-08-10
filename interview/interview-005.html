@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>interview-005</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* ============================================================
+   05 INTERVIEW / 対談（クロストーク）型。左に大きな集合写真、右に見出し＋出演者リスト
+   URLからDOM実測（1440幅・元セクション高835を800に収める）
+   英字 90px/500 lh99 ＋ 和文 14px/500 ／ 写真 641×401
+   見出し 20px/600 lh26 ／ 所属 11px/400 ／ 氏名 14px/700
+   ============================================================ */
+.iv5 { background: var(--c-bg-gray); }
+.iv5__head { position: absolute; left: 50px; top: 73px; }
+.iv5__en { font-size: 90px; font-weight: 500; line-height: 99px; letter-spacing: .01em; }
+.iv5__jp { font-size: 14px; font-weight: 500; line-height: 19.6px; color: var(--c-sub); }
+.iv5__all {
+  position: absolute; right: 50px; top: 111px;
+  height: 52px; padding: 0 28px; border-radius: 26px; border: 1px solid var(--c-line);
+  background: var(--c-white);
+  display: flex; align-items: center; gap: 16px; font-size: 16px; font-weight: 500;
+}
+
+.iv5__ph { position: absolute; left: 50px; top: 313px; width: 641px; height: 401px; border-radius: 8px; }
+.iv5__tx { position: absolute; left: 740px; top: 333px; width: 600px; }
+.iv5__ttl { font-size: 20px; font-weight: 600; line-height: 26px; }
+.iv5__cast { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 24px 40px; }
+.iv5__cast li { width: 250px; }
+.iv5__cast .dep { font-size: 11px; line-height: 11px; color: var(--c-mute); }
+.iv5__cast .nm { margin-top: 6px; font-size: 14px; font-weight: 700; line-height: 16.8px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf iv5">
+    <div class="iv5__head">
+      <p class="iv5__en en">Cross talk</p>
+      <p class="iv5__jp">ダミー項目</p>
+    </div>
+    <div class="iv5__all"><span class="en">View All</span> <i class="fa-solid fa-arrow-right"></i></div>
+
+    <div class="iv5__ph img" data-l="IMAGE"></div>
+    <div class="iv5__tx">
+      <h3 class="iv5__ttl">ダミーテキストとダミーテキストはダミーできる？ダミーテキストながらもダミーテキストに</h3>
+      <ul class="iv5__cast">
+        <li><p class="dep">ダミーチーム ダミー・ダミーテキスト</p><p class="nm">ダミー 太郎</p></li>
+        <li><p class="dep">ダミーコンサルタント／2022年入社</p><p class="nm">ダミー 花子</p></li>
+        <li><p class="dep">ダミーテキスト 経理／2023年入社</p><p class="nm">ダミー 一郎</p></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
