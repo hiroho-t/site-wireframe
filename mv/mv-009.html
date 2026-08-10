@@ -88,7 +88,7 @@ a { color: inherit; text-decoration: none; }
    09 MV / 高さ80のヘッダー（ロゴ＋サイト名／ナビ6項目／右にエントリー）
    全面ビジュアルの下端に幅いっぱいのコピー画像
    URLからDOM実測（1440幅）ナビ 14px/500・項目高80 ／ エントリー 14px/700
-   コピー画像 1368×113（左右余白36）
+   コピー 和文80px/700 lh113（左右余白36）
    背景は全面画像のためグレーボックス（白抜き文字の視認性確保）
    ============================================================ */
 .mv9 { background: var(--c-img-dark); color: var(--c-white); }
@@ -98,7 +98,7 @@ a { color: inherit; text-decoration: none; }
 .mv9__logo .st { font-size: 14px; font-weight: 500; }
 .mv9__nav { margin-left: auto; display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 500; }
 .mv9__entry { margin-left: 46px; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 12px; }
-.mv9__copy { position: absolute; left: 36px; top: 617px; width: 1368px; height: 113px; }
+.mv9__copy { position: absolute; left: 36px; top: 610px; width: 1368px; font-size: 80px; font-weight: 700; line-height: 113px; letter-spacing: .04em; }
 </style>
 </head>
 <body>
@@ -112,7 +112,7 @@ a { color: inherit; text-decoration: none; }
       </nav>
       <span class="mv9__entry">ダミーテキスト・ダミー <i class="fa-solid fa-arrow-right"></i></span>
     </header>
-    <div class="mv9__copy img" data-l="COPY"></div>
+    <h1 class="mv9__copy">ダミーテキストダミーテキスト。</h1>
   </div>
 </div>
 <script>

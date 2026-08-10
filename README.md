@@ -54,7 +54,7 @@ cd ~/.claude/skills/site-wireframe && git pull
 | `contact/` お問い合わせ | 4 |
 | `footer/` フッター | 14 |
 
-型の一覧と作り方のルールは [SKILL.md](SKILL.md) を参照。
+型の一覧と作り方のルールは [SKILL.md](SKILL.md)、**どの型を選ぶかは [SELECT.md](SELECT.md)** を参照。
 
 ## 注意
 

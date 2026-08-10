@@ -87,9 +87,14 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    13 MV / 左右に余白を残した角丸の大ビジュアル。左下に枠線のボタン
    URLからDOM実測（1440幅・元セクション高1050 → 800に収めるため画像を700に）
-   ビジュアル 1397×700（左右余白22）／ ボタン 16px/500
+   ヘッダー 高さ50・ロゴ左＋ナビ右（14px/500）
+   ビジュアル 1396×700（左右余白22）／ ボタン 16px/500
    ============================================================ */
 .mv13 { background: var(--c-white); }
+.mv13__hd { position: absolute; left: 0; top: 0; width: 1440px; height: 50px; padding: 0 22px; display: flex; align-items: center; }
+.mv13__logo { font-size: 20px; font-weight: 700; letter-spacing: .06em; }
+.mv13__nav { margin-left: auto; display: flex; align-items: center; gap: 26px; font-size: 14px; font-weight: 500; }
+.mv13__burger { margin-left: 26px; font-size: 16px; }
 .mv13__visual { position: absolute; left: 22px; top: 50px; width: 1396px; height: 700px; border-radius: 12px; }
 .mv13__btn {
   position: absolute; left: 111px; top: 620px;
@@ -102,6 +107,16 @@ a { color: inherit; text-decoration: none; }
 <body>
 <div class="stage">
   <div class="wf mv13">
+    <header class="mv13__hd">
+      <div class="mv13__logo en">LOGO</div>
+      <nav class="mv13__nav">
+        <span>ダミー項目名</span>
+        <span>ダミー項目</span>
+        <span>ダミーテキスト項目</span>
+        <span>ダミー項目名</span>
+        <i class="mv13__burger fa-solid fa-bars"></i>
+      </nav>
+    </header>
     <div class="mv13__visual img img--dark" data-l="KEY VISUAL"></div>
     <div class="mv13__btn">ダミーテキストを見る <i class="fa-solid fa-arrow-right"></i></div>
   </div>
