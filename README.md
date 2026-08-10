@@ -30,16 +30,16 @@ cd ~/.claude/skills/site-wireframe && git pull
 | カテゴリ | 数 |
 |---|---|
 | `pagetitle/` 下層ページタイトル | 1 |
-| `mv/` メインビジュアル | 11 |
+| `mv/` メインビジュアル | 12 |
 | `concept/` コンセプト | 3 |
 | `message/` メッセージ | 3 |
-| `about/` 会社紹介 | 4 |
-| `feature/` 特長 | 5 |
+| `about/` 会社紹介 | 5 |
+| `feature/` 特長 | 7 |
 | `report/` レポート | 1 |
 | `data/` 数字で見る | 2 |
 | `history/` 沿革 | 1 |
 | `company/` 会社情報 | 4 |
-| `interview/` インタビュー | 2 |
+| `interview/` インタビュー | 3 |
 | `service/` サービス | 8 |
 | `product/` 商品 | 1 |
 | `movie/` ムービー | 1 |
@@ -47,12 +47,12 @@ cd ~/.claude/skills/site-wireframe && git pull
 | `partner/` パートナー | 1 |
 | `case/` 導入事例 | 2 |
 | `voice/` お客様の声 | 1 |
-| `magazine/` メディア | 2 |
+| `magazine/` メディア | 3 |
 | `news/` お知らせ | 9 |
 | `career/` 採用 | 5 |
 | `banner/` 誘導バナー | 4 |
 | `contact/` お問い合わせ | 4 |
-| `footer/` フッター | 11 |
+| `footer/` フッター | 12 |
 
 型の一覧と作り方のルールは [SKILL.md](SKILL.md) を参照。
 
