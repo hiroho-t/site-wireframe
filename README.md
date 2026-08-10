@@ -29,16 +29,18 @@ cd ~/.claude/skills/site-wireframe && git pull
 
 | カテゴリ | 数 |
 |---|---|
+| `pagetitle/` 下層ページタイトル | 1 |
 | `mv/` メインビジュアル | 9 |
-| `concept/` コンセプト | 2 |
-| `message/` メッセージ | 1 |
+| `concept/` コンセプト | 3 |
+| `message/` メッセージ | 2 |
 | `about/` 会社紹介 | 4 |
-| `feature/` 特長 | 4 |
+| `feature/` 特長 | 5 |
 | `report/` レポート | 1 |
-| `data/` 数字で見る | 1 |
-| `company/` 会社情報 | 2 |
+| `data/` 数字で見る | 2 |
+| `history/` 沿革 | 1 |
+| `company/` 会社情報 | 3 |
 | `interview/` インタビュー | 2 |
-| `service/` サービス | 5 |
+| `service/` サービス | 6 |
 | `product/` 商品 | 1 |
 | `movie/` ムービー | 1 |
 | `gallery/` ギャラリー | 1 |
@@ -47,7 +49,7 @@ cd ~/.claude/skills/site-wireframe && git pull
 | `magazine/` メディア | 2 |
 | `news/` お知らせ | 7 |
 | `career/` 採用 | 4 |
-| `banner/` 誘導バナー | 2 |
+| `banner/` 誘導バナー | 3 |
 | `contact/` お問い合わせ | 3 |
 | `footer/` フッター | 9 |
 
