@@ -88,7 +88,7 @@ a { color: inherit; text-decoration: none; }
    14 MV / 上にヘッダー、左に英字の3行コピー、右に和文リード。下に幅いっぱいのビジュアル
    URLからDOM実測（1440幅・元セクション高1294 → 800に収めるためコピー110→88px・画像770→270に）
    ヘッダー 高さ128。ロゴ144×38（y45）／ 英字ナビ 14px/600（y54）／ Contactボタン 101×31
-   英字コピー 88px/200 lh106 ／ 小英字 18px/300 lh32.4 ／ 和文 23px/300 lh46
+   英字コピー 88px/200 lh106 ／ 和文リード 23px/300 lh46
    ビジュアル 1380×270（左右余白30）／ 丸ボタン φ150
    ============================================================ */
 .mv14 { background: var(--c-white); }
@@ -102,7 +102,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 .mv14__copy { position: absolute; left: 60px; top: 150px; font-size: 88px; font-weight: 200; line-height: 106px; letter-spacing: .01em; }
-.mv14__sub { position: absolute; left: 620px; top: 320px; width: 200px; font-size: 18px; font-weight: 300; line-height: 32.4px; }
 .mv14__jp { position: absolute; left: 1007px; top: 155px; width: 373px; font-size: 23px; font-weight: 300; line-height: 46px; }
 .mv14__visual { position: absolute; left: 30px; top: 500px; width: 1380px; height: 270px; }
 .mv14__cir {
@@ -125,7 +124,6 @@ a { color: inherit; text-decoration: none; }
     </header>
 
     <h1 class="mv14__copy en">Dummy Text<br>of the<br>Future</h1>
-    <p class="mv14__sub en">Dummy text<br>and dummy text.</p>
     <p class="mv14__jp">ダミーとダミーテキストで、<br>ダミーテキストを咲かせる。</p>
     <div class="mv14__visual img" data-l="KEY VISUAL"></div>
     <div class="mv14__cir"><i class="fa-solid fa-arrow-right"></i><span>ダミーボタン</span></div>
