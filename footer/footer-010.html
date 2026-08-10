@@ -85,7 +85,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   10 FOOTER / 中央にリンク列、右に認証ロゴ枠。下にポリシーリンクとコピーライト
+   10 FOOTER / 左にロゴ、中央にリンク列。下にポリシーリンクとコピーライト
    URLからDOM実測（1440幅・元セクション高900 → 800に収めるため上下を詰める）
    リンク 16px/700 lh22.4（ピッチ36.5）／ ポリシー 14px/400（ピッチ33）
    コピーライト 14px/400 ／ PAGE TOP 18px/700
@@ -94,11 +94,6 @@ a { color: inherit; text-decoration: none; }
 .ft10__logo { position: absolute; left: 80px; top: 166px; font-size: 26px; font-weight: 700; letter-spacing: .06em; }
 .ft10__nav { position: absolute; left: 630px; top: 162px; width: 210px; }
 .ft10__nav li { font-size: 16px; font-weight: 700; line-height: 22.4px; margin-bottom: 14px; }
-.ft10__cert { position: absolute; left: 880px; top: 171px; width: 500px; }
-.ft10__cert .row { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
-.ft10__cert .mk { width: 82px; height: 64px; flex-shrink: 0; }
-.ft10__cert .mk.w { width: 200px; height: 67px; }
-.ft10__cert p { font-size: 14px; line-height: 21px; color: var(--c-sub); }
 
 .ft10__policy { position: absolute; left: 630px; top: 409px; }
 .ft10__policy li { font-size: 14px; line-height: 23.8px; margin-bottom: 19px; color: var(--c-sub); }
@@ -119,11 +114,6 @@ a { color: inherit; text-decoration: none; }
       <li>ダミー項目</li>
       <li>ダミー項目名</li>
     </ul>
-
-    <div class="ft10__cert">
-      <div class="row"><div class="mk img"></div><p>ダミーテキストダミーテキスト／<br>ダミーテキスト ダミー00000</p></div>
-      <div class="row"><div class="mk w img"></div></div>
-    </div>
 
     <ul class="ft10__policy">
       <li>ダミーテキストポリシー</li>
