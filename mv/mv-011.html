@@ -87,7 +87,7 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    11 MV / 全面画像。左下に和文56pxの2行コピー、右下に英字ラベル＋小テキスト
    URLからDOM実測（1440幅）ヘッダー 高さ80・ナビ 13px/600
-   コピー 56px/600 lh56（2ブロック横並び）／ 右下ラベル 24px/400＋11px/400
+   コピー 56px/600 lh56（1行）／ 右下ラベル 24px/400＋11px/400
    背景は全面画像のためグレーボックス（白抜き文字の視認性確保）
    ============================================================ */
 .mv11 { background: var(--c-img-dark); color: var(--c-white); }
@@ -97,8 +97,7 @@ a { color: inherit; text-decoration: none; }
 .mv11__nav span { padding: 0 8px; }
 .mv11__cta { margin-left: 40px; font-size: 13px; font-weight: 600; }
 
-.mv11__copy { position: absolute; left: 80px; top: 674px; display: flex; white-space: nowrap; font-size: 56px; font-weight: 600; line-height: 56px; letter-spacing: .04em; }
-.mv11__copy span { width: 235px; white-space: nowrap; }
+.mv11__copy { position: absolute; left: 80px; top: 674px; white-space: nowrap; font-size: 56px; font-weight: 600; line-height: 56px; letter-spacing: .04em; }
 .mv11__story { position: absolute; left: 1012px; top: 690px; display: flex; align-items: flex-start; gap: 8px; }
 .mv11__story .en { font-size: 24px; font-weight: 400; line-height: 24px; }
 .mv11__story .tx { width: 152px; font-size: 11px; line-height: 17.6px; }
@@ -117,7 +116,7 @@ a { color: inherit; text-decoration: none; }
       </nav>
     </header>
 
-    <h1 class="mv11__copy"><span>ダミーを、</span><span>ダミーに。</span></h1>
+    <h1 class="mv11__copy">ダミーを、ダミーに。</h1>
     <div class="mv11__story">
       <span class="en">Dummy Text</span>
       <span class="tx">ダミーテキストはこのダミーで、ダミーテキストを変えていきたい</span>
