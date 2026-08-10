@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>footer-008</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* ============================================================
+   08 FOOTER / 濃色。左に社名・住所・SNS、右に「英字48px＋和文」のリンクを2列4行
+   URLからDOM実測（1440幅・元セクション高814 → 800に収めるため下部を詰める）
+   社名 13px/700 ／ 住所 14px/300 lh28 ／ リンク 英字48px/200＋和文14px/600（行ピッチ117）
+   背景を濃色にするのは、白抜き文字を成立させるため（視認性の例外）
+   ============================================================ */
+.ft8 { background: #2a2a2c; color: var(--c-white); }
+.ft8__left { position: absolute; left: 122px; top: 195px; width: 467px; }
+.ft8__name { font-size: 13px; font-weight: 700; line-height: 22.1px; }
+.ft8__addr { margin-top: 12px; font-size: 14px; font-weight: 300; line-height: 28px; color: rgba(255,255,255,.85); }
+.ft8__sns { margin-top: 44px; display: flex; gap: 16px; }
+.ft8__sns .ic {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.4);
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+
+.ft8__nav { position: absolute; left: 730px; top: 130px; width: 588px; display: flex; flex-wrap: wrap; }
+.ft8__nav a { width: 294px; margin-bottom: 56px; }
+.ft8__nav .en { display: block; font-size: 48px; font-weight: 200; line-height: 36px; letter-spacing: .02em; }
+.ft8__nav .jp { display: block; margin-top: 12px; font-size: 14px; font-weight: 600; line-height: 25.2px; }
+
+.ft8__btm { position: absolute; left: 122px; top: 655px; width: 1196px; display: flex; align-items: center; font-size: 14px; }
+.ft8__btm .links { display: flex; gap: 34px; font-weight: 500; }
+.ft8__btm .copy { margin-left: auto; font-size: 13px; color: rgba(255,255,255,.7); }
+.ft8__btm .lang { margin-left: 34px; display: flex; gap: 14px; }
+.ft8__btm .lang .on { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf ft8">
+    <div class="ft8__left">
+      <p class="ft8__name">ダミー株式会社</p>
+      <p class="ft8__addr">
+        ダミー本社 〒000-0000 ダミー県ダミー市ダミー町0-0-0<br>
+        ダミービル 00階
+      </p>
+      <div class="ft8__sns">
+        <span class="ic"><i class="fa-brands fa-x-twitter"></i></span>
+        <span class="ic"><i class="fa-brands fa-facebook"></i></span>
+        <span class="ic"><i class="fa-regular fa-note-sticky"></i></span>
+      </div>
+    </div>
+
+    <div class="ft8__nav">
+      <a><span class="en">Mission</span><span class="jp">ダミー項目</span></a>
+      <a><span class="en">Company</span><span class="jp">ダミー項目名</span></a>
+      <a><span class="en">Member</span><span class="jp">ダミー項目</span></a>
+      <a><span class="en">Services</span><span class="jp">ダミー項目</span></a>
+      <a><span class="en">News</span><span class="jp">ダミー項目</span></a>
+      <a><span class="en">Contact</span><span class="jp">ダミー項目名</span></a>
+    </div>
+
+    <div class="ft8__btm">
+      <div class="links"><span>ダミーテキストポリシー</span><span>ダミーテキストの取扱いについて</span></div>
+      <span class="copy en">© 20XX Company. All Rights Reserved.</span>
+      <span class="lang"><span class="on">日本語</span><span class="en">EN</span></span>
+    </div>
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
