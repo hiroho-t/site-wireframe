@@ -6,3 +6,6 @@
 _prev_*.html
 _layout-check.html
 no-company_ワイヤートレース.html
+
+# 参考サイトの取得データ（他社のHTML/CSSそのもの。手元の資料としてのみ保持し、公開しない）
+_参考データ/
