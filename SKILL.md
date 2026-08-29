@@ -257,9 +257,11 @@ console.log('overflow', [...document.querySelectorAll('body *')].filter(e => {
 
 ```js
 // ④ 型より要素が減った枠が、空のまま残っていないか
-console.log('empty', [...document.querySelectorAll('[class*="__c"],[class*="__b"],[class*="__cell"],[class*="__col"],li'))
-  ].filter(e => !e.textContent.trim() && !e.querySelector('img,svg,[data-l]'))
-   .map(e => e.className || e.tagName), '← [] になるはず');
+//    アイコン（<i>）・画像・グレーボックスだけの枠は中身ありとして数える
+console.log('empty', [...document.querySelectorAll(
+  '[class*="__c"],[class*="__b"],[class*="__cell"],[class*="__col"],[class*="__card"],li')]
+  .filter(e => !e.textContent.trim() && !e.matches('.img') && !e.querySelector('img,svg,i,.img,[data-l]'))
+  .map(e => e.className || e.tagName), '← [] になるはず');
 ```
 
 **⑤ 原稿の文が落ちていないか。**これはブラウザではなく手元で突き合わせる。`tools/check-copy.mjs` に
