@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>col2-048</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   共通ベース（CSSは共有せず、各HTMLに直書きする）
+   アートボード 1440×800／コンテンツ幅 90%（1296px・左右余白72px）
+   色は白・黒・グレーのみ／和文 Noto Sans JP・欧文 Poppins・アイコン Font Awesome
+   ============================================================ */
+:root {
+  --wf-w: 1440px;
+  --wf-h: 800px;
+  --wf-content: 1296px;   /* コンテンツ幅 90% */
+  --wf-pad: 72px;         /* 左右余白 */
+
+  --c-black: #000;
+  --c-text: #222;
+  --c-sub: #555;
+  --c-mute: #808080;
+  --c-light: #b0b0b0;
+  --c-line: #dcdcdc;
+  --c-bg-gray: #f2f2f2;
+  --c-img: #d9d9d9;
+  --c-img-dark: #8c8c8c;
+  --c-white: #fff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  background: #e9e9e9;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+}
+ul, ol { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* アートボード 1440×800。ビューポートに合わせて等倍スケールする */
+.stage { position: fixed; inset: 0; overflow: hidden; }
+.wf {
+  position: relative;
+  width: var(--wf-w); height: var(--wf-h);
+  background: var(--c-white); overflow: hidden;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(var(--s, 1));
+  transform-origin: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,.18);
+}
+/* コンテンツ幅90%のインナー枠 */
+.wf__inner { position: absolute; left: var(--wf-pad); width: var(--wf-content); }
+
+/* ユーティリティ */
+.en { font-family: "Poppins", sans-serif; }
+.img { position: relative; background: var(--c-img); }
+.img--dark { background: var(--c-img-dark); }
+.img[data-l]::after {
+  content: attr(data-l);
+  position: absolute; right: 10px; bottom: 8px;
+  font-family: "Poppins", sans-serif; font-size: 9px; letter-spacing: .08em;
+  color: #8a8a8a; line-height: 1;
+}
+.dot { font-size: 8px; line-height: 1; }
+.btn-black {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-black); color: var(--c-white);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--c-white); color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+.tag-gray {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #e8e8e8; color: var(--c-text);
+  border-radius: 999px; white-space: nowrap;
+}
+
+
+/* ============================================================
+   02 CONTACT / 左に見出し・リード・電話、右にフォーム（2カラム）
+   フォーム上段は氏名／会社名を横2列に。下層のお問い合わせページ本体に
+   上下中央（top 103px）
+   ============================================================ */
+.c2_048 { background: var(--c-white); }
+.c2_048__wrap { top: 103px; display: flex; gap: 56px; }
+.c2_048__l { width: 400px; flex: none; }
+.c2_048__l .e { font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: .12em; color: var(--c-mute); }
+.c2_048__l h2 { margin-top: 8px; font-size: 30px; font-weight: 700; line-height: 44px; letter-spacing: .04em; }
+.c2_048__l p { margin-top: 18px; font-size: 15px; font-weight: 400; line-height: 26px; color: var(--c-sub); }
+.c2_048__tel { margin-top: 28px; padding: 20px 24px; background: var(--c-bg-gray); }
+.c2_048__tel .l { font-size: 13px; font-weight: 500; line-height: 20px; color: var(--c-sub); }
+.c2_048__tel .n { margin-top: 4px; font-size: 26px; font-weight: 700; line-height: 34px; }
+.c2_048__tel .h { margin-top: 4px; font-size: 12px; font-weight: 400; line-height: 18px; color: var(--c-mute); }
+.c2_048__r { flex: 1; }
+.c2_048__two { display: flex; gap: 24px; }
+.c2_048__two .f__row { flex: 1; margin-top: 0; }
+
+.f__row { margin-top: 24px; }
+.f__row label { display: block; font-size: 14px; font-weight: 500; line-height: 20px; }
+.f__row label .req { display: inline-flex; align-items: center; height: 18px; margin-left: 8px; padding: 0 7px;
+  background: var(--c-black); color: var(--c-white); border-radius: 2px; font-size: 10px; font-weight: 500; }
+.f__row .in { margin-top: 8px; height: 52px; border: 1px solid var(--c-line); background: #fbfbfb; }
+.f__row .in.ta { height: 120px; }
+.f__agree { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 28px; font-size: 14px; }
+.f__agree .box { width: 16px; height: 16px; border: 1px solid var(--c-line); }
+.f__agree u { text-underline-offset: 3px; }
+.f__submit { display: flex; justify-content: center; margin-top: 24px; }
+.f__submit .btn-black { width: 280px; height: 56px; font-size: 16px; font-weight: 700; }
+.c2_048 .f__agree { justify-content: flex-start; }
+.c2_048 .f__submit { justify-content: flex-start; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wf c2_048">
+    <div class="wf__inner c2_048__wrap">
+      <div class="c2_048__l">
+        <p class="e en">CONTACT</p>
+        <h2>ダミーテキスト見出し</h2>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+        <div class="c2_048__tel">
+          <p class="l">お電話でのお問い合わせ</p>
+          <p class="n en">000-000-0000</p>
+          <p class="h">受付時間 00:00〜00:00（土日祝を除く）</p>
+        </div>
+      </div>
+      <div class="c2_048__r">
+        <div class="c2_048__two">
+          <div class="f__row"><label>ダミー項目名<span class="req">必須</span></label><div class="in"></div></div>
+          <div class="f__row"><label>ダミー項目名<span class="req">必須</span></label><div class="in"></div></div>
+        </div>
+        <div class="f__row"><label>ダミー項目名<span class="req">必須</span></label><div class="in"></div></div>
+        <div class="f__row"><label>ダミー項目名</label><div class="in"></div></div>
+        <div class="f__row"><label>ダミー項目名<span class="req">必須</span></label><div class="in ta"></div></div>
+        <div class="f__agree"><span class="box"></span><span><u>ダミーテキスト</u>に同意する</span></div>
+        <div class="f__submit"><span class="btn-black">ダミーテキストする</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const fit = () => document.documentElement.style.setProperty('--s', Math.min(innerWidth / 1440, innerHeight / 800));
+  addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
