@@ -68,6 +68,11 @@ a { color: inherit; text-decoration: none; }
   color: #8a8a8a; line-height: 1;
 }
 .dot { font-size: 8px; line-height: 1; }
+/* 行頭に全角スペース（U+3000）を残さないための2つ。左端を上下の要素と揃えるために使う
+   .sep   … 区切りに全角スペースを使う代わりに、前の要素へ 1em 空ける（折り返しても行頭に空白が残らない）
+   .flush … やむを得ず行頭に全角スペースがあるとき、その字下げを打ち消す */
+.sep { margin-right: 1em; }
+.flush { text-indent: -1em; }
 .btn-black {
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--c-black); color: var(--c-white);
@@ -110,7 +115,7 @@ a { color: inherit; text-decoration: none; }
 <body>
 <div class="stage">
   <div class="wf col2_006">
-    <div class="col2_006__bg"><p class="en">About us　About us</p></div>
+    <div class="col2_006__bg"><p class="en"><span class="sep">About us</span>About us</p></div>
     <h2 class="col2_006__ttl">ダミーテキスト、<br>ダミーテキストを広げる。</h2>
     <div class="col2_006__body">
       <p>ダミーテキストは大きくダミーテキストした。<br>ダミーテキストがダミーテキストへ、ダミーテキストダミーへ。</p>

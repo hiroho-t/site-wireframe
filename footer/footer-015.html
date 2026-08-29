@@ -68,6 +68,11 @@ a { color: inherit; text-decoration: none; }
   color: #8a8a8a; line-height: 1;
 }
 .dot { font-size: 8px; line-height: 1; }
+/* 行頭に全角スペース（U+3000）を残さないための2つ。左端を上下の要素と揃えるために使う
+   .sep   … 区切りに全角スペースを使う代わりに、前の要素へ 1em 空ける（折り返しても行頭に空白が残らない）
+   .flush … やむを得ず行頭に全角スペースがあるとき、その字下げを打ち消す */
+.sep { margin-right: 1em; }
+.flush { text-indent: -1em; }
 .btn-black {
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--c-black); color: var(--c-white);
@@ -118,8 +123,8 @@ a { color: inherit; text-decoration: none; }
   <div class="wf ft15">
     <div class="ft15__l">
       <p class="ft15__logo en">LOGO</p>
-      <p class="ft15__addr">〒000-0000　ダミーテキスト県ダミー市ダミー町0丁目0-0<a href="#">（Google map）</a></p>
-      <p class="ft15__tel"><span class="l">TEL.</span>000-000-0000　<span class="l">FAX.</span>000-000-0000</p>
+      <p class="ft15__addr"><span class="sep">〒000-0000</span>ダミーテキスト県ダミー市ダミー町0丁目0-0<a href="#">（Google map）</a></p>
+      <p class="ft15__tel"><span class="l">TEL.</span><span class="sep">000-000-0000</span><span class="l">FAX.</span>000-000-0000</p>
       <table class="ft15__hours">
         <tr><th class="t"></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr>
         <tr><td class="t">00:00 - 00:00</td><td>●</td><td>●</td><td>●</td><td>—</td><td>●</td><td>●</td><td>—</td></tr>

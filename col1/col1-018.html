@@ -68,6 +68,11 @@ a { color: inherit; text-decoration: none; }
   color: #8a8a8a; line-height: 1;
 }
 .dot { font-size: 8px; line-height: 1; }
+/* 行頭に全角スペース（U+3000）を残さないための2つ。左端を上下の要素と揃えるために使う
+   .sep   … 区切りに全角スペースを使う代わりに、前の要素へ 1em 空ける（折り返しても行頭に空白が残らない）
+   .flush … やむを得ず行頭に全角スペースがあるとき、その字下げを打ち消す */
+.sep { margin-right: 1em; }
+.flush { text-indent: -1em; }
 .btn-black {
   display: inline-flex; align-items: center; justify-content: center;
   background: var(--c-black); color: var(--c-white);
@@ -112,9 +117,9 @@ a { color: inherit; text-decoration: none; }
       <dl class="c1_018__dl">
         <div class="c1_018__r"><dt>ダミー項目名</dt><dd>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</dd></div>
         <div class="c1_018__r"><dt>ダミー項目名</dt><dd>ダミーテキスト（ダミーテキスト）</dd></div>
-        <div class="c1_018__r"><dt>ダミー項目名</dt><dd>〒000-0000　ダミーテキスト県ダミー市ダミー町0丁目0-0</dd></div>
+        <div class="c1_018__r"><dt>ダミー項目名</dt><dd><span class="sep">〒000-0000</span>ダミーテキスト県ダミー市ダミー町0丁目0-0</dd></div>
         <div class="c1_018__r"><dt>ダミー項目名</dt><dd>00:00〜00:00（休憩00分／実働0時間00分）</dd></div>
-        <div class="c1_018__r"><dt>ダミー項目名</dt><dd>月給 000,000円〜000,000円　※ダミーテキストダミーテキスト</dd></div>
+        <div class="c1_018__r"><dt>ダミー項目名</dt><dd><span class="sep">月給 000,000円〜000,000円</span>※ダミーテキストダミーテキスト</dd></div>
         <div class="c1_018__r"><dt>ダミー項目名</dt><dd>ダミーテキスト、ダミーテキスト、ダミーテキスト、ダミーテキスト</dd></div>
       </dl>
       <div class="c1_018__btn"><a class="btn-black" href="#">ダミーテキストする<i class="fa-solid fa-arrow-right"></i></a></div>
