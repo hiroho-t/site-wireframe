@@ -245,6 +245,9 @@ console.log('left', [...new Set([...document.querySelectorAll('.sec__inner')]
 console.log('overflow', [...document.querySelectorAll('body *')].filter(e => {
   const cs = getComputedStyle(e);
   if (cs.overflow !== 'visible' || cs.display === 'inline') return false;
+  // 意図的に切っている親（overflow:hidden）の中は見ない（背面の巨大英字など）
+  for (let p = e.parentElement; p; p = p.parentElement)
+    if (getComputedStyle(p).overflow === 'hidden') return false;
   const r = e.getBoundingClientRect();
   if (r.width < 2 || r.height < 2) return false;
   return [...e.children].some(c => {
