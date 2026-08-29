@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1ページワイヤー 見本（col3-001 / col4-004 / col2-021 / col5-004 / news-001 / footer-007）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   1ページワイヤー 見本
+   6つの型を1枚に組んでいる。元は見出しが 40px / 40px / 64px / 32px / 40px とバラバラだった
+   ものを、すべて --fs-sec（32px）＋英字ラベル14px に寄せている。
+   本体（カード幅・gap・画像寸法・罫線）は型の実測値のまま1pxも変えていない。
+
+   使った型：col3-001 / col4-004 / col2-021 / col5-004 / news-001 / footer-007
+   ============================================================ */
+
+:root {
+  --c-black:#000; --c-text:#222; --c-sub:#555; --c-mute:#808080; --c-light:#b0b0b0;
+  --c-line:#dcdcdc; --c-bg-gray:#f2f2f2; --c-img:#d9d9d9; --c-img-dark:#8c8c8c; --c-white:#fff;
+
+  --fs-hero:48px;  --lh-hero:70px;
+  --fs-sec:32px;   --lh-sec:46px;
+  --fs-sub:20px;   --lh-sub:28px;
+  --fs-body:16px;  --lh-body:28px;
+  --fs-note:13px;  --lh-note:21px;
+  --fs-label:14px; --lh-label:20px;
+
+  --sp-sec:120px; --sp-sec-lg:160px; --sp-head:48px; --sp-card:48px; --sp-lead:16px;
+  --w-page:1440px; --w-content:1296px; --pad:72px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:var(--w-page); margin:0 auto; background:var(--c-white); color:var(--c-text);
+  font-family:"Noto Sans JP",sans-serif; font-weight:400; -webkit-font-smoothing:antialiased; }
+ul,ol { list-style:none; }
+a { color:inherit; text-decoration:none; }
+
+/* ---- セクション枠 ---- */
+.sec { padding:var(--sp-sec) 0; }
+.sec--gray { background:var(--c-bg-gray); }
+.sec__inner { width:var(--w-content); margin:0 auto; }
+
+/* ---- 見出し（ページ内はこの3つだけ） ---- */
+.sh { margin-bottom:var(--sp-head); }
+.sh__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
+  line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
+.sh__title { margin-top:10px; font-size:var(--fs-sec); font-weight:700;
+  line-height:var(--lh-sec); letter-spacing:.04em; }
+.sh__lead  { margin-top:var(--sp-lead); font-size:var(--fs-body); font-weight:400;
+  line-height:var(--lh-body); color:var(--c-sub); }
+.sh--center { text-align:center; }
+.sh--center .sh__lead { max-width:800px; margin-left:auto; margin-right:auto; }
+.sh-inline__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
+  line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
+.sh-inline__title { font-size:var(--fs-sec); font-weight:700; line-height:var(--lh-sec); letter-spacing:.04em; }
+
+/* ---- ユーティリティ ---- */
+.en { font-family:"Poppins",sans-serif; }
+.img { position:relative; background:var(--c-img); }
+.img[data-l]::after { content:attr(data-l); position:absolute; right:10px; bottom:8px;
+  font-family:"Poppins",sans-serif; font-size:9px; letter-spacing:.08em; color:#8a8a8a; line-height:1; }
+.dot { font-size:8px; line-height:1; }
+.btn-black { display:inline-flex; align-items:center; justify-content:center;
+  background:var(--c-black); color:var(--c-white); border-radius:999px; white-space:nowrap; }
+.tag-gray { display:inline-flex; align-items:center; justify-content:center;
+  background:#e8e8e8; color:var(--c-text); border-radius:999px; white-space:nowrap; }
+.sep { margin-right:1em; }
+.flush { text-indent:-1em; }
+
+/* ---- ヘッダー・ヒーロー ---- */
+.hd { position:absolute; left:0; top:0; width:100%; height:88px;
+  display:flex; align-items:center; justify-content:space-between; padding:0 var(--pad); z-index:2; }
+.hd__logo { font-family:"Poppins",sans-serif; font-size:22px; font-weight:700; letter-spacing:.06em; }
+.hd__nav { display:flex; align-items:center; gap:32px; font-size:14px; font-weight:500; }
+.hd__cta { height:40px; padding:0 22px; font-size:13px; font-weight:700; }
+.hero { position:relative; height:820px; }
+.hero__inner { position:absolute; left:var(--pad); top:200px; width:var(--w-content); }
+.hero__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
+  line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
+.hero__title { margin-top:18px; font-size:var(--fs-hero); font-weight:700;
+  line-height:var(--lh-hero); letter-spacing:.02em; }
+.hero__lead { margin-top:24px; width:640px; font-size:var(--fs-body); font-weight:400;
+  line-height:var(--lh-body); color:var(--c-sub); }
+.hero__ph { position:absolute; left:0; bottom:0; width:100%; height:300px; }
+
+/* ============================================================
+   セクション固有CSS（型IDのプレフィックスのまま。本体の寸法は実測値どおり）
+   ============================================================ */
+
+/* --- col3-001 特長カード3枚。見出しは .sh に差し替え、カードはそのまま --- */
+.col3_001__cards { display:flex; gap:var(--sp-card); }
+.col3_001__card { width:400px; }
+.col3_001__card .ph { width:400px; height:260px; }
+.col3_001__card .no { margin-top:26px; font-size:var(--fs-label); font-weight:700; line-height:1; color:var(--c-light); }
+.col3_001__card h3 { margin-top:14px; font-size:var(--fs-sub); font-weight:700; line-height:var(--lh-sub); }
+.col3_001__card p { margin-top:16px; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-sub); }
+
+/* --- col4-004 数字4項目。縦罫線で等分 --- */
+.col4_004__grid { display:flex; }
+.col4_004__b { width:324px; padding:0 24px; border-left:1px solid var(--c-line); }
+.col4_004__b:last-child { border-right:1px solid var(--c-line); }
+.col4_004__b h3 { font-size:var(--fs-body); font-weight:700; line-height:1; }
+.col4_004__num { margin-top:26px; display:flex; align-items:baseline; gap:8px; }
+.col4_004__num .n { font-size:60px; font-weight:700; line-height:1; }
+.col4_004__num .u { font-size:var(--fs-sub); font-weight:500; line-height:1; }
+.col4_004__note { margin-top:16px; font-size:var(--fs-note); line-height:var(--lh-note); color:var(--c-mute); }
+
+/* --- col2-021 左に縦長画像・右にテキスト。見出しが本体と横並びなので .sh は使わない --- */
+.col2_021 { display:flex; align-items:center; gap:80px; }
+.col2_021__ph { width:448px; height:640px; flex:none; }
+.col2_021__tx { flex:1; }
+.col2_021__tx .lead { margin-top:24px; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-sub); }
+.col2_021__tx .more { display:inline-flex; align-items:center; gap:12px; margin-top:32px;
+  font-size:var(--fs-body); font-weight:700; }
+.col2_021__tx .more i { font-size:11px; }
+
+/* --- col5-004 左に見出しを内蔵。位置は動かさず、スケールだけ共通に --- */
+.c5_004__wrap { display:flex; gap:48px; }
+.c5_004__l { width:336px; flex:none; }
+.c5_004__l p { margin-top:20px; font-size:var(--fs-body); font-weight:400; line-height:var(--lh-body); color:var(--c-sub); }
+.c5_004__l .more { display:inline-flex; align-items:center; gap:12px; margin-top:30px; font-size:var(--fs-body); font-weight:700; }
+.c5_004__l .more i { font-size:11px; }
+.c5_004__r { flex:1; }
+.c5_004__list { display:flex; gap:24px; }
+.c5_004__card { width:163px; }
+.c5_004__card .ph { width:163px; height:163px; }
+.c5_004__card .tag { height:18px; margin-top:14px; padding:0 8px; font-size:12px; font-weight:500; }
+.c5_004__card .tt { margin-top:8px; font-size:15px; font-weight:700; line-height:22px; }
+.c5_004__card .date { margin-top:8px; font-size:var(--fs-note); font-weight:400; line-height:var(--lh-note); color:var(--c-mute); }
+
+/* --- news-001 一覧4件。行高91・下罫線は実測どおり --- */
+.news__list li { display:flex; align-items:center; height:91px; border-bottom:1px solid var(--c-line); }
+.news__date { width:106px; flex-shrink:0; font-size:var(--fs-label); line-height:1; color:var(--c-sub); }
+.news__cat { width:90px; height:30px; flex-shrink:0; font-size:var(--fs-label); line-height:1; }
+.news__ttl-item { margin-left:104px; font-size:var(--fs-label); line-height:1.4; }
+.news__more { display:inline-flex; width:201px; height:60px; margin-top:56px;
+  font-size:12px; font-weight:500; gap:18px; }
+
+/* --- footer-007 左にロゴ・右にサイトマップ3列。絶対配置を同じ位置のflexに置き換え --- */
+.ft7__cols { display:flex; }
+.ft7__logo { width:441px; flex:none; font-family:"Poppins",sans-serif;
+  font-size:26px; font-weight:700; letter-spacing:.06em; line-height:34px; }
+.ft7__logo small { display:block; margin-top:22px; font-size:var(--fs-body); font-weight:500; line-height:17.6px; letter-spacing:0; }
+.ft7__col h3 { font-size:var(--fs-label); font-weight:500; line-height:22.4px; color:var(--c-mute); }
+.ft7__col li { margin-top:22px; font-size:15px; font-weight:500; line-height:24px; }
+.ft7__col.c2 { width:276px; }
+.ft7__col.c3 { width:374px; }
+.ft7__col.c3 ul { display:flex; flex-wrap:wrap; }
+.ft7__col.c3 li { width:179px; }
+.ft7__col.c4 { width:205px; }
+.ft7__col.c4 .sns { display:flex; align-items:center; gap:12px; }
+.ft7__col.c4 .corp { margin-top:44px; font-size:var(--fs-note); font-weight:600; line-height:19.5px; }
+.ft7__policy { display:flex; gap:26px; margin-top:88px; font-size:11px; line-height:17.6px; color:var(--c-mute); }
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <p class="hd__logo">LOGO</p>
+  <nav class="hd__nav">
+    <a href="#">ダミー項目</a><a href="#">ダミー項目名</a><a href="#">ダミー項目</a><a href="#">ダミー項目名</a>
+    <a class="hd__cta btn-black" href="#">ダミー項目</a>
+  </nav>
+</header>
+
+<!-- ▼ ヒーロー：ここで決めた「英字ラベル → 和文見出し」を以降すべてで守る -->
+<section class="hero">
+  <div class="hero__inner">
+    <p class="hero__label en">DUMMY TEXT</p>
+    <h1 class="hero__title">ダミーテキストの、<br>ダミーテキストです</h1>
+    <p class="hero__lead">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+  </div>
+  <div class="hero__ph img" data-l="IMAGE"></div>
+</section>
+
+<!-- ▼ col3-001（元の見出しは和文40px → .sh の32pxに差し替え） -->
+<section class="sec">
+  <div class="sec__inner">
+    <div class="sh">
+      <p class="sh__label en">FEATURE</p>
+      <h2 class="sh__title">ダミーテキストの特長</h2>
+      <p class="sh__lead">ダミーテキストダミーテキストダミーテキストダミーテキストをご紹介します。</p>
+    </div>
+    <div class="col3_001__cards">
+      <div class="col3_001__card">
+        <div class="ph img" data-l="IMAGE"></div>
+        <p class="no en">01</p>
+        <h3>ダミーテキストダミー</h3>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      </div>
+      <div class="col3_001__card">
+        <div class="ph img" data-l="IMAGE"></div>
+        <p class="no en">02</p>
+        <h3>ダミーテキストダミーテキスト</h3>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      </div>
+      <div class="col3_001__card">
+        <div class="ph img" data-l="IMAGE"></div>
+        <p class="no en">03</p>
+        <h3>ダミーテキスト</h3>
+        <p>ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ▼ col2-021（見出しが本体と横並び。位置はそのまま、スケールだけ共通に） -->
+<section class="sec sec--gray">
+  <div class="sec__inner col2_021">
+    <div class="col2_021__ph img" data-l="IMAGE"></div>
+    <div class="col2_021__tx">
+      <p class="sh-inline__label en">SERVICE</p>
+      <h2 class="sh-inline__title">ダミーテキストの事業内容</h2>
+      <p class="lead">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      <a class="more" href="#">ダミーテキストを見る<i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ▼ col4-004（元の見出しは和文40px → .sh の32pxに差し替え。中央揃え） -->
+<section class="sec">
+  <div class="sec__inner">
+    <div class="sh sh--center">
+      <p class="sh__label en">DATA</p>
+      <h2 class="sh__title">数字で見るダミーテキスト</h2>
+      <p class="sh__lead">ダミーテキストダミーテキストを、数字を通してご紹介します。</p>
+    </div>
+    <div class="col4_004__grid">
+      <div class="col4_004__b">
+        <h3>ダミー項目名</h3>
+        <p class="col4_004__num"><span class="n en">000</span><span class="u">名</span></p>
+        <p class="col4_004__note">※ ダミーテキスト含む</p>
+      </div>
+      <div class="col4_004__b">
+        <h3>ダミー項目</h3>
+        <p class="col4_004__num"><span class="n en">0000</span><span class="u">店舗</span></p>
+        <p class="col4_004__note">※ 20XX年00月現在</p>
+      </div>
+      <div class="col4_004__b">
+        <h3>ダミー項目名称</h3>
+        <p class="col4_004__num"><span class="n en">00.0</span><span class="u">歳</span></p>
+        <p class="col4_004__note">※ ダミーテキスト</p>
+      </div>
+      <div class="col4_004__b">
+        <h3>ダミー項目名</h3>
+        <p class="col4_004__num"><span class="n en">00.0</span><span class="u">%</span></p>
+        <p class="col4_004__note">※ ダミーテキスト</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ▼ col5-004（左に見出しを内蔵。.sh は使わず、型の構造のまま） -->
+<section class="sec sec--gray">
+  <div class="sec__inner c5_004__wrap">
+    <div class="c5_004__l">
+      <p class="sh-inline__label en">RANKING</p>
+      <h2 class="sh-inline__title">ダミー見出し</h2>
+      <p>ダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+      <a class="more" href="#">ダミーテキストを見る<i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="c5_004__r">
+      <div class="c5_004__list">
+        <article class="c5_004__card"><div class="ph img" data-l="IMAGE"></div>
+          <span class="tag tag-gray">ダミー項目</span><p class="tt">ダミーテキストの<br>タイトルが入ります</p><p class="date en">2026.00.00</p></article>
+        <article class="c5_004__card"><div class="ph img" data-l="IMAGE"></div>
+          <span class="tag tag-gray">ダミー項目</span><p class="tt">ダミーテキストの<br>タイトル</p><p class="date en">2026.00.00</p></article>
+        <article class="c5_004__card"><div class="ph img" data-l="IMAGE"></div>
+          <span class="tag tag-gray">ダミー項目</span><p class="tt">ダミーテキストの<br>タイトルが入ります</p><p class="date en">2026.00.00</p></article>
+        <article class="c5_004__card"><div class="ph img" data-l="IMAGE"></div>
+          <span class="tag tag-gray">ダミー項目</span><p class="tt">ダミーテキストの<br>タイトル</p><p class="date en">2026.00.00</p></article>
+        <article class="c5_004__card"><div class="ph img" data-l="IMAGE"></div>
+          <span class="tag tag-gray">ダミー項目</span><p class="tt">ダミーテキストの<br>タイトルが入ります</p><p class="date en">2026.00.00</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ▼ news-001（元は和文40px＋英字24px → .sh に差し替え） -->
+<section class="sec">
+  <div class="sec__inner">
+    <div class="sh">
+      <p class="sh__label en">NEWS</p>
+      <h2 class="sh__title">ダミー見出し</h2>
+    </div>
+    <ul class="news__list">
+      <li><span class="news__date en">2026/09/22</span><span class="news__cat tag-gray">ダミー分類</span><span class="news__ttl-item">ダミーテキストダミーテキスト</span></li>
+      <li><span class="news__date en">2026/08/06</span><span class="news__cat tag-gray">ダミー分類</span><span class="news__ttl-item">ダミーテキストダミーテキストダミー</span></li>
+      <li><span class="news__date en">2026/06/18</span><span class="news__cat tag-gray">ダミー分類</span><span class="news__ttl-item">ダミーテキストダミーテキストダミーテキストダミー</span></li>
+      <li><span class="news__date en">2026/06/04</span><span class="news__cat tag-gray">ダミー分類</span><span class="news__ttl-item">ダミーテキストダミーテキストダミーテキスト</span></li>
+    </ul>
+    <div class="news__more btn-black"><span>ダミーボタンテキスト</span><i class="fa-solid fa-circle dot"></i></div>
+  </div>
+</section>
+
+<!-- ▼ footer-007 -->
+<footer class="sec sec--gray">
+  <div class="sec__inner">
+    <div class="ft7__cols">
+      <div class="ft7__logo">LOGO<small>Dummy Site</small></div>
+      <div class="ft7__col c2">
+        <h3>ダミー項目</h3>
+        <ul><li>ダミー項目</li><li>ダミー項目 ダミー</li><li>ダミー ダミー項目</li><li>ダミー項目 ダミー</li></ul>
+      </div>
+      <div class="ft7__col c3">
+        <h3>ダミーテキスト項目</h3>
+        <ul><li>ダミー項目名</li><li>ダミー項目名</li><li>ダミー項目名称</li><li>ダミー項目</li><li>ダミー項目名称</li><li>ダミー項目名称</li></ul>
+      </div>
+      <div class="ft7__col c4">
+        <h3>ダミーをもっと知る</h3>
+        <ul>
+          <li class="sns"><i class="fa-brands fa-instagram"></i><span class="en">Instagram</span></li>
+          <li class="sns"><i class="fa-brands fa-x-twitter"></i><span class="en">X</span></li>
+        </ul>
+        <p class="corp">ダミーテキストサイト</p>
+      </div>
+    </div>
+    <div class="ft7__policy">
+      <span>ダミーテキスト方針</span><span>ダミーテキストの取扱いについて</span>
+      <span>ダミーガイドライン</span><span>ダミーテキストポリシー</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

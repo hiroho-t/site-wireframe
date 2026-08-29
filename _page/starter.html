@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1ページワイヤー 雛形</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+/* ============================================================
+   1ページワイヤーの雛形
+
+   使い方
+   1. このファイルをコピーする
+   2. カタログ（col1〜col5 / news / footer）から型を選び、本体だけを .sec の中に貼る
+   3. 貼った型の固有CSSも下の「セクション固有CSS」に貼る。ただし次の3つは必ず捨てる
+        - `.wf__inner`（position:absolute）と `top: ○○px`
+        - 見出しの font-size / line-height / letter-spacing → 下の変数に置き換える
+        - セクションの上下余白 → .sec の padding に任せる
+   4. 見出しは .sh を使う。型が見出しを持っていたら .sh に差し替える
+        - ただし「見出しが本体と横並びの型」は位置を動かさず、スケールだけ変数に合わせる
+   ============================================================ */
+
+:root {
+  /* --- 色（カタログと同じ） --- */
+  --c-black:#000; --c-text:#222; --c-sub:#555; --c-mute:#808080; --c-light:#b0b0b0;
+  --c-line:#dcdcdc; --c-bg-gray:#f2f2f2; --c-img:#d9d9d9; --c-img-dark:#8c8c8c; --c-white:#fff;
+
+  /* --- タイプスケール（ページ内でこの6段しか使わない） --- */
+  --fs-hero:48px;  --lh-hero:70px;   /* MV と、ページに1〜2箇所の見せ場だけ */
+  --fs-sec:32px;   --lh-sec:46px;    /* セクション見出し（標準） */
+  --fs-sub:20px;   --lh-sub:28px;    /* カード・項目の小見出し */
+  --fs-body:16px;  --lh-body:28px;   /* 本文 */
+  --fs-note:13px;  --lh-note:21px;   /* 補足・注記 */
+  --fs-label:14px; --lh-label:20px;  /* 見出しの上の英字ラベル */
+
+  /* --- 余白（ページ内でこの刻みしか使わない） --- */
+  --sp-sec:120px;   /* セクションの上下 */
+  --sp-sec-lg:160px;/* 濃色・全面画像のセクションの上下 */
+  --sp-head:48px;   /* 見出しブロック → 本体 */
+  --sp-card:48px;   /* カード間（4カラム以上は 32px） */
+  --sp-lead:16px;   /* 見出し → リード */
+
+  --w-page:1440px; --w-content:1296px; --pad:72px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  width:var(--w-page); margin:0 auto;
+  background:var(--c-white); color:var(--c-text);
+  font-family:"Noto Sans JP",sans-serif; font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+ul,ol { list-style:none; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
+
+/* ============================================================
+   セクション枠 ── 余白はここが持つ。型ごとの top は使わない
+   ============================================================ */
+.sec { padding:var(--sp-sec) 0; }
+.sec--lg   { padding:var(--sp-sec-lg) 0; }
+.sec--gray { background:var(--c-bg-gray); }
+.sec--dark { background:var(--c-img-dark); color:var(--c-white); }
+.sec__inner { width:var(--w-content); margin:0 auto; }
+
+/* ============================================================
+   見出し ── ページ内では .sh / .sh--center / .sh--hero の3つだけ
+   ============================================================ */
+.sh { margin-bottom:var(--sp-head); }
+.sh__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
+  line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
+.sh__title { margin-top:10px; font-size:var(--fs-sec); font-weight:700;
+  line-height:var(--lh-sec); letter-spacing:.04em; }
+.sh__lead  { margin-top:var(--sp-lead); font-size:var(--fs-body); font-weight:400;
+  line-height:var(--lh-body); color:var(--c-sub); }
+.sh--center { text-align:center; }
+.sh--center .sh__lead { margin-left:auto; margin-right:auto; max-width:800px; }
+/* 特大。ページに1〜2箇所まで */
+.sh--hero .sh__title { font-size:var(--fs-hero); line-height:var(--lh-hero); letter-spacing:.02em; }
+
+/* 型が「本体と横並びの見出し」を持つ場合は .sh を使わず、その型の見出しにこれを当てる */
+.sh-inline__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
+  line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
+.sh-inline__title { font-size:var(--fs-sec); font-weight:700; line-height:var(--lh-sec); letter-spacing:.04em; }
+
+/* ============================================================
+   ユーティリティ（カタログと同じ）
+   ============================================================ */
+.en { font-family:"Poppins",sans-serif; }
+.img { position:relative; background:var(--c-img); }
+.img--dark { background:var(--c-img-dark); }
+.img[data-l]::after { content:attr(data-l); position:absolute; right:10px; bottom:8px;
+  font-family:"Poppins",sans-serif; font-size:9px; letter-spacing:.08em; color:#8a8a8a; line-height:1; }
+.btn-black { display:inline-flex; align-items:center; justify-content:center;
+  background:var(--c-black); color:var(--c-white); border-radius:999px; white-space:nowrap; }
+.btn-line  { display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  border:1px solid var(--c-black); border-radius:999px; white-space:nowrap; }
+.tag-white { display:inline-flex; align-items:center; justify-content:center;
+  background:var(--c-white); color:var(--c-text); border-radius:999px; white-space:nowrap; }
+.tag-gray  { display:inline-flex; align-items:center; justify-content:center;
+  background:#e8e8e8; color:var(--c-text); border-radius:999px; white-space:nowrap; }
+.sep { margin-right:1em; }     /* 区切りに全角スペースを使わない */
+.flush { text-indent:-1em; }   /* 行頭の全角スペースを打ち消す */
+
+/* ============================================================
+   ヘッダー ── ページ共通で1つ
+   ============================================================ */
+.hd { position:absolute; left:0; top:0; width:100%; height:88px;
+  display:flex; align-items:center; justify-content:space-between; padding:0 var(--pad); z-index:2; }
+.hd__logo { font-family:"Poppins",sans-serif; font-size:22px; font-weight:700; letter-spacing:.06em; }
+.hd__nav { display:flex; align-items:center; gap:32px; font-size:14px; font-weight:500; }
+.hd__cta { height:40px; padding:0 22px; font-size:13px; font-weight:700; }
+
+/* ============================================================
+   ヒーロー ── ここで決めた見出しの型を、以降の全セクションで守る
+   ============================================================ */
+.hero { position:relative; height:820px; }
+.hero__inner { position:absolute; left:var(--pad); top:200px; width:var(--w-content); }
+.hero__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
+  line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
+.hero__title { margin-top:18px; font-size:var(--fs-hero); font-weight:700;
+  line-height:var(--lh-hero); letter-spacing:.02em; }
+.hero__lead  { margin-top:24px; width:640px; font-size:var(--fs-body); font-weight:400;
+  line-height:var(--lh-body); color:var(--c-sub); }
+.hero__ph { position:absolute; left:0; bottom:0; width:100%; height:300px; }
+
+/* ============================================================
+   セクション固有CSS ── ここから下に、貼った型のCSSを型IDのまま並べる
+   （どの型から持ってきたかが後から辿れるようにする）
+   ============================================================ */
+
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <p class="hd__logo">LOGO</p>
+  <nav class="hd__nav">
+    <a href="#">ダミー項目</a><a href="#">ダミー項目名</a><a href="#">ダミー項目</a><a href="#">ダミー項目名</a>
+    <a class="hd__cta btn-black" href="#">ダミー項目</a>
+  </nav>
+</header>
+
+<!-- ▼ ヒーロー ------------------------------------------------ -->
+<section class="hero">
+  <div class="hero__inner">
+    <p class="hero__label en">DUMMY TEXT</p>
+    <h1 class="hero__title">ダミーテキストの、<br>ダミーテキストです</h1>
+    <p class="hero__lead">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+  </div>
+  <div class="hero__ph img" data-l="IMAGE"></div>
+</section>
+
+<!-- ▼ セクション：見出しを持たない型／見出しを差し替えた型はこの形 -->
+<section class="sec">
+  <div class="sec__inner">
+    <div class="sh">
+      <p class="sh__label en">DUMMY TEXT</p>
+      <h2 class="sh__title">ダミーテキスト見出し</h2>
+      <p class="sh__lead">ダミーテキストダミーテキストダミーテキストダミーテキストです。</p>
+    </div>
+    <!-- ここに型の本体を貼る -->
+  </div>
+</section>
+
+<!-- ▼ 背景を変えて区切る。罫線は足さない -->
+<section class="sec sec--gray">
+  <div class="sec__inner">
+    <div class="sh sh--center">
+      <p class="sh__label en">DUMMY TEXT</p>
+      <h2 class="sh__title">ダミーテキスト見出し</h2>
+    </div>
+    <!-- ここに型の本体を貼る -->
+  </div>
+</section>
+
+<!-- ▼ 見出しが本体と横並びの型は .sh を使わず、型の構造のまま置く -->
+<section class="sec">
+  <div class="sec__inner">
+    <!-- ここに型をまるごと貼り、見出しには .sh-inline__label / .sh-inline__title を当てる -->
+  </div>
+</section>
+
+<!-- ▼ フッター ------------------------------------------------ -->
+<footer class="sec sec--gray">
+  <div class="sec__inner">
+    <!-- ここに footer/ の型の本体を貼る -->
+  </div>
+</footer>
+
+</body>
+</html>
