@@ -102,6 +102,8 @@ img { display:block; max-width:100%; }
 .img--dark { background:var(--c-img-dark); }
 .img[data-l]::after { content:attr(data-l); position:absolute; right:10px; bottom:8px;
   font-family:"Poppins",sans-serif; font-size:9px; letter-spacing:.08em; color:#8a8a8a; line-height:1; }
+/* 濃色の上では #8a8a8a が同化して読めないため明るくする */
+.img--dark[data-l]::after { color:#d5d5d5; }
 .btn-black { display:inline-flex; align-items:center; justify-content:center;
   background:var(--c-black); color:var(--c-white); border-radius:999px; white-space:nowrap; }
 .btn-line  { display:inline-flex; align-items:center; justify-content:center; gap:10px;
