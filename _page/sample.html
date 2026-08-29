@@ -13,7 +13,8 @@
    1ページワイヤー 見本
    6つの型を1枚に組んでいる。元は見出しが 40px / 40px / 64px / 32px / 40px とバラバラだった
    ものを、すべて --fs-sec（32px）＋英字ラベル14px に寄せている。
-   本体（カード幅・gap・画像寸法・罫線）は型の実測値のまま1pxも変えていない。
+   本体（カード幅・gap・画像寸法・罫線・カード内の本文サイズ）は型の実測値のまま1pxも
+   変えていない。統一したのは見出しと、その直下のリード、そして外側の余白だけ。
 
    使った型：col3-001 / col4-004 / col2-021 / col5-004 / news-001 / footer-007
    ============================================================ */
@@ -22,12 +23,11 @@
   --c-black:#000; --c-text:#222; --c-sub:#555; --c-mute:#808080; --c-light:#b0b0b0;
   --c-line:#dcdcdc; --c-bg-gray:#f2f2f2; --c-img:#d9d9d9; --c-img-dark:#8c8c8c; --c-white:#fff;
 
+  /* 見出しと、その直下のリード専用。カード内の本文・メタには当てない */
   --fs-hero:48px;  --lh-hero:70px;
   --fs-sec:32px;   --lh-sec:46px;
-  --fs-sub:20px;   --lh-sub:28px;
-  --fs-body:16px;  --lh-body:28px;
-  --fs-note:13px;  --lh-note:21px;
   --fs-label:14px; --lh-label:20px;
+  --fs-lead:16px;  --lh-lead:28px;
 
   --sp-sec:120px; --sp-sec-lg:160px; --sp-head:48px; --sp-card:48px; --sp-lead:16px;
   --w-page:1440px; --w-content:1296px; --pad:72px;
@@ -41,6 +41,7 @@ a { color:inherit; text-decoration:none; }
 /* ---- セクション枠 ---- */
 .sec { padding:var(--sp-sec) 0; }
 .sec--gray { background:var(--c-bg-gray); }
+.sec--bleed { padding:0; }   /* 全幅の帯を入れるとき */
 .sec__inner { width:var(--w-content); margin:0 auto; }
 
 /* ---- 見出し（ページ内はこの3つだけ） ---- */
@@ -49,8 +50,8 @@ a { color:inherit; text-decoration:none; }
   line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
 .sh__title { margin-top:10px; font-size:var(--fs-sec); font-weight:700;
   line-height:var(--lh-sec); letter-spacing:.04em; }
-.sh__lead  { margin-top:var(--sp-lead); font-size:var(--fs-body); font-weight:400;
-  line-height:var(--lh-body); color:var(--c-sub); }
+.sh__lead  { margin-top:var(--sp-lead); font-size:var(--fs-lead); font-weight:400;
+  line-height:var(--lh-lead); color:var(--c-sub); }
 .sh--center { text-align:center; }
 .sh--center .sh__lead { max-width:800px; margin-left:auto; margin-right:auto; }
 .sh-inline__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
@@ -82,8 +83,8 @@ a { color:inherit; text-decoration:none; }
   line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
 .hero__title { margin-top:18px; font-size:var(--fs-hero); font-weight:700;
   line-height:var(--lh-hero); letter-spacing:.02em; }
-.hero__lead { margin-top:24px; width:640px; font-size:var(--fs-body); font-weight:400;
-  line-height:var(--lh-body); color:var(--c-sub); }
+.hero__lead { margin-top:24px; width:640px; font-size:var(--fs-lead); font-weight:400;
+  line-height:var(--lh-lead); color:var(--c-sub); }
 .hero__ph { position:absolute; left:0; bottom:0; width:100%; height:300px; }
 
 /* ============================================================
@@ -94,34 +95,34 @@ a { color:inherit; text-decoration:none; }
 .col3_001__cards { display:flex; gap:var(--sp-card); }
 .col3_001__card { width:400px; }
 .col3_001__card .ph { width:400px; height:260px; }
-.col3_001__card .no { margin-top:26px; font-size:var(--fs-label); font-weight:700; line-height:1; color:var(--c-light); }
-.col3_001__card h3 { margin-top:14px; font-size:var(--fs-sub); font-weight:700; line-height:var(--lh-sub); }
-.col3_001__card p { margin-top:16px; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-sub); }
+.col3_001__card .no { margin-top:26px; font-size:14px; font-weight:700; line-height:1; color:var(--c-light); }
+.col3_001__card h3 { margin-top:14px; font-size:20px; font-weight:700; line-height:1.6; }
+.col3_001__card p { margin-top:16px; font-size:15px; line-height:30px; color:var(--c-sub); }
 
 /* --- col4-004 数字4項目。縦罫線で等分 --- */
 .col4_004__grid { display:flex; }
 .col4_004__b { width:324px; padding:0 24px; border-left:1px solid var(--c-line); }
 .col4_004__b:last-child { border-right:1px solid var(--c-line); }
-.col4_004__b h3 { font-size:var(--fs-body); font-weight:700; line-height:1; }
+.col4_004__b h3 { font-size:16px; font-weight:700; line-height:1; }
 .col4_004__num { margin-top:26px; display:flex; align-items:baseline; gap:8px; }
 .col4_004__num .n { font-size:60px; font-weight:700; line-height:1; }
-.col4_004__num .u { font-size:var(--fs-sub); font-weight:500; line-height:1; }
-.col4_004__note { margin-top:16px; font-size:var(--fs-note); line-height:var(--lh-note); color:var(--c-mute); }
+.col4_004__num .u { font-size:20px; font-weight:500; line-height:1; }
+.col4_004__note { margin-top:16px; font-size:13px; line-height:1.6; color:var(--c-mute); }
 
 /* --- col2-021 左に縦長画像・右にテキスト。見出しが本体と横並びなので .sh は使わない --- */
 .col2_021 { display:flex; align-items:center; gap:80px; }
 .col2_021__ph { width:448px; height:640px; flex:none; }
 .col2_021__tx { flex:1; }
-.col2_021__tx .lead { margin-top:24px; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--c-sub); }
+.col2_021__tx .lead { margin-top:24px; font-size:16px; line-height:28px; color:var(--c-sub); }
 .col2_021__tx .more { display:inline-flex; align-items:center; gap:12px; margin-top:32px;
-  font-size:var(--fs-body); font-weight:700; }
+  font-size:16px; font-weight:700; }
 .col2_021__tx .more i { font-size:11px; }
 
 /* --- col5-004 左に見出しを内蔵。位置は動かさず、スケールだけ共通に --- */
 .c5_004__wrap { display:flex; gap:48px; }
 .c5_004__l { width:336px; flex:none; }
-.c5_004__l p { margin-top:20px; font-size:var(--fs-body); font-weight:400; line-height:var(--lh-body); color:var(--c-sub); }
-.c5_004__l .more { display:inline-flex; align-items:center; gap:12px; margin-top:30px; font-size:var(--fs-body); font-weight:700; }
+.c5_004__l p { margin-top:20px; font-size:15px; font-weight:400; line-height:24px; color:var(--c-sub); }
+.c5_004__l .more { display:inline-flex; align-items:center; gap:12px; margin-top:30px; font-size:17px; font-weight:700; }
 .c5_004__l .more i { font-size:11px; }
 .c5_004__r { flex:1; }
 .c5_004__list { display:flex; gap:24px; }
@@ -129,13 +130,13 @@ a { color:inherit; text-decoration:none; }
 .c5_004__card .ph { width:163px; height:163px; }
 .c5_004__card .tag { height:18px; margin-top:14px; padding:0 8px; font-size:12px; font-weight:500; }
 .c5_004__card .tt { margin-top:8px; font-size:15px; font-weight:700; line-height:22px; }
-.c5_004__card .date { margin-top:8px; font-size:var(--fs-note); font-weight:400; line-height:var(--lh-note); color:var(--c-mute); }
+.c5_004__card .date { margin-top:8px; font-size:13px; font-weight:400; line-height:18px; color:var(--c-mute); }
 
 /* --- news-001 一覧4件。行高91・下罫線は実測どおり --- */
 .news__list li { display:flex; align-items:center; height:91px; border-bottom:1px solid var(--c-line); }
-.news__date { width:106px; flex-shrink:0; font-size:var(--fs-label); line-height:1; color:var(--c-sub); }
-.news__cat { width:90px; height:30px; flex-shrink:0; font-size:var(--fs-label); line-height:1; }
-.news__ttl-item { margin-left:104px; font-size:var(--fs-label); line-height:1.4; }
+.news__date { width:106px; flex-shrink:0; font-size:14px; line-height:1; color:var(--c-sub); }
+.news__cat { width:90px; height:30px; flex-shrink:0; font-size:14px; line-height:1; }
+.news__ttl-item { margin-left:104px; font-size:14px; line-height:1.4; }
 .news__more { display:inline-flex; width:201px; height:60px; margin-top:56px;
   font-size:12px; font-weight:500; gap:18px; }
 
@@ -143,8 +144,8 @@ a { color:inherit; text-decoration:none; }
 .ft7__cols { display:flex; }
 .ft7__logo { width:441px; flex:none; font-family:"Poppins",sans-serif;
   font-size:26px; font-weight:700; letter-spacing:.06em; line-height:34px; }
-.ft7__logo small { display:block; margin-top:22px; font-size:var(--fs-body); font-weight:500; line-height:17.6px; letter-spacing:0; }
-.ft7__col h3 { font-size:var(--fs-label); font-weight:500; line-height:22.4px; color:var(--c-mute); }
+.ft7__logo small { display:block; margin-top:22px; font-size:16px; font-weight:500; line-height:17.6px; letter-spacing:0; }
+.ft7__col h3 { font-size:14px; font-weight:500; line-height:22.4px; color:var(--c-mute); }
 .ft7__col li { margin-top:22px; font-size:15px; font-weight:500; line-height:24px; }
 .ft7__col.c2 { width:276px; }
 .ft7__col.c3 { width:374px; }
@@ -152,7 +153,7 @@ a { color:inherit; text-decoration:none; }
 .ft7__col.c3 li { width:179px; }
 .ft7__col.c4 { width:205px; }
 .ft7__col.c4 .sns { display:flex; align-items:center; gap:12px; }
-.ft7__col.c4 .corp { margin-top:44px; font-size:var(--fs-note); font-weight:600; line-height:19.5px; }
+.ft7__col.c4 .corp { margin-top:44px; font-size:13px; font-weight:600; line-height:19.5px; }
 .ft7__policy { display:flex; gap:26px; margin-top:88px; font-size:11px; line-height:17.6px; color:var(--c-mute); }
 </style>
 </head>

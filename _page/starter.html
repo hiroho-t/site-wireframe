@@ -21,6 +21,9 @@
         - セクションの上下余白 → .sec の padding に任せる
    4. 見出しは .sh を使う。型が見出しを持っていたら .sh に差し替える
         - ただし「見出しが本体と横並びの型」は位置を動かさず、スケールだけ変数に合わせる
+        - 寄せるのは見出しと直下のリードまで。カード内の本文・キャプション・メタは実測のまま
+   5. 全幅の帯を入れるときは .sec ではなく .sec--bleed（padding:0）を使う
+   6. 組み終わったら SKILL.md「組み終わったら3つ検算する」のスニペットを流す
    ============================================================ */
 
 :root {
@@ -28,13 +31,15 @@
   --c-black:#000; --c-text:#222; --c-sub:#555; --c-mute:#808080; --c-light:#b0b0b0;
   --c-line:#dcdcdc; --c-bg-gray:#f2f2f2; --c-img:#d9d9d9; --c-img-dark:#8c8c8c; --c-white:#fff;
 
-  /* --- タイプスケール（ページ内でこの6段しか使わない） --- */
-  --fs-hero:48px;  --lh-hero:70px;   /* MV と、ページに1〜2箇所の見せ場だけ */
+  /* --- タイプスケール ---------------------------------------------
+     ★ここに入っている4つは「見出しと、その直下のリード」専用。
+       カード内の本文・キャプション・日付・タグ・注記・数字には当てない。
+       それらは型の実測値（13/14/15/16/18/19/22px…）のまま置くこと。
+       寄せると折り返し行数とカード高さが変わり、型の実測値が崩れる。 */
+  --fs-hero:48px;  --lh-hero:70px;   /* ヒーローと、ページに1〜2箇所の見せ場だけ */
   --fs-sec:32px;   --lh-sec:46px;    /* セクション見出し（標準） */
-  --fs-sub:20px;   --lh-sub:28px;    /* カード・項目の小見出し */
-  --fs-body:16px;  --lh-body:28px;   /* 本文 */
-  --fs-note:13px;  --lh-note:21px;   /* 補足・注記 */
   --fs-label:14px; --lh-label:20px;  /* 見出しの上の英字ラベル */
+  --fs-lead:16px;  --lh-lead:28px;   /* 見出しの直下のリード1本 */
 
   /* --- 余白（ページ内でこの刻みしか使わない） --- */
   --sp-sec:120px;   /* セクションの上下 */
@@ -60,10 +65,14 @@ img { display:block; max-width:100%; }
    セクション枠 ── 余白はここが持つ。型ごとの top は使わない
    ============================================================ */
 .sec { padding:var(--sp-sec) 0; }
-.sec--lg   { padding:var(--sp-sec-lg) 0; }
-.sec--gray { background:var(--c-bg-gray); }
-.sec--dark { background:var(--c-img-dark); color:var(--c-white); }
+.sec--lg    { padding:var(--sp-sec-lg) 0; }
+.sec--gray  { background:var(--c-bg-gray); }
+.sec--dark  { background:var(--c-img-dark); color:var(--c-white); }
+/* 全幅の帯（col2-035 / col1-014 / col2-033 など幅1440の型）はこれ。上下余白を持たない
+   ※ 下の .flush（text-indent）とは別物。名前を似せないため bleed にしている */
+.sec--bleed { padding:0; }
 .sec__inner { width:var(--w-content); margin:0 auto; }
+.sec__inner--full { width:var(--w-page); }
 
 /* ============================================================
    見出し ── ページ内では .sh / .sh--center / .sh--hero の3つだけ
@@ -73,8 +82,8 @@ img { display:block; max-width:100%; }
   line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
 .sh__title { margin-top:10px; font-size:var(--fs-sec); font-weight:700;
   line-height:var(--lh-sec); letter-spacing:.04em; }
-.sh__lead  { margin-top:var(--sp-lead); font-size:var(--fs-body); font-weight:400;
-  line-height:var(--lh-body); color:var(--c-sub); }
+.sh__lead  { margin-top:var(--sp-lead); font-size:var(--fs-lead); font-weight:400;
+  line-height:var(--lh-lead); color:var(--c-sub); }
 .sh--center { text-align:center; }
 .sh--center .sh__lead { margin-left:auto; margin-right:auto; max-width:800px; }
 /* 特大。ページに1〜2箇所まで */
@@ -105,7 +114,10 @@ img { display:block; max-width:100%; }
 .flush { text-indent:-1em; }   /* 行頭の全角スペースを打ち消す */
 
 /* ============================================================
-   ヘッダー ── ページ共通で1つ
+   ヘッダー／ヒーロー ── これは「最小形」
+   MVは原則 mv/ のカタログから選んで貼る（各型の実測値が入っているため）。
+   下の .hd / .hero は、mv型を使わずに素のヒーローで済ませたいときだけ使う。
+   mv型を貼る場合はこの2ブロック（CSSとHTML）ごと削ってよい。
    ============================================================ */
 .hd { position:absolute; left:0; top:0; width:100%; height:88px;
   display:flex; align-items:center; justify-content:space-between; padding:0 var(--pad); z-index:2; }
@@ -113,17 +125,15 @@ img { display:block; max-width:100%; }
 .hd__nav { display:flex; align-items:center; gap:32px; font-size:14px; font-weight:500; }
 .hd__cta { height:40px; padding:0 22px; font-size:13px; font-weight:700; }
 
-/* ============================================================
-   ヒーロー ── ここで決めた見出しの型を、以降の全セクションで守る
-   ============================================================ */
+/* ここで決めた見出しの型（ラベル→和文、揃え、サイズ）を以降の全セクションで守る */
 .hero { position:relative; height:820px; }
 .hero__inner { position:absolute; left:var(--pad); top:200px; width:var(--w-content); }
 .hero__label { font-family:"Poppins",sans-serif; font-size:var(--fs-label); font-weight:400;
   line-height:var(--lh-label); letter-spacing:.12em; color:var(--c-mute); }
 .hero__title { margin-top:18px; font-size:var(--fs-hero); font-weight:700;
   line-height:var(--lh-hero); letter-spacing:.02em; }
-.hero__lead  { margin-top:24px; width:640px; font-size:var(--fs-body); font-weight:400;
-  line-height:var(--lh-body); color:var(--c-sub); }
+.hero__lead  { margin-top:24px; width:640px; font-size:var(--fs-lead); font-weight:400;
+  line-height:var(--lh-lead); color:var(--c-sub); }
 .hero__ph { position:absolute; left:0; bottom:0; width:100%; height:300px; }
 
 /* ============================================================
@@ -190,5 +200,26 @@ img { display:block; max-width:100%; }
   </div>
 </footer>
 
+<!-- ============================================================
+     組み終わったら、DevTools のコンソールにこれを貼って検算する
+
+     console.log('width', document.documentElement.scrollWidth);            // 1440 か
+     console.log('left', [...new Set([...document.querySelectorAll('.sec__inner')]
+       .map(e => Math.round(e.getBoundingClientRect().left)))]);            // [72] か
+     console.log('overflow', [...document.querySelectorAll('body *')].filter(e => {
+       const cs = getComputedStyle(e);
+       if (cs.overflow !== 'visible' || cs.display === 'inline') return false;
+       const r = e.getBoundingClientRect();
+       if (r.width < 2 || r.height < 2) return false;
+       return [...e.children].some(c => {
+         if (getComputedStyle(c).position === 'absolute') return false;
+         const cr = c.getBoundingClientRect();
+         return cr.bottom > r.bottom + 2 || cr.right > r.right + 2;
+       });
+     }).map(e => e.className || e.tagName));                                // [] か
+
+     絶対配置どうしの重なりはこれでは出ない。MVは SKILL.md の
+     「見出しに使える幅」の表で組む前に確認すること。
+     ============================================================ -->
 </body>
 </html>
