@@ -1,6 +1,7 @@
 # ページ丸ごとの型（`page/`）の増やし方
 
 実在サイトのトップページを、このライブラリのルールに整えた「完成ページの型」を `page/` に置いている。
+グレーボックスのままだとレイアウトの良し悪しが判断できないので、**写真（Unsplash）とアイコン（Font Awesome）を入れた状態**で置く。
 このマニュアルは、**別のモデル・別のセッションでも同じ品質でページ型を増やせるように**手順を全部書いたもの。
 判断に迷ったら、このファイルと [SKILL.md](SKILL.md)・[SELECT.md](SELECT.md) の記述が正。
 
@@ -36,7 +37,7 @@
   製造業の取扱品目、士業の対応業務、自治体のサービス一覧
 - 候補サイトが型を持っているかは、トレース後に `node tools/find-shapes.mjs <ワイヤーフレーム.html>` で機械判定できる
 
-## 手順（サイト1つ＝コマンド5つ）
+## 手順（サイト1つ＝コマンド6つ）
 
 作業フォルダは `_参考データ/参考サイト｜<サイト名>/`（gitignore済み。公開されない）。
 
@@ -57,9 +58,21 @@ node 3_wireframe.js "$D/全幅.html" /tmp/wire.html --width 1440 --flat --mono
 # 4. ライブラリのルールに整える（@font-face除去・Noto Sans JPへ統一・Google Fonts追加・メタ掃除）
 node ../pagefy.mjs /tmp/wire.html ../../page/page-0NN.html --title "page-0NN｜<用途>"
 
-# 5. 中間生成物を消す（全幅.htmlがあれば作り直せる）
+# 5. 写真とアイコンを入れる（枠の実寸に合わせて Unsplash を読む。小さな枠はFAの線画に）
+node ../photofy.mjs ../../page/page-0NN.html
+
+# 6. 中間生成物を消す（全幅.htmlがあれば作り直せる）
 rm -f "$D/静止版.html"
 ```
+
+`photofy.mjs` の振り分け（枠の実寸で判定する）
+
+| 枠の大きさ | どうするか |
+|---|---|
+| 辺40px以上 | Unsplash の写真。`page-0NN` ごとのテーマ（`BY_PAGE`）から順に回す |
+| 辺8〜40px | **Font Awesome の線画**（正方形に近ければ丸、それ以外は角）。アイコンの入る枠 |
+| 辺2px以下／片辺8px未満 | 触らない。区切り線・スペーサー |
+| 細長い帯（比3超かつ長辺48px超） | 触らない。小さいロゴ枠など |
 
 - 参考データとして残す通常版（配色・フォントを保持した `ワイヤーフレーム.html`）も欲しければ、
   手順3を `--ref "$D/元サイト.png"` 付き・`--mono` なしでもう1回まわす
@@ -75,12 +88,24 @@ rm -f "$D/静止版.html"
      href・src・`page-0NN｜用途`・高さ・KB を差し替える
   2. `SKILL.md` の「ページ丸ごとの型」の表 … id／用途／高さ／サイズを1行追加
 
+## 載せるか落とすかの基準
+
+**トレースできたからといって全部載せない。** 写真を入れて1画面目を見て、次のどれかに当たるなら落とす。
+実際、最初の15枚のうち9枚をこれで落とした。
+
+| 落とす理由 | 見分け方 | 例 |
+|---|---|---|
+| **崩れている** | 1画面目が真っ白／要素が散乱して重なる | GSAPのpin-spacerやスライダーで組んだヒーローは静止版で成立しない |
+| **凝りすぎて汎用性がない** | 写真ありきの意匠。全面写真に要素が重なる、斜めに散る | 骨格として他案件に写せない |
+
+残す基準は「**骨格だけ抜き出して他の案件に使えるか**」。デザインの良し悪しではない。
+
 ## 検算（3つ。飛ばさない）
 
-**A. 外部参照ゼロ。** 許可は Google Fonts と cdnjs（Font Awesome）だけ。
+**A. 外部参照は許可先だけ。** Google Fonts ／ cdnjs（Font Awesome）／ images.unsplash.com（写真）。
 
 ```bash
-grep -oE 'https?://[^"'\'' )]+' page/page-0NN.html | grep -vE 'fonts.googleapis|fonts.gstatic|cdnjs.cloudflare|w3.org' | sort -u
+grep -oE 'https?://[^"'\'' )]+' page/page-0NN.html | grep -vE 'fonts.googleapis|fonts.gstatic|cdnjs.cloudflare|images.unsplash.com|w3.org' | sort -u
 # → 何も出ないのが正。出たら pagefy.mjs の掃除パターンに追加する
 ```
 
@@ -97,7 +122,10 @@ console.log('全角SP', (document.body.innerText.match(/　/g)||[]).length, '←
   `<path>` で「図形として」描いていると、テキストのダミー化を素通りして原文が表示される
   （page-007 で発生。`<symbol>` の中身をダミーの `<text>` 2行に差し替えて解消した）。
   スクリーンショットを撮って、**読める単語が「ダミー」「Dummy」以外にないか**を必ず見る
-- ロゴが `LOGO` 表記になっているか、画像がグレーボックスになっているか
+- ロゴが `LOGO` 表記になっているか。**社名をベクターで描いたロゴは要注意**
+  （page-008 の「ALGO ARTIS」がこれで残っていた。pagefy.mjs が `class="...logo..."` 内のSVGを潰す）
+- **アイコンが豆腐（☒）になっていないか。** 元サイトが Font Awesome Pro（有料）を使っていると
+  Free には無いので出ない。pagefy.mjs が Pro→Free＋weight900 に変換する
 - `<symbol>` に残る SNS アイコン（Instagram・X）は Font Awesome と同じ扱いなのでそのままでよい
 
 ## 著作権の線引き（ページ型はここまで抜く）
@@ -111,6 +139,9 @@ console.log('全角SP', (document.body.innerText.match(/　/g)||[]).length, '←
 通常の参考データ（`ワイヤーフレーム.html`）は配色とフォントを残すが、
 **公開する `page/` はどちらもライブラリ標準に置き換える**。元サイトとの距離を最大にするため。
 
+写真は元サイトのものを一切使わず、**Unsplash の別画像に差し替える**（`photofy.mjs`）。
+Unsplash License は商用利用可・帰属表示は任意なので、生成物に出典表記は入れていない。
+
 Font Awesome Free（CC BY 4.0）のライセンス行が `<head>` 先頭に残っているかを確認する（wire.js が自動で入れる）。
 
 ## つまずきの記録
@@ -120,3 +151,8 @@ Font Awesome Free（CC BY 4.0）のライセンス行が `<head>` 先頭に残�
 - 元サイト由来の `preconnect`（例：code.jquery.com）が残る → pagefy.mjs が落とす（2025-08-29に追加済み）
 - `@font-face` のデータURIが巨大（1ページで最大1,011個・700KB） → pagefy.mjs が落とす
 - 高さ検算は600ms待ってから測る（Webフォントの再レイアウト待ち）
+- Font Awesome のCSSを読み込み忘れるとアイコンが全部豆腐（page-005 で256個）→ pagefy.mjs が追加する
+- **font-family の一括置換で Font Awesome 自身の指定まで潰さないこと。**
+  潰すと CSS を読み込んでも `::before` のグリフが出ない（実際にやらかした）
+- 元サイトのフッターに社名が残ることがある（page-006 の "Findy"）→ `--scrub "社名"` で潰す
+- `grep -c` は行数を数える。ミニファイされたCSSは1行なので、件数は `grep -o | wc -l` で数える
