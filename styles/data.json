@@ -3947,5 +3947,880 @@
         "name": "グレー･灰色"
       }
     ]
+  },
+  {
+    "slug": "jq",
+    "name": "株式会社JQ",
+    "url": "https://www.j-q.co.jp/",
+    "industry": "コーポレートサイト／企画･開発･マーケティング･コンサルティング／オーソドックス",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#00afaf",
+    "palette": [
+      {
+        "hex": "#edf0ed",
+        "pct": 64
+      },
+      {
+        "hex": "#434643",
+        "pct": 16.5
+      },
+      {
+        "hex": "#ffffff",
+        "pct": 9.2
+      },
+      {
+        "hex": "#d1d4d1",
+        "pct": 2.1
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "business-support",
+        "name": "企画･開発･マーケティング･コンサルティング"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "bluegreen",
+        "name": "ブルーグリーン･青緑"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "koseikai",
+    "name": "康生会 武田病院",
+    "url": "https://www.takedahp.or.jp/koseikai/",
+    "industry": "ブランドサイト･サービスサイト／病院･クリニック･歯医者･医療･薬／スタイリッシュ",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角丸",
+      "色つき"
+    ],
+    "accent": "#946d69",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 74.8
+      },
+      {
+        "hex": "#b6bdb9",
+        "pct": 9.1
+      },
+      {
+        "hex": "#e2e2df",
+        "pct": 4.2
+      },
+      {
+        "hex": "#8f9d97",
+        "pct": 3
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "hospital-clinic-medicalcare-dentist",
+        "name": "病院･クリニック･歯医者･医療･薬"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "green",
+        "name": "グリーン･イエローグリーン･緑色"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "neutral-color",
+        "name": "中性色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      },
+      {
+        "slug": "friendly-color",
+        "name": "やさしい･やわらかい配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "security",
+    "name": "防犯カメラ・セキュリティシステムの導入なら株式会社セキュリティ【セキュリティハウス姫路】",
+    "url": "https://security-himeji.jp/",
+    "industry": "コーポレートサイト／ブランドサイト･サービスサイト／ビルメンテナンス･清掃･警備",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#003894",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 56.9
+      },
+      {
+        "hex": "#003894",
+        "pct": 14.8
+      },
+      {
+        "hex": "#e6ecec",
+        "pct": 10.3
+      },
+      {
+        "hex": "#c3c7ca",
+        "pct": 3.4
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "maintenance",
+        "name": "ビルメンテナンス･清掃･警備"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "cute",
+        "name": "かわいい"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "elaborate",
+        "name": "遊び心がある･作り込まれている"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "form",
+        "name": "図形を多用･幾何学モチーフ"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "illustration-move",
+        "name": "イラストが動く"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      },
+      {
+        "slug": "combination-color",
+        "name": "組み合わせが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "yadoriki",
+    "name": "旅館・ホテル・宿泊業の集客・経営支援なら株式会社宿力",
+    "url": "https://yado-riki.com/",
+    "industry": "コーポレートサイト／企画･開発･マーケティング･コンサルティング／オーソドックス",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#98794b",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 80.8
+      },
+      {
+        "hex": "#2f2d2d",
+        "pct": 9.7
+      },
+      {
+        "hex": "#98794b",
+        "pct": 2.3
+      },
+      {
+        "hex": "#0d0e0a",
+        "pct": 2
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "business-support",
+        "name": "企画･開発･マーケティング･コンサルティング"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "lottie",
+        "name": "Lottie"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "mujigoodprogram",
+    "name": "MUJI GOOD PROGRAM",
+    "url": "https://www.muji.com/jp/ja/service/goodprogram/",
+    "industry": "コンテンツページ／サービス･アプリ･ツール･SaaS／オーソドックス",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#7f0019",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 73.3
+      },
+      {
+        "hex": "#f2f1ed",
+        "pct": 22.5
+      }
+    ],
+    "cats": [
+      {
+        "slug": "contentpage",
+        "name": "コンテンツページ"
+      },
+      {
+        "slug": "service-application",
+        "name": "サービス･アプリ･ツール･SaaS"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "cute",
+        "name": "かわいい"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "typography",
+        "name": "魅力的な文字･タイポグラフィ"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "yorisoi",
+    "name": "ヨリソイ",
+    "url": "https://yado-riki.com/yorisoi/",
+    "industry": "ブランドサイト･サービスサイト／企画･開発･マーケティング･コンサルティング／オーソドックス",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#d94933",
+    "palette": [
+      {
+        "hex": "#fffbed",
+        "pct": 76
+      },
+      {
+        "hex": "#d94933",
+        "pct": 15.1
+      },
+      {
+        "hex": "#e7f2f3",
+        "pct": 5.6
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "business-support",
+        "name": "企画･開発･マーケティング･コンサルティング"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "typography",
+        "name": "魅力的な文字･タイポグラフィ"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "elaborate",
+        "name": "遊び心がある･作り込まれている"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "texture-handle",
+        "name": "質感･柄"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "impressive-move",
+        "name": "印象的･細やかな動き"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      },
+      {
+        "slug": "combination-color",
+        "name": "組み合わせが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "oricom",
+    "name": "株式会社オリコム ORICOM CO.,LTD.",
+    "url": "https://www.oricom.co.jp/",
+    "industry": "コーポレートサイト／デザイン･イラスト･写真･映像･制作／企画･開発･マーケティング･コンサルティング",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "モノトーン"
+    ],
+    "accent": "#d8a438",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 73.5
+      },
+      {
+        "hex": "#222222",
+        "pct": 20.2
+      },
+      {
+        "hex": "#d8a438",
+        "pct": 1.6
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "production-agency-portfolio",
+        "name": "デザイン･イラスト･写真･映像･制作"
+      },
+      {
+        "slug": "business-support",
+        "name": "企画･開発･マーケティング･コンサルティング"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "typography",
+        "name": "魅力的な文字･タイポグラフィ"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "impressive-move",
+        "name": "印象的･細やかな動き"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      }
+    ]
   }
 ]
