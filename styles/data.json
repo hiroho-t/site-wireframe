@@ -110,5 +110,255 @@
         "pct": 3.1
       }
     ]
+  },
+  {
+    "slug": "landsolution",
+    "name": "ランドソリューション株式会社",
+    "url": "https://www.landsolution.co.jp/",
+    "industry": "コーポレートサイト／BtoBのサイト／企画･開発･マーケティング･コンサルティング",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#508e64",
+    "palette": [
+      {
+        "hex": "#f5f8f3",
+        "pct": 66.2
+      },
+      {
+        "hex": "#e6e6de",
+        "pct": 19.4
+      },
+      {
+        "hex": "#508e64",
+        "pct": 4.6
+      },
+      {
+        "hex": "#c2e9ea",
+        "pct": 4.1
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "btob",
+        "name": "BtoBのサイト"
+      },
+      {
+        "slug": "business-support",
+        "name": "企画･開発･マーケティング･コンサルティング"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "texture-handle",
+        "name": "質感･柄"
+      },
+      {
+        "slug": "abstractgraphics",
+        "name": "抽象グラフィック"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "glass",
+        "name": "透け感･ガラス風･グラスモーフィズム"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "footer",
+        "name": "ステキなフッター"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "hover",
+        "name": "ホバー"
+      },
+      {
+        "slug": "lottie",
+        "name": "Lottie"
+      },
+      {
+        "slug": "green",
+        "name": "グリーン･イエローグリーン･緑色"
+      },
+      {
+        "slug": "neutral-color",
+        "name": "中性色"
+      },
+      {
+        "slug": "friendly-color",
+        "name": "やさしい･やわらかい配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "gifteegroup",
+    "name": "ギフティグループ株式会社",
+    "url": "https://giftee-group.com/",
+    "industry": "コーポレートサイト／Web･IT･XR･デジタル･テクノロジー／自社プロダクト･サービス運営",
+    "tags": [
+      "ゴシック",
+      "余白ひろい",
+      "角ばった",
+      "モノトーン"
+    ],
+    "accent": "#3f3f3f",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 86.8
+      },
+      {
+        "hex": "#3f3f3f",
+        "pct": 8.2
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "computer-web",
+        "name": "Web･IT･XR･デジタル･テクノロジー"
+      },
+      {
+        "slug": "product-service",
+        "name": "自社プロダクト･サービス運営"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "thin-headings",
+        "name": "見出し細め"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "layered",
+        "name": "重なり感･レイヤー感"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "inbound-multilingual",
+        "name": "多言語対応"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "colorchange",
+        "name": "アクセス･遷移･日時に応じて変化"
+      },
+      {
+        "slug": "react-nextjs",
+        "name": "React / Next.js"
+      },
+      {
+        "slug": "astro",
+        "name": "Astro"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      }
+    ]
   }
 ]
