@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>横浜 造園土木施工管理 のスタイル｜Claude Code用のデザイン参考集</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#fff; --ink:#141414; --sub:#767676; --line:#e6e4e2; --field:#f4f3f1; --r:6px }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .top{position:sticky;top:0;z-index:15;display:flex;align-items:center;padding:18px 32px;
+    border-bottom:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
+  .top a{font-size:19px;font-weight:700;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+
+  /* 右下に追従するカテゴリーボタン（押すと一覧をその分類で開く） */
+  .menubtn{position:fixed;right:24px;bottom:24px;z-index:30;width:56px;height:56px;border-radius:50%;
+    border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center}
+  .menubtn span,.menubtn span::before,.menubtn span::after{display:block;width:20px;height:1.5px;background:#fff;position:relative}
+  .menubtn span::before,.menubtn span::after{content:"";position:absolute;left:0}
+  .menubtn span::before{top:-6px} .menubtn span::after{top:6px}
+  .menubtn[aria-expanded=true] span{background:transparent}
+  .menubtn[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}
+  .menubtn[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+  .catnav{position:fixed;top:0;right:0;bottom:0;z-index:25;width:min(320px,86vw);
+    display:flex;flex-direction:column;background:#fff;border-left:1px solid var(--line)}
+  .catnav[hidden]{display:none}
+  .catnav__h{padding:20px 20px 14px;font-size:12px;font-weight:700;letter-spacing:.1em;border-bottom:1px solid var(--line)}
+  .catnav__list{overflow:auto;padding:8px 8px 104px}
+  .catnav__list a{display:flex;width:100%;gap:8px;align-items:baseline;font-size:13px;
+    padding:7px 10px;border-radius:var(--r);color:var(--ink);text-decoration:none;line-height:1.6}
+  .catnav__list a:hover{background:var(--field)}
+  .catnav__list b{margin-left:auto;font-weight:400;font-size:11px;color:var(--sub)}
+  .catnav__g{margin:18px 10px 6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--sub);
+    border-top:1px solid var(--line);padding-top:14px}
+  .catnav__g:first-of-type{border-top:0;margin-top:8px;padding-top:0}
+
+  .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;padding:32px;align-items:start}
+  section{padding:28px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0;padding-top:0}
+  h2{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sub);margin-bottom:18px}
+  h1{font-size:24px;font-weight:700;line-height:1.5}
+  .lead{margin-top:10px;font-size:14px;color:var(--sub);max-width:640px}
+  .shot{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:22px}
+  .shot img{width:100%;display:block}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tags span{font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+  .src{margin-top:16px}
+  .src a{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;font-size:13px;
+    border:1px solid var(--line);border-radius:var(--r);text-decoration:none;color:var(--ink)}
+  .src a:hover{background:var(--field)}
+  .src svg{width:14px;height:14px;fill:currentColor;flex:none}
+  .src span{color:var(--sub);font-size:11px}
+
+  .ratio{display:flex;height:40px;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:20px}
+  .ratio i{box-shadow:1px 0 0 var(--line) inset} .ratio i:first-child{box-shadow:none}
+  .colors{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .c{display:flex;gap:12px;border:1px solid var(--line);border-radius:8px;padding:12px}
+  .chip{flex:0 0 44px;height:44px;border-radius:6px;border:1px solid var(--line)}
+  .crole{font-size:12px;font-weight:700;line-height:1.6;display:flex;gap:8px;align-items:baseline}
+  .crole span{font-weight:400;color:var(--sub);font-size:11px}
+  .hex{font:inherit;font-size:12px;font-family:ui-monospace,Menlo,monospace;background:var(--field);
+    border:0;border-radius:4px;padding:1px 7px;cursor:pointer;color:var(--ink);margin:2px 0}
+  .hex:hover{background:#e8e6e3}
+  .cuse{font-size:11px;color:var(--sub);line-height:1.7}
+
+  .fonts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:24px}
+  .fonts div{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .fonts p{font-size:11px;color:var(--sub);letter-spacing:.1em}
+  .fonts strong{display:block;font-size:14px;margin-top:4px;line-height:1.6}
+  .fonts em{font-style:normal;font-size:11px;color:var(--sub)}
+  .sp{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .sp:last-child{border-bottom:0}
+  .spmeta{font-size:11px;color:var(--sub);display:flex;gap:10px;margin-bottom:2px}
+  .spdemo{font-family:"Noto Sans JP","Noto Sans JP",sans-serif;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-weight:500;color:var(--sub);width:180px;vertical-align:top;padding:12px 0}
+  td{padding:12px 0;vertical-align:top} td:first-of-type{width:220px}
+  tr+tr th,tr+tr td{border-top:1px solid var(--line)}
+  .pv span{display:block;background:var(--ink);height:3px}
+  .pv.gaps{display:flex;gap:6px;align-items:center}
+  .pv.gaps span{height:20px;background:var(--field);border:1px solid var(--line)}
+  .pv b{display:inline-block;width:56px;height:36px;border:1px solid var(--ink);margin-right:8px}
+
+  .btnrow{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px;border-radius:8px;margin-bottom:10px}
+  .btnrow:last-child{margin-bottom:0}
+  .btnrow .demo{display:inline-flex;align-items:center;justify-content:center;font-family:inherit}
+  .btnrow code{font-size:11px;font-family:ui-monospace,Menlo,monospace;color:inherit}
+
+  aside{position:sticky;top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ahead{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);align-items:center}
+  .ahead p{font-size:12px;font-weight:700;flex:1}
+  .ahead button,.ahead a{height:32px;padding:0 12px;display:inline-flex;align-items:center;font:inherit;font-size:11px;
+    font-weight:700;border-radius:var(--r);cursor:pointer;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:#fff}
+  .ahead a{background:transparent;color:var(--ink);border-color:var(--line);font-weight:500}
+  .ahead button.done{background:#fff;color:var(--ink)}
+  pre{margin:0;padding:14px;max-height:62vh;overflow:auto;font-size:11px;line-height:1.8;
+    font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#333}
+
+  .sub{font-size:12px;font-weight:700;margin:26px 0 8px}
+  .usage th{width:auto;display:flex;align-items:center;gap:8px;color:var(--ink)}
+  .usage th i{width:14px;height:14px;border-radius:3px;border:1px solid var(--line);flex:none}
+  .usage td{width:auto;text-align:right;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+  .usage tr:first-child td,.usage tr:first-child th{color:var(--sub);font-size:11px;font-weight:400}
+  .note{font-size:12px;color:var(--sub);margin:12px 0}
+  .note code{font-family:ui-monospace,Menlo,monospace;font-size:11px}
+  .secs{display:flex;flex-direction:column;gap:3px}
+  .sec{display:flex;align-items:center;gap:12px;padding:0 14px;border-radius:4px;font-size:12px;overflow:hidden}
+  .secno{opacity:.6;font-size:11px;width:16px;flex:none}
+  .secname{font-weight:700}
+  .sech{margin-left:auto;opacity:.65;font-size:11px;font-family:ui-monospace,Menlo,monospace}
+  .stage{padding:28px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+  .carddemo{width:min(320px,100%);display:flex;flex-direction:column;gap:10px}
+  .carddemo i{display:block;height:8px;border-radius:2px}
+  .chipdemo{display:inline-flex;align-items:center;justify-content:center;line-height:1.6}
+  .imgs{display:flex;gap:16px;flex-wrap:wrap}
+  .imgs div{width:150px}
+  .imgs span{display:block;width:100%;background:var(--field);border:1px solid var(--line)}
+  .imgs em{display:block;font-style:normal;font-size:11px;color:var(--sub);margin-top:6px}
+
+  footer{border-top:1px solid var(--line);padding:28px 32px 56px;font-size:12px;color:var(--sub)}
+  footer p{max-width:720px} footer a{color:var(--ink)}
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr;gap:28px;padding:24px 20px}
+    aside{position:static} .top,footer{padding-left:20px;padding-right:20px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top"><a href="../index.html">Claude Code用のデザイン参考集</a></nav>
+
+<div class="wrap">
+<main>
+  <section>
+    <a class="shot" href="https://www.ishii-zouen.co.jp/" target="_blank" rel="noopener"><img src="../shot/ishiizouen.jpg" alt="横浜 造園土木施工管理 のトップページ"></a>
+    <h1>横浜 造園土木施工管理</h1>
+    <p class="lead">白地に #f7edde を大きな面で置く配色。影を使って浮かせる。本文 16px・行間 2、セクション間 92px。</p>
+    <div class="tags"><span>ゴシック</span><span>余白ふつう</span><span>角ばった</span><span>色つき</span><span>コーポレートサイト／建築･住宅･不動産･空間設計･エクステリア／レスポンシブ</span></div>
+    <p class="src"><a href="https://www.ishii-zouen.co.jp/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7h-1.5V5.56L5.06 12 4 10.94 10.44 4.5H6V3Z"/><path d="M3 5h2v1.5H4.5v5H10V11h1.5v2H3V5Z"/></svg>www.ishii-zouen.co.jp<span>参考サイトを開く</span></a></p>
+  </section>
+
+  <section>
+    <h2>配色</h2>
+    <div class="ratio"><i style="background:#ffffff;flex:69.7"></i><i style="background:#f7edde;flex:18"></i><i style="background:#d7e6f3;flex:2.2"></i><i style="background:#69684c;flex:1.5"></i><i style="background:#718875;flex:1.5"></i><i style="background:#b1b2ad;flex:1.5"></i></div>
+    <div class="colors"><div class="c">
+      <div class="chip" style="background:#ffffff"></div>
+      <div class="cmeta">
+        <p class="crole">地<span>69.7%</span></p>
+        <button class="hex" data-copy="#ffffff">#ffffff</button>
+        <p class="cuse">ページ全体の下地</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#f7edde"></div>
+      <div class="cmeta">
+        <p class="crole">主色<span>18%</span></p>
+        <button class="hex" data-copy="#f7edde">#f7edde</button>
+        <p class="cuse">面で置く色。ボタンや線だけに使うと別物になる</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#d7e6f3"></div>
+      <div class="cmeta">
+        <p class="crole">副色<span>2.2%</span></p>
+        <button class="hex" data-copy="#d7e6f3">#d7e6f3</button>
+        <p class="cuse">主色を受ける面。区切りや帯に</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#69684c"></div>
+      <div class="cmeta">
+        <p class="crole">差し色<span>1.5%</span></p>
+        <button class="hex" data-copy="#69684c">#69684c</button>
+        <p class="cuse">部分的なアクセント</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#718875"></div>
+      <div class="cmeta">
+        <p class="crole">差し色<span>1.5%</span></p>
+        <button class="hex" data-copy="#718875">#718875</button>
+        <p class="cuse">部分的なアクセント</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#b1b2ad"></div>
+      <div class="cmeta">
+        <p class="crole">差し色<span>1.5%</span></p>
+        <button class="hex" data-copy="#b1b2ad">#b1b2ad</button>
+        <p class="cuse">部分的なアクセント</p>
+      </div>
+    </div></div>
+    <p class="cuse" style="margin-top:14px">文字色は <code>#000000</code> / <code>#ffffff</code> / <code>#118856</code> / <code>#846c1d</code>。</p>
+    <h3 class="sub">どこに使っているか（箇所数）</h3>
+    <table class="usage">
+      <tr><th>色</th><td>面</td><td>文字</td><td>枠線</td><td>ボタンの地</td></tr>
+      <tr><th><i style="background:#f7edde"></i><code>#f7edde</code></th>
+        <td>5</td><td>0</td><td>0</td><td>0</td></tr><tr><th><i style="background:#9cda91"></i><code>#9cda91</code></th>
+        <td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><th><i style="background:#ffffff"></i><code>#ffffff</code></th>
+        <td>14</td><td>7</td><td>0</td><td>0</td></tr><tr><th><i style="background:#118856"></i><code>#118856</code></th>
+        <td>5</td><td>6</td><td>0</td><td>3</td></tr><tr><th><i style="background:#000000"></i><code>#000000</code></th>
+        <td>0</td><td>65</td><td>0</td><td>0</td></tr><tr><th><i style="background:#846c1d"></i><code>#846c1d</code></th>
+        <td>0</td><td>2</td><td>0</td><td>0</td></tr>
+    </table>
+    <p class="note"><code>#f7edde</code> は面として5箇所、文字として0箇所。塗りが主役。ボタンの地には使っていない。</p>
+  </section>
+
+  <section>
+    <h2>文字</h2>
+    <div class="fonts">
+      <div><p>和文</p><strong>YakuHanJP</strong></div>
+      <div><p>欧文</p><strong>YakuHanJP</strong></div>
+      <div><p>本文</p><strong>16px / 行間 2</strong><em>この見本は Noto Sans JP で表示しています</em></div>
+    </div>
+    <div class="sp">
+      <p class="spmeta">大見出し<span>39px / 行間 1</span></p>
+      <p class="spdemo" style="font-size:39px;line-height:1">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">見出し<span>34px</span></p>
+      <p class="spdemo" style="font-size:34px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">小見出し<span>23px</span></p>
+      <p class="spdemo" style="font-size:23px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">リード<span>19px</span></p>
+      <p class="spdemo" style="font-size:19px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">リード<span>18px</span></p>
+      <p class="spdemo" style="font-size:18px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">リード<span>17px</span></p>
+      <p class="spdemo" style="font-size:17px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">本文<span>16px / 行間 2</span></p>
+      <p class="spdemo" style="font-size:16px;line-height:2">あのイーハトーヴォのすきとおった風</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>余白とかたち</h2>
+    <table><tr><th>コンテンツ幅</th><td>876px</td><td class="pvcell"><div class="pv"><span style="width:100%;max-width:219px"></span></div></td></tr><tr><th>読ませる段の幅</th><td>1192px</td><td class="pvcell"><div class="pv"><span style="width:260px"></span></div></td></tr><tr><th>セクションの上下余白</th><td>92px</td><td class="pvcell"><div class="pv"><span style="height:92px;width:3px"></span></div></td></tr><tr><th>並びの間隔</th><td>11 / 16px</td><td class="pvcell"><div class="pv gaps"><span style="width:11px"></span><span style="width:16px"></span></div></td></tr><tr><th>角丸</th><td>0px（大きな面は 8px）</td><td class="pvcell"><div class="pv"><b style="border-radius:0px"></b><b style="border-radius:8px"></b></div></td></tr><tr><th>影</th><td>rgba(0, 0, 0, 0.3) 0px 3px 7px 0px</td><td class="pvcell"><div class="pv"><b style="box-shadow:rgba(0, 0, 0, 0.3) 0px 3px 7px 0px;border-color:transparent"></b></div></td></tr><tr><th>画面幅の切り替え</th><td>950 / 949 / 782 / 781 / 600px</td><td class="pvcell"></td></tr></table>
+  </section>
+
+  <section>
+    <h2>ボタン</h2>
+    <div class="btnrow" style="background:#f7edde;color:rgba(255,255,255,.72)">
+      <span class="demo" style="background:#118856;color:#ffffff;border-radius:100px;padding:2px 10px;min-height:27px;font-size:14px;font-weight:400;letter-spacing:0">お問い合わせ</span>
+      <code>#118856 / 14px / 400 / 角丸 100px</code>
+    </div><div class="btnrow" style="background:#f7edde;color:rgba(255,255,255,.72)">
+      <span class="demo" style="background:#228bcc;color:#ffffff;border-radius:100px;padding:2px 10px;min-height:27px;font-size:14px;font-weight:400;letter-spacing:0">もっと見る</span>
+      <code>#228bcc / 14px / 400 / 角丸 100px</code>
+    </div><div class="btnrow" style="background:#f7edde;color:rgba(255,255,255,.72)">
+      <span class="demo" style="background:#afa91c;color:#ffffff;border-radius:100px;padding:2px 10px;min-height:27px;font-size:14px;font-weight:400;letter-spacing:0">もっと見る</span>
+      <code>#afa91c / 14px / 400 / 角丸 100px</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>ページの組み立て</h2>
+    <p class="note">上から順に、実際に並んでいたセクション。高さの比率もそのまま。</p>
+    <div class="secs"><div class="sec" style="height:50px;background:#f7edde;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">1</span>
+        <span class="secname">ヒーロー（画像）</span>
+        <span class="sech">900px ・ #f7edde</span>
+      </div><div class="sec" style="height:30px;background:#f7edde;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">2</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">540px ・ #f7edde</span>
+      </div><div class="sec" style="height:39px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">3</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">700px</span>
+      </div><div class="sec" style="height:54px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">4</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">980px</span>
+      </div><div class="sec" style="height:57px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">5</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">1020px</span>
+      </div><div class="sec" style="height:26px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">6</span>
+        <span class="secname">1カラム・文字だけ</span>
+        <span class="sech">380px</span>
+      </div><div class="sec" style="height:39px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">7</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">700px</span>
+      </div><div class="sec" style="height:88px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">8</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">1580px</span>
+      </div><div class="sec" style="height:66px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">9</span>
+        <span class="secname">2カラム・画像あり</span>
+        <span class="sech">1180px</span>
+      </div></div>
+    <p class="note">全9セクション、すべて全幅。</p>
+    <h3 class="sub">面と、その上に置く線・文字</h3>
+    <table class="usage">
+      <tr><th>面</th><td>使用箇所</td><td>線と文字</td></tr>
+      <tr>
+        <th><i style="background:#f7edde"></i><code>#f7edde</code></th>
+        <td>5</td>
+        <td><i style="background:#f7edde;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#f7edde</code></td>
+      </tr><tr>
+        <th><i style="background:#ffffff"></i><code>#ffffff</code></th>
+        <td>2</td>
+        <td><i style="background:#f7edde;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#f7edde</code></td>
+      </tr><tr>
+        <th><i style="background:#9cda91"></i><code>#9cda91</code></th>
+        <td>1</td>
+        <td><i style="background:#f7edde;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#f7edde</code></td>
+      </tr>
+    </table>
+    <p class="note">線と文字の色は固定ではなく、乗っている面で入れ替える。</p>
+  </section>
+
+  <section>
+    <h2>部品</h2>
+    <p class="note">囲みらしい繰り返しの箱はなかった。枠で囲まず、余白だけで区切っている。</p>
+    <p class="note">角丸は 0px だが、完全な円は別扱いで 2 箇所（64px×2）。角を丸めないことと、円のモチーフは両立する。</p>
+    <div class="stage" style="background:#fff">
+        <span class="chipdemo" style="background:#118856;color:#ffffff;border-radius:999px;
+          padding:2px 10px;font-size:14px;">タグ</span>
+      </div>
+      <p class="note">角丸 999px ／ 14px</p>
+  </section>
+
+  <section>
+    <h2>PCとスマホ</h2>
+    <p class="note">同じサイトを390px幅で測り直した値。</p>
+    <table>
+      <tr><th></th><td>PC 1440px</td><td>スマホ 390px</td></tr>
+      <tr><th>本文</th><td>16px / 行間 2</td><td>13px / 行間 1.6</td></tr>
+      <tr><th>見出し</th><td>39px</td><td>24px</td></tr>
+      <tr><th>セクションの上下余白</th><td>92px</td><td>60px</td></tr>
+      <tr><th>左右の余白</th><td>—</td><td>30px</td></tr>
+      <tr><th>並びの間隔</th><td>16px</td><td>5px</td></tr>
+    </table>
+    <p class="note">文字サイズの段は 16 / 15 / 14 / 13 / 12px。セクション余白はPCの65%まで詰める。</p>
+  </section>
+
+  <section>
+    <h2>画像</h2>
+    <div class="imgs"><div><span style="aspect-ratio:4/3;border-radius:0px"></span>
+        <em>4:3・55枚</em></div><div><span style="aspect-ratio:3/2;border-radius:0px"></span>
+        <em>3:2・24枚</em></div><div><span style="aspect-ratio:3/4;border-radius:0px"></span>
+        <em>3:4・19枚</em></div></div>
+    <p class="note">123枚。うち 20 枚は画面いっぱいに置く。角丸 0px。</p>
+  </section>
+</main>
+
+<aside>
+  <div class="ahead">
+    <p>DESIGN.md</p>
+    <button id="copy">mdをコピー</button>
+  </div>
+  <pre id="md"># 横浜 造園土木施工管理 ふうのデザイン
+
+- 出典: https://www.ishii-zouen.co.jp/
+- 実測: 2026-09-02／ブラウザ幅1440pxで実際に描かれた値を測ったもの
+- 印象: ゴシック / 余白ふつう / 角ばった / 色つき
+- 業種: コーポレートサイト／建築･住宅･不動産･空間設計･エクステリア／レスポンシブ
+
+白地に `#f7edde` を大きな面で置く配色。影を使って浮かせる。本文 16px・行間 2、セクション間 92px。
+
+このファイルに書いてあるのは色と寸法だけ。文言・写真・ロゴは真似せず、自分で用意すること。
+
+## そのまま使う変数
+
+```css
+:root{
+  --bg: #ffffff;
+  --main: #f7edde;
+  --sub: #d7e6f3;
+  --ink: #000000;
+  --ink-rev: #ffffff;
+  --on: #f7edde;   /* いま乗っている面の上で使う線と文字の色。面ごとに入れ替える */
+  --font-ja: &quot;YakuHanJP&quot;, sans-serif;
+  --font-en: &quot;YakuHanJP&quot;, sans-serif;
+  --fs-body: 16px;
+  --lh-body: 2;
+  --container: 876px;
+  --read: 1192px;
+  --section-y: 92px;
+  --gap: 16px;
+  --radius: 0px;
+}
+```
+
+## 配色
+
+| 役割 | 色 | 画面に占める割合 |
+|---|---|---|
+| 地 | `#ffffff` | 69.7% |
+| 主色 | `#f7edde` | 18% |
+| 副色 | `#d7e6f3` | 2.2% |
+| 差し色 | `#69684c` | 1.5% |
+| 差し色 | `#718875` | 1.5% |
+| 差し色 | `#b1b2ad` | 1.5% |
+
+文字色は `#000000` / `#ffffff` / `#118856` / `#846c1d`。
+
+- 主色 `#f7edde` は差し色ではなく**面**で使う。画面の18%を占めている。
+- 影は`rgba(0, 0, 0, 0.3) 0px 3px 7px 0px`。
+
+## 色の使い分け
+
+同じ色でも、面に使うのか文字に使うのかで印象が変わる。実際に数えた箇所数。
+
+| 色 | 面 | 文字 | 枠線 | ボタンの地 |
+|---|---|---|---|---|
+| `#f7edde` | 5 | 0 | 0 | 0 |
+| `#9cda91` | 1 | 0 | 0 | 0 |
+| `#ffffff` | 14 | 7 | 0 | 0 |
+| `#118856` | 5 | 6 | 0 | 3 |
+| `#000000` | 0 | 65 | 0 | 0 |
+| `#846c1d` | 0 | 2 | 0 | 0 |
+
+- `#f7edde` は面として5箇所、文字として0箇所。塗りが主役。ボタンの地には使っていない。
+
+## 面と線の関係
+
+線・文字・囲みの色は固定ではない。**乗っている面によって入れ替える。**
+
+| 面 | その上に置く線と文字 |
+|---|---|
+| `#f7edde`（主色） | `#f7edde` |
+| `#ffffff`（地） | `#f7edde` |
+| `#9cda91` | `#f7edde` |
+
+```css
+.section{ --on:#f7edde }                     /* 地の面 */
+.section--main{ background:var(--main); color:#ffffff; --on:#ffffff }
+.card{ border:1px solid var(--on) }
+.btn--fill{ background:var(--main); color:#ffffff }
+.section--main .btn--fill{ background:#ffffff; color:var(--main) }   /* 主色の面では反転 */
+```
+
+## 文字
+
+- 和文: YakuHanJP
+- 欧文: YakuHanJP
+- ウェイトは 700 が中心。太さで強弱をつけず、大きさで差をつける。
+
+| 用途 | サイズ | 行間 |
+|---|---|---|
+| 大見出し | 39px | 1 |
+| 見出し | 34px | — |
+| 小見出し | 23px | — |
+| リード | 19px | — |
+| リード | 18px | — |
+| リード | 17px | — |
+| 本文 | 16px | 2 |
+
+- 本文は 16px・行間 2。日本語をゆったり組むのがこのサイトの要。詰めると別物になる。
+
+## レイアウト
+
+- コンテンツ幅: 最大 876px／読ませる段は 1192px
+- セクションの上下余白: 92 / 112 / 40 / 224px（基本は 92px）
+- 並びの間隔: 11 / 16px
+- 角丸: 0px が基本。大きな面だけ 8px。中途半端な角丸を混ぜない
+- 画面幅の切り替え: 950 / 949 / 782 / 781 / 600px
+
+## スマホ（390px）
+
+同じサイトを390px幅で測り直した値。
+
+| | PC 1440px | スマホ 390px |
+|---|---|---|
+| 本文 | 16px / 行間 2 | 13px / 行間 1.6 |
+| 見出し | 39px | 24px / 行間 1.6 |
+| セクションの上下余白 | 92px | 60px |
+| 左右の余白 | — | 30px |
+| 並びの間隔 | 16px | 5px |
+
+- 本文は 16px → 13px、セクション余白は 92px → 60px（PCの65%）。
+- 文字サイズの段は 16 / 15 / 14 / 13 / 12px。
+
+## ボタン
+
+```css
+.btn{
+  background: #118856; color: #ffffff;
+  border-radius: 100px; padding: 2px 10px; min-height: 27px;
+  font-size: 14px; font-weight: 400; letter-spacing: 0;
+}
+.btn-sub{
+  background: #228bcc; color: #ffffff;
+  border-radius: 100px; padding: 2px 10px; min-height: 27px;
+  font-size: 14px; font-weight: 400; letter-spacing: 0;
+}
+.btn-sub{
+  background: #afa91c; color: #ffffff;
+  border-radius: 100px; padding: 2px 10px; min-height: 27px;
+  font-size: 14px; font-weight: 400; letter-spacing: 0;
+}
+```
+
+## ページの組み立て
+
+上から順に、実際に並んでいたセクション。
+
+| # | 高さ | 地色 | 中身 | 見出し | 画像 |
+|---|---|---|---|---|---|
+| 1 | 900px | `#f7edde` | ヒーロー（画像） | — | 全幅 |
+| 2 | 540px | `#f7edde` | 1カラム・画像あり | — | 全面 |
+| 3 | 700px | — | 1カラム・画像あり | — | 全面 |
+| 4 | 980px | — | 1カラム・画像あり | 中央 | 見出しの下 |
+| 5 | 1020px | — | 1カラム・画像あり | 中央 | 見出しの下 |
+| 6 | 380px | — | 1カラム・文字だけ | 左 | — |
+| 7 | 700px | — | 1カラム・画像あり | — | 全幅 |
+| 8 | 1580px | — | 1カラム・画像あり | — | 全面 |
+| 9 | 1180px | — | 2カラム・画像あり | — | — |
+
+- 全9セクション、すべて全幅。中央に寄せた箱を積むのではなく、色面を全幅で切り替えながら進む。
+- 主色 `#f7edde` の面が 5 箇所。地色と主色の面を交互に置くのがリズムのつくり方。
+- 使われている面の色: `#f7edde`（5） / `#ffffff`（2） / `#9cda91`（1）
+- 見出しは左1／中央2。
+
+
+## 部品
+
+囲みらしい繰り返しの箱は見つからなかった。枠で囲まずに余白だけで区切っている。
+
+ラベル・タグ
+
+```css
+.chip{
+  background: #118856; color: #ffffff;
+  border-radius: 999px; padding: 2px 10px; font-size: 14px;
+}
+```
+
+## 丸いもの
+
+角丸は 0px だが、**完全な円は別扱い**で 2 箇所ある（64px×2）。
+アイコンの地・点・装飾に使う。角を丸めないルールと、円のモチーフは両立する。
+
+## 画像
+
+- 123枚使っている。うち 20 枚は画面いっぱいに置く
+- 比率は 4:3（55枚）、3:2（24枚）、3:4（19枚）
+- 角丸 0px。切り抜かず四角のまま置く
+
+## すぐ使う骨格
+
+上の `:root` と合わせて、これをそのまま置けば土台になる。
+
+```css
+body{ background:var(--bg); color:var(--ink);
+  font-family:var(--font-ja); font-size:var(--fs-body); line-height:var(--lh-body) }
+
+.section{ padding:var(--section-y) 0; --on:#f7edde }
+.container{ width:min(100% - 60px, var(--container)); margin-inline:auto }
+.read{ max-width:var(--read) }
+
+.hero{ min-height:900px; display:grid; align-content:center }
+.section--main{ background:var(--main); color:#ffffff; --on:#ffffff }
+.section--main .btn--fill{ background:#ffffff; color:var(--main) }
+.btn{ display:inline-flex; align-items:center; justify-content:center;
+  background:#118856; color:#ffffff; border-radius:100px;
+  padding:2px 10px; min-height:27px;
+  font-size:14px; font-weight:400 }
+
+img{ width:100%; height:auto; border-radius:0px; aspect-ratio:4/3; object-fit:cover }
+
+@media (max-width:782px){
+  :root{ --fs-body:13px; --section-y:60px; --gap:5px; }
+  .container{ width:calc(100% - 60px) }
+}
+```
+
+## 守ること
+
+やること
+
+- 地色と主色 `#f7edde` の面を全幅で交互に置く。主色は画面の18%を占めるだけ使う。
+- 余白 92px と行間 2 を先に決めてから中身を入れる。
+- 画像は 4:3 に統一し、角丸は 0px。
+- 線と文字の色は面ごとに入れ替える（`--on` を面のクラスで上書きする）。固定色で書かない。
+
+やらないこと
+
+- 指定以外の影を足さない。
+- 主色を線やボタンだけの差し色に使わない。面で使わないと別物になる。
+- 本文の行間を 2 より詰めない。角を丸めない。
+- 中途半端な角丸（0px と 8px 以外）を混ぜない。完全な円は別枠なので、消さなくてよい。
+</pre>
+</aside>
+</div>
+
+
+<button class="menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="catnav" aria-label="カテゴリーを開く"><span></span></button>
+<nav class="catnav" id="catnav" aria-label="カテゴリー" hidden>
+  <p class="catnav__h">カテゴリー</p>
+  <div class="catnav__list" id="catlist"></div>
+</nav>
+
+<footer>
+  <p>スクリーンショットの掲載を希望されない場合はご連絡ください、確認のうえ削除します。</p>
+  <p class="foot-meta"><span>© StartWith Inc.</span><a href="https://startwith.org/" target="_blank" rel="noopener">運営会社</a></p>
+</footer>
+
+<script>
+const flash = (el, msg) => { const b = el.textContent; el.textContent = msg; el.classList.add('done');
+  setTimeout(() => { el.textContent = b; el.classList.remove('done'); }, 1500); };
+document.getElementById('copy').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(document.getElementById('md').textContent); flash(e.target, 'コピーしました'); }
+  catch { flash(e.target, 'コピーできません'); }
+});
+document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(b.dataset.copy); flash(b, 'コピー'); } catch {}
+}));
+</script>
+
+<script>
+// 一覧と同じ分類を出す。押すと一覧をその分類で開く。
+(async () => {
+  const KEEP_GROUPS = ['タイプ', '業種･ジャンル', '色･配色', '書体'];
+  const KEEP_SLUGS = new Set(['jumprate','responsive','1column','2column','bold-headings','thin-headings','whitespace','dividers','card-list']);
+  const TAG_GROUP = '特徴･スタイル';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const menubtn = document.getElementById('menubtn'), catnav = document.getElementById('catnav'), catlist = document.getElementById('catlist');
+  const openNav = on => { menubtn.setAttribute('aria-expanded', on); catnav.hidden = !on; };
+  menubtn.addEventListener('click', () => openNav(menubtn.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') openNav(false); });
+  document.addEventListener('click', e => {
+    if (catnav.hidden) return;
+    if (!catnav.contains(e.target) && !menubtn.contains(e.target)) openNav(false);
+  });
+  try {
+    const [items, CATS, GROUPS] = await Promise.all([
+      fetch('../data.json').then(r => r.json()),
+      fetch('../categories.json').then(r => r.json()).catch(() => ({})),
+      fetch('../groups.json').then(r => r.json()).catch(() => []),
+    ]);
+    const shown = c => KEEP_GROUPS.includes(CATS[c.slug]?.group) || KEEP_SLUGS.has(c.slug);
+    const n = {};
+    for (const x of items) {
+      for (const c of (x.cats || []).filter(shown)) (n[c.slug] ||= { name: c.name, n: 0, g: CATS[c.slug]?.group, o: CATS[c.slug]?.order }).n++;
+      for (const t of x.tags || []) (n['tag:' + t] ||= { name: t, n: 0, g: TAG_GROUP, o: -1 }).n++;
+    }
+    const bucket = {};
+    for (const [slug, c] of Object.entries(n)) (bucket[c.g || 'その他'] ||= []).push({ slug, ...c, o: c.o ?? 9999 });
+    const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i);
+    catlist.innerHTML = `<a href="../index.html">すべて<b>${items.length}</b></a>`
+      + order.filter(g => bucket[g]?.length).map(g => `<p class="catnav__g">${esc(g)}</p>`
+        + bucket[g].sort((a, b) => a.o - b.o || b.n - a.n)
+          .map(c => `<a href="../index.html#c=${encodeURIComponent(c.slug)}">${esc(c.name)}<b>${c.n}</b></a>`).join('')).join('');
+  } catch (e) { catlist.innerHTML = '<p class="catnav__g">読み込めませんでした</p>'; }
+})();
+</script>
+</body>
+</html>

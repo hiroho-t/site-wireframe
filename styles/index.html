@@ -148,7 +148,11 @@ Promise.all([
   fetch(BASE + 'data.json').then(r => r.json()),
   fetch(BASE + 'categories.json').then(r => r.json()).catch(() => ({})),
   fetch(BASE + 'groups.json').then(r => r.json()).catch(() => []),
-]).then(([d, c, g]) => { items = d; CATS = c; GROUPS = g; fillCats(); render(); })
+]).then(([d, c, g]) => {
+  items = d; CATS = c; GROUPS = g; fillCats();
+  const m = /^#c=(.+)$/.exec(location.hash);
+  if (m) pick(decodeURIComponent(m[1])); else render();
+})
   .catch(() => { grid.innerHTML = '<p class="empty">data.json が読めません。file:// ではなく簡易サーバー経由で開いてください。</p>'; });
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));

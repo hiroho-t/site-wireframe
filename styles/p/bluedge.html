@@ -11,8 +11,32 @@
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  .top{padding:20px 32px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}
-  .top a{text-decoration:none} .top a:hover{text-decoration:underline}
+  .top{position:sticky;top:0;z-index:15;display:flex;align-items:center;padding:18px 32px;
+    border-bottom:1px solid var(--line);background:rgba(255,255,255,.92);backdrop-filter:blur(8px)}
+  .top a{font-size:19px;font-weight:700;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+
+  /* 右下に追従するカテゴリーボタン（押すと一覧をその分類で開く） */
+  .menubtn{position:fixed;right:24px;bottom:24px;z-index:30;width:56px;height:56px;border-radius:50%;
+    border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center}
+  .menubtn span,.menubtn span::before,.menubtn span::after{display:block;width:20px;height:1.5px;background:#fff;position:relative}
+  .menubtn span::before,.menubtn span::after{content:"";position:absolute;left:0}
+  .menubtn span::before{top:-6px} .menubtn span::after{top:6px}
+  .menubtn[aria-expanded=true] span{background:transparent}
+  .menubtn[aria-expanded=true] span::before{top:0;transform:rotate(45deg)}
+  .menubtn[aria-expanded=true] span::after{top:0;transform:rotate(-45deg)}
+  .catnav{position:fixed;top:0;right:0;bottom:0;z-index:25;width:min(320px,86vw);
+    display:flex;flex-direction:column;background:#fff;border-left:1px solid var(--line)}
+  .catnav[hidden]{display:none}
+  .catnav__h{padding:20px 20px 14px;font-size:12px;font-weight:700;letter-spacing:.1em;border-bottom:1px solid var(--line)}
+  .catnav__list{overflow:auto;padding:8px 8px 104px}
+  .catnav__list a{display:flex;width:100%;gap:8px;align-items:baseline;font-size:13px;
+    padding:7px 10px;border-radius:var(--r);color:var(--ink);text-decoration:none;line-height:1.6}
+  .catnav__list a:hover{background:var(--field)}
+  .catnav__list b{margin-left:auto;font-weight:400;font-size:11px;color:var(--sub)}
+  .catnav__g{margin:18px 10px 6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--sub);
+    border-top:1px solid var(--line);padding-top:14px}
+  .catnav__g:first-of-type{border-top:0;margin-top:8px;padding-top:0}
 
   .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;padding:32px;align-items:start}
   section{padding:28px 0;border-top:1px solid var(--line)}
@@ -108,7 +132,7 @@
 </head>
 <body>
 
-<nav class="top"><a href="../index.html">一覧</a> ／ bluedge</nav>
+<nav class="top"><a href="../index.html">Claude Code用のデザイン参考集</a></nav>
 
 <div class="wrap">
 <main>
@@ -323,7 +347,6 @@
   <div class="ahead">
     <p>DESIGN.md</p>
     <button id="copy">mdをコピー</button>
-    <a href="https://github.com/hiroho-t/jp-styles/blob/main/s/bluedge.md" target="_blank" rel="noopener">mdファイル</a>
   </div>
   <pre id="md"># bluedge ふうのデザイン
 
@@ -558,6 +581,13 @@ img{ width:100%; height:auto; border-radius:0px; aspect-ratio:3/2; object-fit:co
 </aside>
 </div>
 
+
+<button class="menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="catnav" aria-label="カテゴリーを開く"><span></span></button>
+<nav class="catnav" id="catnav" aria-label="カテゴリー" hidden>
+  <p class="catnav__h">カテゴリー</p>
+  <div class="catnav__list" id="catlist"></div>
+</nav>
+
 <footer>
   <p>スクリーンショットの掲載を希望されない場合はご連絡ください、確認のうえ削除します。</p>
   <p class="foot-meta"><span>© StartWith Inc.</span><a href="https://startwith.org/" target="_blank" rel="noopener">運営会社</a></p>
@@ -573,6 +603,44 @@ document.getElementById('copy').addEventListener('click', async e => {
 document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(b.dataset.copy); flash(b, 'コピー'); } catch {}
 }));
+</script>
+
+<script>
+// 一覧と同じ分類を出す。押すと一覧をその分類で開く。
+(async () => {
+  const KEEP_GROUPS = ['タイプ', '業種･ジャンル', '色･配色', '書体'];
+  const KEEP_SLUGS = new Set(['jumprate','responsive','1column','2column','bold-headings','thin-headings','whitespace','dividers','card-list']);
+  const TAG_GROUP = '特徴･スタイル';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const menubtn = document.getElementById('menubtn'), catnav = document.getElementById('catnav'), catlist = document.getElementById('catlist');
+  const openNav = on => { menubtn.setAttribute('aria-expanded', on); catnav.hidden = !on; };
+  menubtn.addEventListener('click', () => openNav(menubtn.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') openNav(false); });
+  document.addEventListener('click', e => {
+    if (catnav.hidden) return;
+    if (!catnav.contains(e.target) && !menubtn.contains(e.target)) openNav(false);
+  });
+  try {
+    const [items, CATS, GROUPS] = await Promise.all([
+      fetch('../data.json').then(r => r.json()),
+      fetch('../categories.json').then(r => r.json()).catch(() => ({})),
+      fetch('../groups.json').then(r => r.json()).catch(() => []),
+    ]);
+    const shown = c => KEEP_GROUPS.includes(CATS[c.slug]?.group) || KEEP_SLUGS.has(c.slug);
+    const n = {};
+    for (const x of items) {
+      for (const c of (x.cats || []).filter(shown)) (n[c.slug] ||= { name: c.name, n: 0, g: CATS[c.slug]?.group, o: CATS[c.slug]?.order }).n++;
+      for (const t of x.tags || []) (n['tag:' + t] ||= { name: t, n: 0, g: TAG_GROUP, o: -1 }).n++;
+    }
+    const bucket = {};
+    for (const [slug, c] of Object.entries(n)) (bucket[c.g || 'その他'] ||= []).push({ slug, ...c, o: c.o ?? 9999 });
+    const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i);
+    catlist.innerHTML = `<a href="../index.html">すべて<b>${items.length}</b></a>`
+      + order.filter(g => bucket[g]?.length).map(g => `<p class="catnav__g">${esc(g)}</p>`
+        + bucket[g].sort((a, b) => a.o - b.o || b.n - a.n)
+          .map(c => `<a href="../index.html#c=${encodeURIComponent(c.slug)}">${esc(c.name)}<b>${c.n}</b></a>`).join('')).join('');
+  } catch (e) { catlist.innerHTML = '<p class="catnav__g">読み込めませんでした</p>'; }
+})();
 </script>
 </body>
 </html>
