@@ -123,7 +123,7 @@ function pageFor(t) {
     font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#333}
   @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:24px 20px}aside{position:static}.top{padding:20px}}
 </style></head><body>
-<nav class="top"><a href="../${t.kind === 'page' ? 'index.html' : 'sections.html'}">一覧</a> ／ ${esc(t.id)}</nav>
+<nav class="top"><a href="../${t.kind === 'page' ? 'pages.html' : 'sections.html'}">一覧</a> ／ ${esc(t.id)}</nav>
 <div class="wrap">
 <main>
   <section>
@@ -216,7 +216,7 @@ function listPage({ title, intro, items, self, other }) {
 </style></head><body>
 <header>
   <h1>${esc(title)}</h1>
-  <p>${intro} ／ <a href="${self === 'index.html' ? 'sections.html' : 'index.html'}">${esc(other)}</a></p>
+  <p>${intro} ／ <a href="${self === 'pages.html' ? 'sections.html' : 'pages.html'}">${esc(other)}</a></p>
 </header>
 <div class="bar">
   <input id="q" type="search" placeholder="型番・種類・説明でしぼる" autocomplete="off">
@@ -291,10 +291,10 @@ for (const t of all) {
 const pages = all.filter(t => t.dir === 'page' && t.kind);
 const secs = all.filter(t => t.dir !== 'page' && t.kind);
 
-writeFileSync('index.html', listPage({
+writeFileSync('pages.html', listPage({
   title: 'ページ丸ごとの型',
   intro: '実在サイトのトップページを、白黒グレー・ダミーテキストのルールに整えた完成ページ。カードから<strong>レイアウトmdをコピー</strong>して Claude Code に貼れば、そのまま組み立ての指示になります',
-  items: pages, self: 'index.html', other: 'セクションの型を見る',
+  items: pages, self: 'pages.html', other: 'セクションの型を見る',
 }));
 writeFileSync('sections.html', listPage({
   title: 'セクションの型',
@@ -302,4 +302,4 @@ writeFileSync('sections.html', listPage({
   items: secs, self: 'sections.html', other: 'ページ丸ごとの型を見る',
 }));
 
-console.log(`s/*.md と p/*.html を ${n}件、index.html（${pages.length}）と sections.html（${secs.length}）を更新`);
+console.log(`s/*.md と p/*.html を ${n}件、pages.html（${pages.length}）と sections.html（${secs.length}）を更新`);

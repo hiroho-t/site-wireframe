@@ -1,6 +1,6 @@
 # site-wireframe
 
-**ページ丸ごとの型**（実在サイトをルール準拠に整えた完成ページ15枚）は [index.html](index.html)（トップページ）、増やし方は [PAGES.md](PAGES.md)。セクション単位の型167種と組み合わせて使う。
+**ページ丸ごとの型**（実在サイトをルール準拠に整えた完成ページ15枚）は [pages.html](pages.html)、増やし方は [PAGES.md](PAGES.md)。セクション単位の型167種と組み合わせて使う。
 
 Webサイトのセクション単位のワイヤーフレーム テンプレート集（Claude Code スキル）。
 
@@ -24,8 +24,8 @@ cd ~/.claude/skills/site-wireframe && git pull
 
 ## 一覧を見る
 
-- ローカル：`index.html`（ページ丸ごとの型）／`sections.html`（セクションの型167種）をブラウザで開く（サーバー不要）
-- Web：https://hiroho-t.github.io/site-wireframe/
+- ローカル：`pages.html`（ページ丸ごとの型）／`sections.html`（セクションの型167種）をブラウザで開く（サーバー不要）
+- Web：https://hiroho-t.github.io/site-wireframe/pages.html
 
 ## 収録
 
