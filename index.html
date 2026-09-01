@@ -44,7 +44,9 @@
   .sw i{min-width:6px;box-shadow:1px 0 0 var(--line) inset}
   .sw i:first-child{box-shadow:none}
   .tags{display:flex;flex-wrap:wrap;gap:5px}
-  .tags span{font-size:10.5px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:2px 8px;line-height:1.6}
+  .tags button{font:inherit;font-size:10.5px;color:var(--sub);border:1px solid var(--line);border-radius:99px;
+    padding:2px 8px;line-height:1.6;background:#fff;cursor:pointer}
+  .tags button:hover{background:var(--field);color:var(--ink)}
   .act{display:flex;gap:8px;margin-top:auto;padding-top:4px}
   .act button,.act a{flex:1;height:36px;display:flex;align-items:center;justify-content:center;gap:6px;
     font:inherit;font-size:12px;font-weight:700;letter-spacing:.04em;border-radius:var(--r);cursor:pointer;
@@ -130,7 +132,6 @@ let cat = '';
 // 動き・制作ツール・見た印象は観察していないので出さない。
 const KEEP_GROUPS = ['タイプ', '業種･ジャンル', '色･配色', '書体'];
 const KEEP_SLUGS = new Set([
-  'roundedcorners',   // 角丸 … 実測している
   'jumprate',         // 文字のジャンプ率 … 文字の段を実測している
   'responsive',       // レスポンシブ … 390pxでも測っている
   '1column', '2column',   // カラム数 … セクションの並びで数えている
@@ -140,6 +141,10 @@ const KEEP_SLUGS = new Set([
   'card-list',        // カード型UI … 囲みの繰り返しを検出している
 ]);
 const shown = c => KEEP_GROUPS.includes(CATS[c.slug]?.group) || KEEP_SLUGS.has(c.slug);
+// 実測から出している印象（ゴシック／余白ひろい／角丸／色つき など）も
+// 「特徴･スタイル」の分類として同じ列に並べる
+const TAG_GROUP = '特徴･スタイル';
+const tagKey = t => 'tag:' + t;
 
 let CATS = {}, GROUPS = [];
 Promise.all([
@@ -155,12 +160,14 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 // SANKOU! と同じ大分類（タイプ／業種･ジャンル／…）で並べる
 function fillCats() {
   const n = {};
-  for (const x of items) for (const c of (x.cats || []).filter(shown)) (n[c.slug] ||= { name: c.name, n: 0 }).n++;
+  for (const x of items) {
+    for (const c of (x.cats || []).filter(shown)) (n[c.slug] ||= { name: c.name, n: 0, g: CATS[c.slug]?.group, o: CATS[c.slug]?.order }).n++;
+    for (const t of x.tags || []) (n[tagKey(t)] ||= { name: t, n: 0, g: TAG_GROUP, o: -1 }).n++;
+  }
   const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i);
   const bucket = {};
   for (const [slug, c] of Object.entries(n)) {
-    const g = CATS[slug]?.group || 'その他';
-    (bucket[g] ||= []).push({ slug, ...c, o: CATS[slug]?.order ?? 9999 });
+    (bucket[c.g || 'その他'] ||= []).push({ slug, ...c, o: c.o ?? 9999 });
   }
   const btn = c => `<button data-c="${esc(c.slug)}" aria-pressed="false">${esc(c.name)}<b>${c.n}</b></button>`;
   catlist.innerHTML = `<button data-c="" aria-pressed="true">すべて<b>${items.length}</b></button>`
@@ -172,7 +179,9 @@ function fillCats() {
 function render() {
   const w = q.value.trim().toLowerCase();
   const hit = items.filter(x =>
-    (!cat || (x.cats || []).some(k => k.slug === cat)) &&
+    (!cat || (cat.startsWith('tag:')
+      ? (x.tags || []).includes(cat.slice(4))
+      : (x.cats || []).some(k => k.slug === cat))) &&
     (!w || [x.name, x.industry, ...(x.tags || []), ...(x.cats || []).filter(shown).map(k => k.name)]
       .join(' ').toLowerCase().includes(w)));
   empty.hidden = hit.length > 0;
@@ -187,7 +196,7 @@ function render() {
           <p class="meta">${esc(x.industry || '')}</p>
         </a>
         <div class="sw">${(x.palette || []).map(c => `<i style="background:${esc(c.hex)};flex:${c.pct}"></i>`).join('')}</div>
-        <div class="tags">${(x.tags || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
+        <div class="tags">${(x.tags || []).map(t => `<button data-c="${esc(tagKey(t))}">${esc(t)}</button>`).join('')}</div>
         <div class="act">
           <button data-slug="${esc(x.slug)}">mdをコピー</button>
         </div>
@@ -199,11 +208,14 @@ q.addEventListener('input', render);
 
 const openNav = on => { menubtn.setAttribute('aria-expanded', on); catnav.hidden = !on; };
 menubtn.addEventListener('click', () => openNav(menubtn.getAttribute('aria-expanded') !== 'true'));
+function pick(c) {
+  cat = c;
+  catlist.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x.dataset.c === c));
+  openNav(false); render(); scrollTo({ top: 0 });
+}
 catlist.addEventListener('click', e => {
   const b = e.target.closest('button[data-c]'); if (!b) return;
-  cat = b.dataset.c;
-  catlist.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
-  openNav(false); render(); scrollTo({ top: 0 });
+  pick(b.dataset.c);
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') openNav(false); });
 document.addEventListener('click', e => {
@@ -212,6 +224,12 @@ document.addEventListener('click', e => {
 });
 
 // カードのコピー：md の中身をそのままクリップボードへ（ファイルは作らない）
+grid.addEventListener('click', e => {
+  const t = e.target.closest('.tags button[data-c]');
+  if (!t) return;
+  pick(t.dataset.c);
+});
+
 grid.addEventListener('click', async e => {
   const b = e.target.closest('button[data-slug]');
   if (!b) return;
