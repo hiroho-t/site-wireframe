@@ -360,5 +360,1758 @@
         "name": "ホワイト･白色"
       }
     ]
+  },
+  {
+    "slug": "typography",
+    "name": "NPO法人 日本タイポグラフィ協会",
+    "url": "https://typography.or.jp/",
+    "industry": "コーポレートサイト／デザイン･イラスト･写真･映像･制作／地域･地方創生･政治･行政･自治体･NPO",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "モノトーン"
+    ],
+    "accent": "#fafafa",
+    "palette": [
+      {
+        "hex": "#fafafa",
+        "pct": 82.4
+      },
+      {
+        "hex": "#bbbbba",
+        "pct": 5.6
+      },
+      {
+        "hex": "#e3e3e3",
+        "pct": 4.3
+      },
+      {
+        "hex": "#a1a09f",
+        "pct": 3.6
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "production-agency-portfolio",
+        "name": "デザイン･イラスト･写真･映像･制作"
+      },
+      {
+        "slug": "charity-npo",
+        "name": "地域･地方創生･政治･行政･自治体･NPO"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "thin-headings",
+        "name": "見出し細め"
+      },
+      {
+        "slug": "fv",
+        "name": "ステキなファーストビュー･ヒーローセクション"
+      },
+      {
+        "slug": "card-list",
+        "name": "ステキなカード型UI･一覧デザイン"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "monotone-color",
+        "name": "白黒･モノトーンな配色"
+      }
+    ]
+  },
+  {
+    "slug": "beforward-recruit",
+    "name": "採用サイト",
+    "url": "https://corporate.beforward.jp/recruit/",
+    "industry": "採用サイト／製造業･工業･メーカー･商社･物流／車･乗り物･モビリティ",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#d45608",
+    "palette": [
+      {
+        "hex": "#d45608",
+        "pct": 78.3
+      },
+      {
+        "hex": "#ffffff",
+        "pct": 8.6
+      },
+      {
+        "hex": "#e07e35",
+        "pct": 2.4
+      },
+      {
+        "hex": "#f3ebe5",
+        "pct": 2.2
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "recruit",
+        "name": "採用サイト"
+      },
+      {
+        "slug": "life-infrastructure-industry",
+        "name": "製造業･工業･メーカー･商社･物流"
+      },
+      {
+        "slug": "car-bike-vehicle-airplane",
+        "name": "車･乗り物･モビリティ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "layered",
+        "name": "重なり感･レイヤー感"
+      },
+      {
+        "slug": "masking",
+        "name": "クリッピングマスク･マスキング"
+      },
+      {
+        "slug": "texture-handle",
+        "name": "質感･柄"
+      },
+      {
+        "slug": "watercolor-paints",
+        "name": "水彩･絵の具"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "color-block",
+        "name": "色面構成･ベタ塗り"
+      },
+      {
+        "slug": "speechbubble",
+        "name": "ふきだし･会話表現"
+      },
+      {
+        "slug": "fv",
+        "name": "ステキなファーストビュー･ヒーローセクション"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "numbers",
+        "name": "ステキな数字で見る･数値表現"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "orange",
+        "name": "オレンジ･橙色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "vivid-color",
+        "name": "強い･あざやかな配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "buyo",
+    "name": "和歌山市の整形外科",
+    "url": "https://buyo.jp/",
+    "industry": "ブランドサイト･サービスサイト／BtoCのサイト／病院･クリニック･歯医者･医療･薬",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#ff9f1c",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 54.5
+      },
+      {
+        "hex": "#ff9f1c",
+        "pct": 17.4
+      },
+      {
+        "hex": "#fff3e4",
+        "pct": 12.3
+      },
+      {
+        "hex": "#e6d5bc",
+        "pct": 5.2
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btoc",
+        "name": "BtoCのサイト"
+      },
+      {
+        "slug": "hospital-clinic-medicalcare-dentist",
+        "name": "病院･クリニック･歯医者･医療･薬"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "verticaltext",
+        "name": "縦書き･縦組みあり"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "curve",
+        "name": "曲線"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "speechbubble",
+        "name": "ふきだし･会話表現"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "illustration-move",
+        "name": "イラストが動く"
+      },
+      {
+        "slug": "orange",
+        "name": "オレンジ･橙色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "friendly-color",
+        "name": "やさしい･やわらかい配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "algoartis",
+    "name": "ALGO ARTIS（アルゴ・アーティス）",
+    "url": "https://www.algo-artis.com/",
+    "industry": "コーポレートサイト／BtoBのサイト／Web･IT･XR･デジタル･テクノロジー",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#1054d6",
+    "palette": [
+      {
+        "hex": "#f2f4f6",
+        "pct": 83.9
+      },
+      {
+        "hex": "#1054d6",
+        "pct": 10.6
+      },
+      {
+        "hex": "#0d3ad1",
+        "pct": 3.6
+      },
+      {
+        "hex": "#899ee2",
+        "pct": 1.9
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "btob",
+        "name": "BtoBのサイト"
+      },
+      {
+        "slug": "computer-web",
+        "name": "Web･IT･XR･デジタル･テクノロジー"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "layered",
+        "name": "重なり感･レイヤー感"
+      },
+      {
+        "slug": "masking",
+        "name": "クリッピングマスク･マスキング"
+      },
+      {
+        "slug": "texture-handle",
+        "name": "質感･柄"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "inbound-multilingual",
+        "name": "多言語対応"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "text-animation",
+        "name": "文字が動く･文字に演出"
+      },
+      {
+        "slug": "astro",
+        "name": "Astro"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "uniformnet",
+    "name": "ユニフォームネット",
+    "url": "https://www.uniform-net.jp/",
+    "industry": "コーポレートサイト／ブランドサイト･サービスサイト／BtoBのサイト",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角丸",
+      "色つき"
+    ],
+    "accent": "#ff7f50",
+    "palette": [
+      {
+        "hex": "#f0f2f4",
+        "pct": 87.5
+      },
+      {
+        "hex": "#ff7f50",
+        "pct": 3.9
+      },
+      {
+        "hex": "#f03c2d",
+        "pct": 2
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btob",
+        "name": "BtoBのサイト"
+      },
+      {
+        "slug": "life-infrastructure-industry",
+        "name": "製造業･工業･メーカー･商社･物流"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "masking",
+        "name": "クリッピングマスク･マスキング"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-menu",
+        "name": "ステキな全画面･ドロワーメニュー"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "react-nextjs",
+        "name": "React / Next.js"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      }
+    ]
+  },
+  {
+    "slug": "ricoas",
+    "name": "リコアス株式会社",
+    "url": "https://ricoas.co.jp/",
+    "industry": "コーポレートサイト／ブランドサイト･サービスサイト／BtoCのサイト",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角丸",
+      "色つき"
+    ],
+    "accent": "#10ad5e",
+    "palette": [
+      {
+        "hex": "#10ad5e",
+        "pct": 32.8
+      },
+      {
+        "hex": "#d3f0ef",
+        "pct": 20.1
+      },
+      {
+        "hex": "#faf7e6",
+        "pct": 15
+      },
+      {
+        "hex": "#109131",
+        "pct": 13.1
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btoc",
+        "name": "BtoCのサイト"
+      },
+      {
+        "slug": "life",
+        "name": "暮らし･生活"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "green",
+        "name": "グリーン･イエローグリーン･緑色"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "neutral-color",
+        "name": "中性色"
+      },
+      {
+        "slug": "friendly-color",
+        "name": "やさしい･やわらかい配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "moriokaganka",
+    "name": "もりおか眼科",
+    "url": "https://morioka-ganka.com/",
+    "industry": "ブランドサイト･サービスサイト／BtoCのサイト／ノーコードツールで制作されたサイト",
+    "tags": [
+      "ゴシック",
+      "余白ひろい",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#0000f9",
+    "palette": [
+      {
+        "hex": "#fbfcf7",
+        "pct": 94.6
+      },
+      {
+        "hex": "#e7ecec",
+        "pct": 2.6
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btoc",
+        "name": "BtoCのサイト"
+      },
+      {
+        "slug": "nocode",
+        "name": "ノーコードツールで制作されたサイト"
+      },
+      {
+        "slug": "studio",
+        "name": "ノーコードツール｢Studio｣で制作されたサイト"
+      },
+      {
+        "slug": "hospital-clinic-medicalcare-dentist",
+        "name": "病院･クリニック･歯医者･医療･薬"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "verticaltext",
+        "name": "縦書き･縦組みあり"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "footer",
+        "name": "ステキなフッター"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "modal-popup",
+        "name": "モーダル･ポップアップ"
+      },
+      {
+        "slug": "vuejs-nuxtjs",
+        "name": "Vue.js / Nuxt.js"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "meikei",
+    "name": "Meikei High School 茗溪学園中学校高等学校",
+    "url": "https://meikei.ac.jp/",
+    "industry": "ブランドサイト･サービスサイト／BtoCのサイト／学校･教育",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#00175c",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 64
+      },
+      {
+        "hex": "#00175c",
+        "pct": 25.8
+      },
+      {
+        "hex": "#4c5c8d",
+        "pct": 5.7
+      },
+      {
+        "hex": "#8391a9",
+        "pct": 1.9
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btoc",
+        "name": "BtoCのサイト"
+      },
+      {
+        "slug": "school-education",
+        "name": "学校･教育"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "verticaltext",
+        "name": "縦書き･縦組みあり"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "inbound-multilingual",
+        "name": "多言語対応"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "movie",
+        "name": "動画が流れる"
+      },
+      {
+        "slug": "canvas-webgl-threejs",
+        "name": "Canvas･WebGL･Three.js"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "navy",
+        "name": "ネイビー･紺色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "kobewomensuniversity",
+    "name": "神戸女子大学",
+    "url": "https://www.kobe-wu.ac.jp/",
+    "industry": "ブランドサイト･サービスサイト／BtoCのサイト／女性向け･女性的なテイスト",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#4996b6",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 29.9
+      },
+      {
+        "hex": "#4996b6",
+        "pct": 15.5
+      },
+      {
+        "hex": "#3088a5",
+        "pct": 9.1
+      },
+      {
+        "hex": "#8bc9df",
+        "pct": 6.2
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btoc",
+        "name": "BtoCのサイト"
+      },
+      {
+        "slug": "woman",
+        "name": "女性向け･女性的なテイスト"
+      },
+      {
+        "slug": "school-education",
+        "name": "学校･教育"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "refreshing",
+        "name": "さわやか"
+      },
+      {
+        "slug": "verticaltext",
+        "name": "縦書き･縦組みあり"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "movie",
+        "name": "動画が流れる"
+      },
+      {
+        "slug": "vuejs-nuxtjs",
+        "name": "Vue.js / Nuxt.js"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      }
+    ]
+  },
+  {
+    "slug": "hiragino",
+    "name": "ヒラギノフォント",
+    "url": "https://hiragino.screen.co.jp/",
+    "industry": "ブランドサイト･サービスサイト／BtoBのサイト／デザイン･イラスト･写真･映像･制作",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#113da4",
+    "palette": [
+      {
+        "hex": "#fcfcfc",
+        "pct": 89.4
+      },
+      {
+        "hex": "#d9d9d9",
+        "pct": 3.2
+      },
+      {
+        "hex": "#94989d",
+        "pct": 1.8
+      },
+      {
+        "hex": "#b1b6b6",
+        "pct": 1.5
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btob",
+        "name": "BtoBのサイト"
+      },
+      {
+        "slug": "production-agency-portfolio",
+        "name": "デザイン･イラスト･写真･映像･制作"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "react-nextjs",
+        "name": "React / Next.js"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "monotone-color",
+        "name": "白黒･モノトーンな配色"
+      }
+    ]
+  },
+  {
+    "slug": "meibi",
+    "name": "【公式】名美興業株式会社",
+    "url": "https://meibi.co.jp/",
+    "industry": "コーポレートサイト／BtoBのサイト／ビルメンテナンス･清掃･警備",
+    "tags": [
+      "ゴシック",
+      "余白ひろい",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#fbefd6",
+    "palette": [
+      {
+        "hex": "#f5efe9",
+        "pct": 91.9
+      },
+      {
+        "hex": "#e3ddd7",
+        "pct": 1.8
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "btob",
+        "name": "BtoBのサイト"
+      },
+      {
+        "slug": "maintenance",
+        "name": "ビルメンテナンス･清掃･警備"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "typography",
+        "name": "魅力的な文字･タイポグラフィ"
+      },
+      {
+        "slug": "jumprate",
+        "name": "文字のジャンプ率が高い"
+      },
+      {
+        "slug": "verticaltext",
+        "name": "縦書き･縦組みあり"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "line",
+        "name": "線を多用"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "mincho",
+        "name": "明朝系のフォント"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "partial-horizontalscroll",
+        "name": "一部横スクロール"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      }
+    ]
+  },
+  {
+    "slug": "kagami",
+    "name": "KAGAMI",
+    "url": "https://jp.is-kagami.com/",
+    "industry": "ブランドサイト･サービスサイト／BtoBのサイト／ノーコードツールで制作されたサイト",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角丸",
+      "色つき"
+    ],
+    "accent": "#c3e6ff",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 52.5
+      },
+      {
+        "hex": "#c3e6ff",
+        "pct": 34.5
+      },
+      {
+        "hex": "#2e8de1",
+        "pct": 2.4
+      },
+      {
+        "hex": "#4faef2",
+        "pct": 2.1
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "btob",
+        "name": "BtoBのサイト"
+      },
+      {
+        "slug": "nocode",
+        "name": "ノーコードツールで制作されたサイト"
+      },
+      {
+        "slug": "studio",
+        "name": "ノーコードツール｢Studio｣で制作されたサイト"
+      },
+      {
+        "slug": "computer-web",
+        "name": "Web･IT･XR･デジタル･テクノロジー"
+      },
+      {
+        "slug": "service-application",
+        "name": "サービス･アプリ･ツール･SaaS"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "refreshing",
+        "name": "さわやか"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "3dcg",
+        "name": "3D表現･3Dイラストを使用"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "elaborate",
+        "name": "遊び心がある･作り込まれている"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "form",
+        "name": "図形を多用･幾何学モチーフ"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "illustration-move",
+        "name": "イラストが動く"
+      },
+      {
+        "slug": "vuejs-nuxtjs",
+        "name": "Vue.js / Nuxt.js"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "refreshing-color",
+        "name": "さわやか･フレッシュな配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "janu",
+    "name": "国立大学協会",
+    "url": "https://www.janu.jp/",
+    "industry": "学校･教育／オーソドックス／シンプル",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#d0d3b8",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 73.5
+      },
+      {
+        "hex": "#d0d3b8",
+        "pct": 5.5
+      },
+      {
+        "hex": "#d4b79f",
+        "pct": 4.9
+      },
+      {
+        "hex": "#e5e2d5",
+        "pct": 4
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "school-education",
+        "name": "学校･教育"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "illustration-icon",
+        "name": "イラストを使用"
+      },
+      {
+        "slug": "nonphoto-visuals",
+        "name": "写真少なめ･写真以外のビジュアル表現"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "inbound-multilingual",
+        "name": "多言語対応"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "illustration-move",
+        "name": "イラストが動く"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
   }
 ]
