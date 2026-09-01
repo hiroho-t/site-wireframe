@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>footer-001 のレイアウト｜site-wireframe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fff;--ink:#141414;--sub:#767676;--line:#e6e4e2;--field:#f4f3f1;--r:6px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .top{padding:20px 32px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}
+  .top a{text-decoration:none}.top a:hover{text-decoration:underline}
+  .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;padding:32px;align-items:start}
+  section{padding:28px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0;padding-top:0}
+  h1{font-size:24px;font-weight:700;line-height:1.5}
+  h2{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sub);margin-bottom:18px}
+  .lead{margin-top:10px;font-size:14px;color:var(--sub);max-width:640px}
+  .tags{display:flex;gap:6px;margin-top:14px}
+  .tags span{font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+  .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--field);aspect-ratio:1440/800}
+  .frame iframe{width:100%;height:100%;border:0;display:block;background:#e9e9e9}
+  .board{position:relative;aspect-ratio:1440/800;border:1px solid var(--line);border-radius:8px;background:var(--field);margin-top:16px}
+  .blk{position:absolute;border:1px solid var(--ink);background:#fff;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:flex-start;padding:6px 8px;font-size:11px;line-height:1.5;overflow:hidden}
+  .blk em{font-style:normal;color:var(--sub);font-size:10px;font-family:ui-monospace,Menlo,monospace}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-weight:500;color:var(--sub);padding:10px 0;width:180px}
+  td{padding:10px 0}tr+tr th,tr+tr td{border-top:1px solid var(--line)}
+  .note{font-size:12px;color:var(--sub);margin:12px 0}
+  aside{position:sticky;top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ahead{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);align-items:center}
+  .ahead p{font-size:12px;font-weight:700;flex:1}
+  .ahead button,.ahead a{height:32px;padding:0 12px;display:inline-flex;align-items:center;font:inherit;font-size:11px;
+    font-weight:700;border-radius:var(--r);cursor:pointer;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:#fff}
+  .ahead a{background:transparent;color:var(--ink);border-color:var(--line);font-weight:500}
+  .ahead button.done{background:#fff;color:var(--ink)}
+  pre{margin:0;padding:14px;max-height:62vh;overflow:auto;font-size:11px;line-height:1.8;
+    font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#333}
+  @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:24px 20px}aside{position:static}.top{padding:20px}}
+</style></head><body>
+<nav class="top"><a href="../sections.html">一覧</a> ／ footer-001</nav>
+<div class="wrap">
+<main>
+  <section>
+    <div class="frame"><iframe src="../footer/footer-001.html" title="footer-001 のプレビュー" loading="lazy"></iframe></div>
+    <h1 style="margin-top:22px">footer-001</h1>
+    <p class="lead"></p>
+    <div class="tags"><span>フッター</span><span>3列</span><span>画像あり</span></div>
+  </section>
+
+  <section>
+    <h2>縦の組み立て</h2>
+    <table>
+      <tr><th>枠</th><td>1440×800px</td></tr>
+      <tr><th>1. 3列</th><td>上から 85px・高さ 205px・幅 1296px</td></tr><tr><th>2. 文字</th><td>上から 353px・高さ 366px・幅 1px</td></tr><tr><th>3. 文字</th><td>上から 423px・高さ 36px・幅 343px</td></tr><tr><th>4. 文字</th><td>上から 469px・高さ 45px・幅 269px</td></tr><tr><th>5. 文字</th><td>上から 475px・高さ 18px・幅 340px</td></tr><tr><th>6. 文字</th><td>上から 538px・高さ 13px・幅 113px</td></tr><tr><th>7. 文字</th><td>上から 560px・高さ 90px・幅 359px</td></tr><tr><th>8. 文字</th><td>上から 577px・高さ 18px・幅 117px</td></tr>
+      <tr><th>横の並び</th><td>3列／1列 412px／間隔 30px</td></tr>
+    </table>
+    <div class="board">
+      <div class="blk" style="left:5%;top:10.625%;width:90%;height:25.624999999999996%">
+        <span>3列</span><em>85 / 205</em></div><div class="blk" style="left:50%;top:44.125%;width:0.06944444444444445%;height:45.75%">
+        <span>文字</span><em>353 / 366</em></div><div class="blk" style="left:64.02777777777777%;top:52.87500000000001%;width:23.819444444444443%;height:4.5%">
+        <span>文字</span><em>423 / 36</em></div><div class="blk" style="left:5%;top:58.62500000000001%;width:18.680555555555557%;height:5.625%">
+        <span>文字</span><em>469 / 45</em></div><div class="blk" style="left:64.02777777777777%;top:59.375%;width:23.61111111111111%;height:2.25%">
+        <span>文字</span><em>475 / 18</em></div><div class="blk" style="left:5%;top:67.25%;width:7.847222222222222%;height:1.625%">
+        <span>文字</span><em>538 / 13</em></div><div class="blk" style="left:63.125%;top:70%;width:24.930555555555557%;height:11.25%">
+        <span>文字</span><em>560 / 90</em></div><div class="blk" style="left:5%;top:72.125%;width:8.125%;height:2.25%">
+        <span>文字</span><em>577 / 18</em></div>
+    </div>
+    <p class="note">上の図は、実測した位置と高さをそのまま比率で置いたもの。</p>
+  </section>
+
+  <section><h2>文字の段</h2><table>
+    <tr><th>36px</th><td>行間 1／太さ 500</td></tr><tr><th>15px</th><td>行間 1.2／太さ 400</td></tr><tr><th>14px</th><td>行間 —／太さ 500</td></tr><tr><th>13px</th><td>行間 1／太さ 400</td></tr><tr><th>13px</th><td>行間 1.73／太さ 400</td></tr><tr><th>13px</th><td>行間 1.4／太さ 400</td></tr>
+  </table></section>
+</main>
+<aside>
+  <div class="ahead"><p>レイアウトmd</p>
+    <button id="copy">mdをコピー</button>
+    <a href="../footer/footer-001.html" target="_blank" rel="noopener">HTML</a></div>
+  <pre id="md"># footer-001｜フッター
+
+- 種類: フッター
+- 元ファイル: `footer/footer-001.html`
+- 実測: 2026-09-01
+
+このファイルはレイアウトの数値だけ。文言・写真は自分で用意する。
+
+## 枠
+
+- アートボード: 1440×800px
+- 地色: `#ffffff`
+
+## 縦の組み立て
+
+上からの位置と高さ。数字はそのまま `top` に使える。
+
+| 上から | 高さ | 中身 |
+|---|---|---|
+| 85px | 205px | 3列 |
+| 353px | 366px | 文字 |
+| 423px | 36px | 文字 |
+| 469px | 45px | 文字 |
+| 475px | 18px | 文字 |
+| 538px | 13px | 文字 |
+| 560px | 90px | 文字 |
+| 577px | 18px | 文字 |
+
+- かたまりの間隔: 63 / 10 / 45 / 9px
+- 最後のかたまりの下端は 595px（下の余白 205px）
+
+## 横の並び
+
+- 3列／1列 412px／間隔 30px（3×412＋2×30＝1296px）
+- 置く位置: 左 72px・上 85px
+
+## 画像の枠
+
+| 大きさ | 比率 | 枚数 | 最初の位置 |
+|---|---|---|---|
+| 412×205 | 2.01:1 | 3 | 左72・上85 |
+
+## 文字の段
+
+| サイズ | 行間 | 太さ |
+|---|---|---|
+| 36px | 1 | 500 |
+| 15px | 1.2 | 400 |
+| 14px | — | 500 |
+| 13px | 1 | 400 |
+| 13px | 1.73 | 400 |
+| 13px | 1.4 | 400 |
+
+## そのまま使う骨格
+
+```css
+.sec{ position:relative; width:1440px; height:800px; background:#ffffff }
+.sec__g1{ position:absolute; left:72px; top:85px; width:1296px }
+.sec__g2{ position:absolute; left:720px; top:353px; width:1px }
+.sec__g3{ position:absolute; left:922px; top:423px; width:343px }
+.sec__g4{ position:absolute; left:72px; top:469px; width:269px }
+.sec__g5{ position:absolute; left:922px; top:475px; width:340px }
+.sec__g6{ position:absolute; left:72px; top:538px; width:113px }
+.sec__g7{ position:absolute; left:909px; top:560px; width:359px }
+.sec__g8{ position:absolute; left:72px; top:577px; width:117px }
+.sec__cols{ display:flex; gap:30px }
+.sec__col{ width:412px }
+.sec__img{ width:412px; height:205px; background:#d9d9d9 }
+```
+
+## 守ること
+
+- 数字を丸めない。かたまりの上端は上の表のとおりに置く。
+- 3列は等幅（412px）。間隔 30px を変えると合計が 1440px に収まらなくなる。
+- 文字は上の段だけを使う。中間のサイズを足さない。
+</pre>
+</aside>
+</div>
+<script>
+document.getElementById('copy').addEventListener('click', async e => {
+  const b = e.target, t = b.textContent;
+  try { await navigator.clipboard.writeText(document.getElementById('md').textContent);
+    b.textContent = 'コピーしました'; b.classList.add('done'); }
+  catch { b.textContent = 'コピーできません'; }
+  setTimeout(() => { b.textContent = t; b.classList.remove('done'); }, 1500);
+});
+</script>
+</body></html>

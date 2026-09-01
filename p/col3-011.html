@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>col3-011 のレイアウト｜site-wireframe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fff;--ink:#141414;--sub:#767676;--line:#e6e4e2;--field:#f4f3f1;--r:6px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .top{padding:20px 32px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}
+  .top a{text-decoration:none}.top a:hover{text-decoration:underline}
+  .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;padding:32px;align-items:start}
+  section{padding:28px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0;padding-top:0}
+  h1{font-size:24px;font-weight:700;line-height:1.5}
+  h2{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sub);margin-bottom:18px}
+  .lead{margin-top:10px;font-size:14px;color:var(--sub);max-width:640px}
+  .tags{display:flex;gap:6px;margin-top:14px}
+  .tags span{font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+  .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--field);aspect-ratio:1440/800}
+  .frame iframe{width:100%;height:100%;border:0;display:block;background:#e9e9e9}
+  .board{position:relative;aspect-ratio:1440/800;border:1px solid var(--line);border-radius:8px;background:var(--field);margin-top:16px}
+  .blk{position:absolute;border:1px solid var(--ink);background:#fff;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:flex-start;padding:6px 8px;font-size:11px;line-height:1.5;overflow:hidden}
+  .blk em{font-style:normal;color:var(--sub);font-size:10px;font-family:ui-monospace,Menlo,monospace}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-weight:500;color:var(--sub);padding:10px 0;width:180px}
+  td{padding:10px 0}tr+tr th,tr+tr td{border-top:1px solid var(--line)}
+  .note{font-size:12px;color:var(--sub);margin:12px 0}
+  aside{position:sticky;top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ahead{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);align-items:center}
+  .ahead p{font-size:12px;font-weight:700;flex:1}
+  .ahead button,.ahead a{height:32px;padding:0 12px;display:inline-flex;align-items:center;font:inherit;font-size:11px;
+    font-weight:700;border-radius:var(--r);cursor:pointer;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:#fff}
+  .ahead a{background:transparent;color:var(--ink);border-color:var(--line);font-weight:500}
+  .ahead button.done{background:#fff;color:var(--ink)}
+  pre{margin:0;padding:14px;max-height:62vh;overflow:auto;font-size:11px;line-height:1.8;
+    font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#333}
+  @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:24px 20px}aside{position:static}.top{padding:20px}}
+</style></head><body>
+<nav class="top"><a href="../sections.html">一覧</a> ／ col3-011</nav>
+<div class="wrap">
+<main>
+  <section>
+    <div class="frame"><iframe src="../col3/col3-011.html" title="col3-011 のプレビュー" loading="lazy"></iframe></div>
+    <h1 style="margin-top:22px">col3-011｜GALLERY</h1>
+    <p class="lead">写真・実績を並べる定番の画像グリッド（3列×2行）</p>
+    <div class="tags"><span>3カラム</span><span>6列</span><span>画像あり</span></div>
+  </section>
+
+  <section>
+    <h2>縦の組み立て</h2>
+    <table>
+      <tr><th>枠</th><td>1440×800px／コンテンツ幅 1296px（左右 72px）</td></tr>
+      <tr><th>1. 見出し</th><td>上から 47px・高さ 86px・幅 1296px</td></tr><tr><th>2. 6列</th><td>上から 179px・高さ 575px・幅 1296px</td></tr>
+      <tr><th>横の並び</th><td>6列／1列 416px／間隔 24px</td></tr>
+    </table>
+    <div class="board">
+      <div class="blk" style="left:5%;top:5.875%;width:90%;height:10.75%">
+        <span>見出し</span><em>47 / 86</em></div><div class="blk" style="left:5%;top:22.375%;width:90%;height:71.875%">
+        <span>6列</span><em>179 / 575</em></div>
+    </div>
+    <p class="note">上の図は、実測した位置と高さをそのまま比率で置いたもの。</p>
+  </section>
+
+  <section><h2>文字の段</h2><table>
+    <tr><th>40px</th><td>行間 1.3／太さ 700</td></tr><tr><th>15px</th><td>行間 1.7／太さ 400</td></tr><tr><th>14px</th><td>行間 1／太さ 700</td></tr>
+  </table></section>
+</main>
+<aside>
+  <div class="ahead"><p>レイアウトmd</p>
+    <button id="copy">mdをコピー</button>
+    <a href="../col3/col3-011.html" target="_blank" rel="noopener">HTML</a></div>
+  <pre id="md"># col3-011｜3カラム・GALLERY
+
+写真・実績を並べる定番の画像グリッド（3列×2行）
+
+- 種類: 3カラム
+- 元ファイル: `col3/col3-011.html`
+- 実測: 2026-09-01
+
+このファイルはレイアウトの数値だけ。文言・写真は自分で用意する。
+
+## 枠
+
+- アートボード: 1440×800px
+- コンテンツ幅: 1296px（左右 72px）
+- 地色: `#ffffff`
+
+## 縦の組み立て
+
+上からの位置と高さ。数字はそのまま `top` に使える。
+
+| 上から | 高さ | 中身 |
+|---|---|---|
+| 47px | 86px | 見出し |
+| 179px | 575px | 6列 |
+
+- かたまりの間隔: 46px
+- 最後のかたまりの下端は 754px（下の余白 46px）
+
+## 横の並び
+
+- 6列／1列 416px／間隔 24px（6×416＋5×24＝2616px）
+- 置く位置: 左 72px・上 179px
+
+## 画像の枠
+
+| 大きさ | 比率 | 枚数 | 最初の位置 |
+|---|---|---|---|
+| 416×230 | 16:9 | 6 | 左72・上179 |
+
+## 文字の段
+
+| サイズ | 行間 | 太さ |
+|---|---|---|
+| 40px | 1.3 | 700 |
+| 15px | 1.7 | 400 |
+| 14px | 1 | 700 |
+
+## 元の設計メモ
+
+- 見出し 英字ラベル14px＋和文40px
+- セル 幅416・gap24（3列で1296）。画像416×230、下にキャプション15px
+
+## そのまま使う骨格
+
+```css
+.sec{ position:relative; width:1440px; height:800px; background:#ffffff }
+.sec__g1{ position:absolute; left:72px; top:47px; width:1296px }
+.sec__g2{ position:absolute; left:72px; top:179px; width:1296px }
+.sec__cols{ display:flex; gap:24px }
+.sec__col{ width:416px }
+.sec__img{ width:416px; height:230px; background:#d9d9d9 }
+```
+
+## 守ること
+
+- 数字を丸めない。左右は 72px、かたまりの上端は上の表のとおりに置く。
+- 6列は等幅（416px）。間隔 24px を変えると合計が 1296px に収まらなくなる。
+- 文字は上の段だけを使う。中間のサイズを足さない。
+</pre>
+</aside>
+</div>
+<script>
+document.getElementById('copy').addEventListener('click', async e => {
+  const b = e.target, t = b.textContent;
+  try { await navigator.clipboard.writeText(document.getElementById('md').textContent);
+    b.textContent = 'コピーしました'; b.classList.add('done'); }
+  catch { b.textContent = 'コピーできません'; }
+  setTimeout(() => { b.textContent = t; b.classList.remove('done'); }, 1500);
+});
+</script>
+</body></html>

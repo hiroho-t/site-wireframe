@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mv-011 のレイアウト｜site-wireframe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fff;--ink:#141414;--sub:#767676;--line:#e6e4e2;--field:#f4f3f1;--r:6px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .top{padding:20px 32px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}
+  .top a{text-decoration:none}.top a:hover{text-decoration:underline}
+  .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;padding:32px;align-items:start}
+  section{padding:28px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0;padding-top:0}
+  h1{font-size:24px;font-weight:700;line-height:1.5}
+  h2{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sub);margin-bottom:18px}
+  .lead{margin-top:10px;font-size:14px;color:var(--sub);max-width:640px}
+  .tags{display:flex;gap:6px;margin-top:14px}
+  .tags span{font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+  .frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--field);aspect-ratio:1440/800}
+  .frame iframe{width:100%;height:100%;border:0;display:block;background:#e9e9e9}
+  .board{position:relative;aspect-ratio:1440/800;border:1px solid var(--line);border-radius:8px;background:var(--field);margin-top:16px}
+  .blk{position:absolute;border:1px solid var(--ink);background:#fff;display:flex;flex-direction:column;
+    align-items:flex-start;justify-content:flex-start;padding:6px 8px;font-size:11px;line-height:1.5;overflow:hidden}
+  .blk em{font-style:normal;color:var(--sub);font-size:10px;font-family:ui-monospace,Menlo,monospace}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-weight:500;color:var(--sub);padding:10px 0;width:180px}
+  td{padding:10px 0}tr+tr th,tr+tr td{border-top:1px solid var(--line)}
+  .note{font-size:12px;color:var(--sub);margin:12px 0}
+  aside{position:sticky;top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ahead{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);align-items:center}
+  .ahead p{font-size:12px;font-weight:700;flex:1}
+  .ahead button,.ahead a{height:32px;padding:0 12px;display:inline-flex;align-items:center;font:inherit;font-size:11px;
+    font-weight:700;border-radius:var(--r);cursor:pointer;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:#fff}
+  .ahead a{background:transparent;color:var(--ink);border-color:var(--line);font-weight:500}
+  .ahead button.done{background:#fff;color:var(--ink)}
+  pre{margin:0;padding:14px;max-height:62vh;overflow:auto;font-size:11px;line-height:1.8;
+    font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#333}
+  @media (max-width:900px){.wrap{grid-template-columns:1fr;padding:24px 20px}aside{position:static}.top{padding:20px}}
+</style></head><body>
+<nav class="top"><a href="../sections.html">一覧</a> ／ mv-011</nav>
+<div class="wrap">
+<main>
+  <section>
+    <div class="frame"><iframe src="../mv/mv-011.html" title="mv-011 のプレビュー" loading="lazy"></iframe></div>
+    <h1 style="margin-top:22px">mv-011｜MV</h1>
+    <p class="lead">全面画像。左下に和文56pxの2行コピー、右下に英字ラベル＋小テキスト</p>
+    <div class="tags"><span>メインビジュアル</span><span>2列</span></div>
+  </section>
+
+  <section>
+    <h2>縦の組み立て</h2>
+    <table>
+      <tr><th>枠</th><td>1440×800px</td></tr>
+      <tr><th>1. 文字</th><td>上から 0px・高さ 80px・幅 1440px</td></tr><tr><th>2. 2列</th><td>上から 674px・高さ 56px・幅 582px</td></tr><tr><th>3. 2列</th><td>上から 690px・高さ 53px・幅 310px</td></tr>
+      <tr><th>横の並び</th><td>2列／1列 150px／間隔 8px</td></tr>
+    </table>
+    <div class="board">
+      <div class="blk" style="left:0%;top:0%;width:100%;height:10%">
+        <span>文字</span><em>0 / 80</em></div><div class="blk" style="left:5.555555555555555%;top:84.25%;width:40.416666666666664%;height:7.000000000000001%">
+        <span>2列</span><em>674 / 56</em></div><div class="blk" style="left:70.27777777777777%;top:86.25%;width:21.52777777777778%;height:6.625%">
+        <span>2列</span><em>690 / 53</em></div>
+    </div>
+    <p class="note">上の図は、実測した位置と高さをそのまま比率で置いたもの。</p>
+  </section>
+
+  <section><h2>文字の段</h2><table>
+    <tr><th>56px</th><td>行間 1／太さ 600</td></tr><tr><th>24px</th><td>行間 1／太さ 400</td></tr><tr><th>20px</th><td>行間 —／太さ 700</td></tr><tr><th>13px</th><td>行間 —／太さ 600</td></tr><tr><th>11px</th><td>行間 1.6／太さ 400</td></tr>
+  </table></section>
+</main>
+<aside>
+  <div class="ahead"><p>レイアウトmd</p>
+    <button id="copy">mdをコピー</button>
+    <a href="../mv/mv-011.html" target="_blank" rel="noopener">HTML</a></div>
+  <pre id="md"># mv-011｜メインビジュアル・MV
+
+全面画像。左下に和文56pxの2行コピー、右下に英字ラベル＋小テキスト
+
+- 種類: メインビジュアル
+- 元ファイル: `mv/mv-011.html`
+- 実測: 2026-09-01
+
+このファイルはレイアウトの数値だけ。文言・写真は自分で用意する。
+
+## 枠
+
+- アートボード: 1440×800px
+- 地色: `#8c8c8c`
+
+## 縦の組み立て
+
+上からの位置と高さ。数字はそのまま `top` に使える。
+
+| 上から | 高さ | 中身 |
+|---|---|---|
+| 0px | 80px | 文字 |
+| 674px | 56px | 2列 |
+| 690px | 53px | 2列 |
+
+- かたまりの間隔: 594px
+- 最後のかたまりの下端は 743px（下の余白 57px）
+
+## 横の並び
+
+- 2列／1列 150px／間隔 8px（2×150＋1×8＝308px）
+- 置く位置: 左 1012px・上 690px
+
+## 文字の段
+
+| サイズ | 行間 | 太さ |
+|---|---|---|
+| 56px | 1 | 600 |
+| 24px | 1 | 400 |
+| 20px | — | 700 |
+| 13px | — | 600 |
+| 11px | 1.6 | 400 |
+
+## 元の設計メモ
+
+- URLからDOM実測（1440幅）ヘッダー 高さ80・ナビ 13px/600
+- コピー 56px/600 lh56（1行）／ 右下ラベル 24px/400＋11px/400
+- 背景は全面画像のためグレーボックス（白抜き文字の視認性確保）
+
+## そのまま使う骨格
+
+```css
+.sec{ position:relative; width:1440px; height:800px; background:#8c8c8c }
+.sec__g1{ position:absolute; left:0px; top:0px; width:1440px }
+.sec__g2{ position:absolute; left:80px; top:674px; width:582px }
+.sec__g3{ position:absolute; left:1012px; top:690px; width:310px }
+.sec__cols{ display:flex; gap:8px }
+.sec__col{ width:150px }
+```
+
+## 守ること
+
+- 数字を丸めない。かたまりの上端は上の表のとおりに置く。
+- 2列は等幅（150px）。間隔 8px を変えると合計が 1440px に収まらなくなる。
+- 文字は上の段だけを使う。中間のサイズを足さない。
+</pre>
+</aside>
+</div>
+<script>
+document.getElementById('copy').addEventListener('click', async e => {
+  const b = e.target, t = b.textContent;
+  try { await navigator.clipboard.writeText(document.getElementById('md').textContent);
+    b.textContent = 'コピーしました'; b.classList.add('done'); }
+  catch { b.textContent = 'コピーできません'; }
+  setTimeout(() => { b.textContent = t; b.classList.remove('done'); }, 1500);
+});
+</script>
+</body></html>

@@ -1,227 +1,104 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>site-wireframe｜セクションの型 167種</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>セクションの型｜site-wireframe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#fafafa;          /* ベース */
-    --ink:#2f2725;         /* 文字（やや温かみのある黒） */
-    --sub:#8b8583;         /* 補助文字 */
-    --line:#e2dfdd;        /* 罫線 */
-    --field:#f1f1f1;       /* 入力欄・コード欄の地色 */
-    --link:#0062db;        /* アクセント（リンク） */
-    --r:6px;               /* 角丸 */
-  }
+  :root{--bg:#fff;--ink:#141414;--sub:#767676;--line:#e6e4e2;--field:#f4f3f1;--r:6px}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
-    color:var(--ink);-webkit-font-smoothing:antialiased}
-  header{padding:40px 40px 30px;border-bottom:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:flex-start;gap:48px;flex-wrap:wrap}
-  h1{font-size:22px;font-weight:800;letter-spacing:.06em}
-  header p{font-size:12px;color:var(--sub);margin-top:10px;line-height:1.9;letter-spacing:.04em}
-
-  /* 取得ボタン */
-  .get{flex:1 1 340px;min-width:0;max-width:400px;padding:16px 18px;
-    background:#fff;border:1px solid var(--line);border-radius:8px}
-  .btns{display:flex;flex-wrap:wrap;gap:10px}
-  .btn{flex:1 1 140px;display:flex;align-items:center;justify-content:center;gap:8px;height:38px;
-    font-size:12px;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:var(--r);
-    border:1px solid var(--ink);background:var(--ink);color:#fff}
-  .btn.sub{background:transparent;color:var(--ink)}
-  .btn:hover{opacity:.75}
-  .btn.sub:hover{background:var(--field);opacity:1}
-  .btn svg{width:15px;height:15px;fill:currentColor;flex:none}
-  .cmd{display:flex;align-items:stretch;margin-top:10px;background:var(--field);border-radius:8px;overflow:hidden}
-  .cmd code{flex:1;min-width:0;padding:11px 12px 10px;font-size:10px;line-height:1.5;color:#555;background:none;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .cmd button{flex:none;width:62px;border:0;border-left:1px solid #e2e2e2;background:none;
-    font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ink);cursor:pointer;font-family:inherit}
-  .cmd button:hover{background:#e7e7e7}
-
-  @media (max-width:900px){
-    header{padding:30px 24px 24px;gap:24px}
-    .get{flex:1 1 100%;max-width:none}
-    main{padding:0 24px 48px}
-    .catbar{padding:11px 24px 13px}
-    .menubtn{right:16px;bottom:16px}
-    .catnav{right:16px;bottom:80px;width:auto;left:16px;max-width:280px;margin-left:auto}
-  }
-  /* カテゴリー一覧（ヘッダー下・追従しない） */
-  header .pagelink{margin-top:8px;font-size:12px;color:var(--sub)}
-  header p strong{font-weight:700;color:var(--ink)}
-  header p a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
-  header .pagelink a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
-  .catbar{display:flex;flex-wrap:wrap;gap:8px;padding:13px 40px 15px;border-bottom:1px solid var(--line)}
-  .catbar a{display:inline-flex;align-items:baseline;gap:7px;padding:7px 12px 6px;
-    border:1px solid var(--line);border-radius:var(--r);background:#fff;
-    font-size:12px;letter-spacing:.06em;color:var(--ink);text-decoration:none}
-  .catbar a:hover{border-color:var(--ink)}
-  .catbar a span{font-size:10px;color:var(--sub);letter-spacing:0}
-
-  /* カテゴリーメニュー（追従するのはハンバーガーボタン1つだけ） */
-  .menubtn{position:fixed;right:24px;bottom:24px;z-index:40;width:52px;height:52px;padding:0;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-    border:1px solid var(--ink);border-radius:var(--r);background:var(--ink);cursor:pointer}
-  .menubtn i{display:block;width:20px;height:1.5px;background:#fff}
-  .menubtn[aria-expanded="true"] i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-  .menubtn[aria-expanded="true"] i:nth-child(2){opacity:0}
-  .menubtn[aria-expanded="true"] i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-  .mask{position:fixed;inset:0;z-index:30;background:none}
-  .mask[hidden],.catnav[hidden]{display:none}
-  .catnav{position:fixed;right:24px;bottom:88px;z-index:40;width:272px;
-    max-height:calc(100vh - 136px);overflow-y:auto;padding:8px;
-    background:#fff;border:1px solid var(--line);border-radius:8px;
-    box-shadow:0 8px 28px rgba(47,39,37,.10)}
-  .catnav a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-    padding:9px 11px;border-radius:var(--r);
-    font-size:12px;letter-spacing:.06em;color:var(--ink);text-decoration:none}
-  .catnav a:hover{background:var(--field)}
-  .catnav a span{font-size:10px;color:var(--sub);letter-spacing:0}
-
-  main{padding:0 40px 64px}
-  section{padding-top:44px;scroll-margin-top:24px}
-  h2{font-size:15px;font-weight:800;letter-spacing:.1em;padding-bottom:14px;border-bottom:1px solid var(--line)}
-  h2 span{font-size:11px;font-weight:400;color:var(--sub);margin-left:12px;letter-spacing:.04em}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px;margin-top:24px}
-  .card{display:block}
-  .thumb{position:relative;display:block;width:100%;aspect-ratio:1440/800;background:#fff;
-    border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-  .thumb iframe{width:100%;height:100%;border:0;pointer-events:none;display:block}
-  .thumb::after{content:"";position:absolute;inset:0}
-  .thumb:hover{border-color:var(--ink)}
-  .cap{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;gap:12px}
-  .id{display:inline-flex;align-items:baseline;gap:6px;flex:none;
-    font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ink);
-    background:none;border:0;padding:0;cursor:pointer}
-  .id i{font-size:9px;color:#b5b0ad;transform:translateY(-1px)}
-  .id:hover{text-decoration:underline;text-underline-offset:3px}
-  .id:hover i{color:var(--ink)}
-  .id.done{color:var(--sub)}
-  .id.done i{color:var(--sub)}
-  .dl{font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--link);
-    text-decoration:none;white-space:nowrap}
-  .dl:hover{text-decoration:underline;text-underline-offset:2px}
-</style>
-</head>
-<body>
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  header{padding:40px 32px 24px;border-bottom:1px solid var(--line)}
+  h1{font-size:19px;font-weight:700;letter-spacing:.04em}
+  header p{margin-top:10px;font-size:13px;color:var(--sub);max-width:680px}
+  header a{color:var(--ink)}
+  .bar{position:sticky;top:0;z-index:5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    padding:14px 32px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  #q{flex:1 1 220px;max-width:320px;height:38px;padding:0 12px;font:inherit;font-size:13px;
+    border:1px solid var(--line);border-radius:var(--r);background:var(--field);color:var(--ink)}
+  #q:focus{outline:2px solid var(--ink);outline-offset:-1px;background:#fff}
+  .cats{display:flex;gap:6px;flex-wrap:wrap}
+  .cats button{font:inherit;font-size:12px;padding:5px 12px;border:1px solid var(--line);border-radius:99px;
+    background:#fff;color:var(--ink);cursor:pointer}
+  .cats button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .count{font-size:12px;color:var(--sub);margin-left:auto}
+  main{padding:28px 32px 64px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+  .card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .shot{display:block;aspect-ratio:1440/800;background:var(--field);border-bottom:1px solid var(--line);position:relative}
+  .shot iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+  .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .name{font-size:13px;font-weight:700;line-height:1.5}
+  .meta{font-size:11px;color:var(--sub);line-height:1.7}
+  .act{display:flex;gap:8px;margin-top:auto}
+  .act button{flex:1;height:34px;font:inherit;font-size:12px;font-weight:700;border-radius:var(--r);
+    border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer}
+  .act button:hover{opacity:.78}.act button.done{background:#fff;color:var(--ink)}
+  .head{text-decoration:none;color:inherit;display:block}
+  .head:hover .name{text-decoration:underline;text-underline-offset:3px}
+  footer{border-top:1px solid var(--line);padding:28px 32px 56px;font-size:12px;color:var(--sub)}
+  footer a{color:var(--ink)}
+  @media (max-width:640px){header,.bar,main,footer{padding-left:20px;padding-right:20px}}
+</style></head><body>
 <header>
-  <div>
-    <h1>site-wireframe｜セクションの型 167種</h1>
-    <p>1ページ組むときの<strong>差し替え部品</strong>です。まず <a href="index.html">ページ丸ごとの型</a> から骨格の近い1枚を選び、
-      情報量が合わないセクションだけ、ここから探して入れ替えてください。</p>
-    <p class="pagelink">選び方は <a href="https://github.com/hiroho-t/site-wireframe/blob/main/SELECT.md">SELECT.md</a>（件数から引く索引）。
-      部品だけで1から組むときは <a href="_page/starter.html">雛形</a> と <a href="_page/sample.html">見本</a> から。</p>
-  </div>
-
-  <div class="get">
-    <div class="btns">
-      <a class="btn" href="https://github.com/hiroho-t/site-wireframe" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        GitHub リポジトリ
-      </a>
-      <a class="btn sub" href="https://github.com/hiroho-t/site-wireframe/archive/refs/heads/main.zip">
-        ZIP ダウンロード
-      </a>
-    </div>
-    <div class="cmd">
-      <code id="cmd">git clone https://github.com/hiroho-t/site-wireframe.git ~/.claude/skills/site-wireframe</code>
-      <button type="button" id="copy">コピー</button>
-    </div>
-  </div>
+  <h1>セクションの型</h1>
+  <p>1440×800で実測した、セクション単位のワイヤーフレーム。カードから<strong>レイアウトmdをコピー</strong>して Claude Code に貼れば、そのまま組み立ての指示になります ／ <a href="index.html">ページ丸ごとの型を見る</a></p>
 </header>
-<nav class="catbar" id="catbar"></nav>
-<div class="mask" id="mask" hidden></div>
-<button type="button" class="menubtn" id="menubtn"
-        aria-expanded="false" aria-controls="catnav" aria-label="カテゴリーメニュー">
-  <i></i><i></i><i></i>
-</button>
-<nav class="catnav" id="catnav" hidden></nav>
-<main id="app"></main>
-
+<div class="bar">
+  <input id="q" type="search" placeholder="型番・種類・説明でしぼる" autocomplete="off">
+  <div class="cats" id="cats"><button aria-pressed="true" data-c="">すべて</button><button aria-pressed="false" data-c="下層ページタイトル">下層ページタイトル</button><button aria-pressed="false" data-c="メインビジュアル">メインビジュアル</button><button aria-pressed="false" data-c="1カラム">1カラム</button><button aria-pressed="false" data-c="2カラム">2カラム</button><button aria-pressed="false" data-c="3カラム">3カラム</button><button aria-pressed="false" data-c="4カラム">4カラム</button><button aria-pressed="false" data-c="5カラム">5カラム</button><button aria-pressed="false" data-c="お知らせ">お知らせ</button><button aria-pressed="false" data-c="フッター">フッター</button></div>
+  <span class="count" id="count"></span>
+</div>
+<main><div class="grid" id="grid"></div></main>
+<footer><p>各カードの「mdをコピー」は、その型のレイアウトを数値で書いた指示書をクリップボードに入れます。Claude Code に貼れば、そのまま組み立ての指示になります。</p></footer>
 <script>
-document.getElementById('copy').addEventListener('click', async (e) => {
-  const btn = e.currentTarget, text = document.getElementById('cmd').textContent;
-  try { await navigator.clipboard.writeText(text); btn.textContent = 'コピー済'; }
-  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('cmd'));
-          getSelection().removeAllRanges(); getSelection().addRange(r); btn.textContent = '選択'; }
-  setTimeout(() => btn.textContent = 'コピー', 1600);
+const DATA = [{"id":"pagetitle-001","file":"pagetitle/pagetitle-001.html","cat":"下層ページタイトル","name":"PAGETITLE","desc":"下層ページのタイトル部。全面画像＋パンくず＋英字特大タイトル"},{"id":"pagetitle-002","file":"pagetitle/pagetitle-002.html","cat":"下層ページタイトル","name":"PAGETITLE","desc":"画像を使わない明グレー面のページタイトル"},{"id":"pagetitle-003","file":"pagetitle/pagetitle-003.html","cat":"下層ページタイトル","name":"PAGETITLE","desc":"見出しが上・帯状ビジュアルが下のページタイトル"},{"id":"mv-001","file":"mv/mv-001.html","cat":"メインビジュアル","name":"MV","desc":"メインビジュアル"},{"id":"mv-002","file":"mv/mv-002.html","cat":"メインビジュアル","name":"MV","desc":"中央揃えの大コピー＋下部ティッカー"},{"id":"mv-003","file":"mv/mv-003.html","cat":"メインビジュアル","name":"MV","desc":"ヘッダー＋左に大見出し・右にビジュアル・下端にお知らせバー"},{"id":"mv-004","file":"mv/mv-004.html","cat":"メインビジュアル","name":"MV","desc":"全面画像に透過ヘッダー、右寄せの大コピー2行"},{"id":"mv-005","file":"mv/mv-005.html","cat":"メインビジュアル","name":"MV","desc":"上部にロゴ＋白ピルナビ＋言語切替、全面画像に中央寄せの英字大コピー"},{"id":"mv-006","file":"mv/mv-006.html","cat":"メインビジュアル","name":"MV","desc":"左上に白いロゴブロック、グレーのピルナビ＋言語ボタン。濃色の全面ビジュアル"},{"id":"mv-007","file":"mv/mv-007.html","cat":"メインビジュアル","name":"MV","desc":"全面動画＋左下にコピー画像。上部に固定ヘッダー"},{"id":"mv-008","file":"mv/mv-008.html","cat":"メインビジュアル","name":"MV","desc":"角丸でインセットした全面ビジュアルの上にミッションコピー"},{"id":"mv-009","file":"mv/mv-009.html","cat":"メインビジュアル","name":"MV","desc":"高さ80のヘッダー（ロゴ＋サイト名／ナビ6項目／右にエントリー）"},{"id":"mv-010","file":"mv/mv-010.html","cat":"メインビジュアル","name":"MV","desc":"全面画像の右下に和文の大コピー2行。ヘッダーはナビ左寄せ＋右にMENU"},{"id":"mv-011","file":"mv/mv-011.html","cat":"メインビジュアル","name":"MV","desc":"全面画像。左下に和文56pxの2行コピー、右下に英字ラベル＋小テキスト"},{"id":"mv-012","file":"mv/mv-012.html","cat":"メインビジュアル","name":"MV","desc":"全面画像＋中央の和文コピー。右下にロゴ枠、下部にNEWSバー"},{"id":"mv-013","file":"mv/mv-013.html","cat":"メインビジュアル","name":"MV","desc":"左右に余白を残した角丸の大ビジュアル。左下に枠線のボタン"},{"id":"mv-014","file":"mv/mv-014.html","cat":"メインビジュアル","name":"MV","desc":"上にヘッダー、左に英字の3行コピー、右に和文リード。下に幅いっぱいのビジュアル"},{"id":"col1-001","file":"col1/col1-001.html","cat":"1カラム","name":"CONCEPT","desc":"英字ラベル＋大リード3行＋下段の左右2カラム"},{"id":"col1-002","file":"col1/col1-002.html","cat":"1カラム","name":"CONCEPT","desc":"全面画像に左下寄せの英字大見出し＋リード2行"},{"id":"col1-003","file":"col1/col1-003.html","cat":"1カラム","name":"CONCEPT","desc":"英字ラベル＋大きなスローガン2行だけの1カラム"},{"id":"col1-004","file":"col1/col1-004.html","cat":"1カラム","name":"ABOUT","desc":"全幅・左揃えの1カラム。英字ラベル＋大見出し＋リード＋中央のボタン"},{"id":"col1-005","file":"col1/col1-005.html","cat":"1カラム","name":"MESSAGE","desc":"全面画像の上に、英字64pxの見出し＋役職・氏名＋本文＋ボタン"},{"id":"col1-006","file":"col1/col1-006.html","cat":"1カラム","name":"FEATURE","desc":"全面画像に見出しブロックだけを置き、右下にテキストリンク"},{"id":"col1-007","file":"col1/col1-007.html","cat":"1カラム","name":"REPORT","desc":"見出し＋リード2行＋大きなビジュアルカード"},{"id":"col1-008","file":"col1/col1-008.html","cat":"1カラム","name":"PARTNER","desc":"上に見出し、下に右寄せの大きな画像枠（ロゴ一覧などを想定）"},{"id":"col1-009","file":"col1/col1-009.html","cat":"1カラム","name":"SERVICE","desc":"左上に見出し、右カラム（73%）にブロックを積む"},{"id":"col1-010","file":"col1/col1-010.html","cat":"1カラム","name":"INTERVIEW","desc":"上に見出し3段、下に「写真＋テキスト」の横並びカルーセル"},{"id":"col1-011","file":"col1/col1-011.html","cat":"1カラム","name":"CAREER","desc":"背景に1枚の大きな画像を敷き、中央にラベル＋英字80px＋本文＋丸ボタン"},{"id":"col1-012","file":"col1/col1-012.html","cat":"1カラム","name":"CONTACT","desc":"全面画像に英字大見出し＋リード3行＋半透明の箇条書きパネル"},{"id":"col1-013","file":"col1/col1-013.html","cat":"1カラム","name":"CONTACT","desc":"全面画像の上に、中央揃えの英字特大コピー＋リード＋ボタン"},{"id":"col1-014","file":"col1/col1-014.html","cat":"1カラム","name":"BANNER","desc":"全幅の大きな誘導バナーを縦に2本並べる"},{"id":"col1-015","file":"col1/col1-015.html","cat":"1カラム","name":"1カラム","desc":"見出し＋「◯◯から探す」のタグ群を2グループ並べる絞り込みブロック"},{"id":"col1-016","file":"col1/col1-016.html","cat":"1カラム","name":"STATEMENT","desc":"中央にラベルなしの大見出し2行＋リード＋枠線ボタン"},{"id":"col1-017","file":"col1/col1-017.html","cat":"1カラム","name":"COMPANY","desc":"会社概要（全幅の定義リスト8行）"},{"id":"col1-018","file":"col1/col1-018.html","cat":"1カラム","name":"RECRUIT","desc":"募集要項（職種名＋定義リスト6行＋応募ボタン）"},{"id":"col1-019","file":"col1/col1-019.html","cat":"1カラム","name":"CONTACT","desc":"お問い合わせフォーム（1カラム・幅800中央）"},{"id":"col2-001","file":"col2/col2-001.html","cat":"2カラム","name":"ABOUT","desc":"左に英字大見出し＋和文リード、右に長文2ブロック"},{"id":"col2-002","file":"col2/col2-002.html","cat":"2カラム","name":"ABOUT","desc":"左に見出し2行＋本文3行＋ピルボタン、右に画像3点のコラージュ"},{"id":"col2-003","file":"col2/col2-003.html","cat":"2カラム","name":"ABOUT","desc":"左に英字大ラベル＋和文、右に大きめのリード文"},{"id":"col2-004","file":"col2/col2-004.html","cat":"2カラム","name":"ABOUT","desc":"英字ラベル＋48pxの和文見出し。下は左に大きな画像、右に見出し＋本文＋リンク"},{"id":"col2-005","file":"col2/col2-005.html","cat":"2カラム","name":"ABOUT","desc":"左に小ラベル＋72pxの大見出し＋本文＋ボタン、右に大きな画像"},{"id":"col2-006","file":"col2/col2-006.html","cat":"2カラム","name":"ABOUT","desc":"背景に巨大な英字（静止表示）、左に58pxの和文見出し、右に本文ブロック"},{"id":"col2-007","file":"col2/col2-007.html","cat":"2カラム","name":"MESSAGE","desc":"社長挨拶・理念メッセージの定番型"},{"id":"col2-008","file":"col2/col2-008.html","cat":"2カラム","name":"MESSAGE","desc":"帯状の背景画像の上に、左に和文大見出し・右に本文＋丸ボタン"},{"id":"col2-009","file":"col2/col2-009.html","cat":"2カラム","name":"FEATURE","desc":"画像＋見出し（丸ボタン付き）＋本文の2カラム"},{"id":"col2-010","file":"col2/col2-010.html","cat":"2カラム","name":"FEATURE","desc":"左に英字大見出し＋リンク行、右に画像"},{"id":"col2-011","file":"col2/col2-011.html","cat":"2カラム","name":"FEATURE","desc":"左に英字64pxの見出し・右にリード、下に幅いっぱいの図版＋中央ボタン"},{"id":"col2-012","file":"col2/col2-012.html","cat":"2カラム","name":"FEATURE","desc":"左に小さな画像、右に40pxの見出し＋リード。下に2カラムのカード"},{"id":"col2-013","file":"col2/col2-013.html","cat":"2カラム","name":"FEATURE","desc":"左に大きな画像、右に小ラベル＋40pxの見出し＋本文＋ボタン"},{"id":"col2-014","file":"col2/col2-014.html","cat":"2カラム","name":"HISTORY","desc":"左に見出し・右にリード、下に幅いっぱいの年表図版"},{"id":"col2-015","file":"col2/col2-015.html","cat":"2カラム","name":"COMPANY","desc":"左に見出し・リード・リンクリスト、右に大きな画像"},{"id":"col2-016","file":"col2/col2-016.html","cat":"2カラム","name":"COMPANY","desc":"左に英字64pxの見出し＋下罫線のリンク行4本、右に大きな画像"},{"id":"col2-017","file":"col2/col2-017.html","cat":"2カラム","name":"COMPANY","desc":"左に画像を2枚ずらして重ね、右に下罫線のリンク行6本"},{"id":"col2-018","file":"col2/col2-018.html","cat":"2カラム","name":"SERVICE","desc":"ラベル＋英字大見出し、下に「番号／画像／テキスト」の横並び"},{"id":"col2-019","file":"col2/col2-019.html","cat":"2カラム","name":"SERVICE","desc":"左に全面画像＋見出し、右にカードを縦に積む（スクロール追従想定）"},{"id":"col2-020","file":"col2/col2-020.html","cat":"2カラム","name":"SERVICE","desc":"左に見出し、右に「画像＋事業名＋サービス名＋本文」の行を縦に3つ"},{"id":"col2-021","file":"col2/col2-021.html","cat":"2カラム","name":"SERVICE","desc":"左に縦長の画像、右に英字大見出し＋和文＋本文＋テキストボタン"},{"id":"col2-022","file":"col2/col2-022.html","cat":"2カラム","name":"SERVICE","desc":"見出しの下に「番号＋見出し24px＋本文＋右に画像」の行を並べる"},{"id":"col2-023","file":"col2/col2-023.html","cat":"2カラム","name":"SERVICE","desc":"英字の特大見出し＋2カラムのサービスカード"},{"id":"col2-024","file":"col2/col2-024.html","cat":"2カラム","name":"SERVICE","desc":"英字130pxの見出し＋左右に振り分けた紹介ブロック"},{"id":"col2-025","file":"col2/col2-025.html","cat":"2カラム","name":"INTERVIEW","desc":"中央見出し＋大小カードを組み合わせたインタビュー一覧"},{"id":"col2-026","file":"col2/col2-026.html","cat":"2カラム","name":"INTERVIEW","desc":"対談（クロストーク）型。左に大きな集合写真、右に見出し＋出演者リスト"},{"id":"col2-027","file":"col2/col2-027.html","cat":"2カラム","name":"VOICE","desc":"左に英字56pxの見出し＋本文＋Moreリンク、右に大きな画像"},{"id":"col2-028","file":"col2/col2-028.html","cat":"2カラム","name":"CASE","desc":"英字130pxの見出し＋正方形画像＋右にテキスト。左下にPrev"},{"id":"col2-029","file":"col2/col2-029.html","cat":"2カラム","name":"CAREER","desc":"左に濃色パネル（ラベル＋見出し2行＋本文＋白ボタン）、右に画像のカード"},{"id":"col2-030","file":"col2/col2-030.html","cat":"2カラム","name":"CAREER","desc":"左にテキスト、右に写真タイルのグリッド"},{"id":"col2-031","file":"col2/col2-031.html","cat":"2カラム","name":"CONTACT","desc":"全幅の濃色パネルに、見出し＋リードと右にボタン"},{"id":"col2-032","file":"col2/col2-032.html","cat":"2カラム","name":"CONTACT","desc":"全面画像に、英字56pxの見出し＋本文＋右にボタン"},{"id":"col2-033","file":"col2/col2-033.html","cat":"2カラム","name":"BANNER","desc":"画面を左右2分割した誘導バナー"},{"id":"col2-034","file":"col2/col2-034.html","cat":"2カラム","name":"BANNER","desc":"画面を左右2分割し、それぞれ英字大ラベル＋和文だけを中央に置く"},{"id":"col2-035","file":"col2/col2-035.html","cat":"2カラム","name":"BANNER","desc":"2分割の誘導ブロック。英字36px"},{"id":"col2-036","file":"col2/col2-036.html","cat":"2カラム","name":"2カラム","desc":"左に見出し＋リンクボタン2列×4行、右に日付つきの一覧"},{"id":"col2-037","file":"col2/col2-037.html","cat":"2カラム","name":"2カラム","desc":"左に区分見出し、右に項目を横並びで敷く定義リスト（罫線区切り）"},{"id":"col2-038","file":"col2/col2-038.html","cat":"2カラム","name":"2カラム","desc":"画像の横に縦書きの見出しを添えた記事カードを2列"},{"id":"col2-039","file":"col2/col2-039.html","cat":"2カラム","name":"2カラム","desc":"左に画像を2枚ずらして重ね、右にラベル＋32pxの見出し＋本文2ブロック"},{"id":"col2-040","file":"col2/col2-040.html","cat":"2カラム","name":"2カラム","desc":"左に48pxの見出し＋リード＋注釈、右に大きな画像"},{"id":"col2-041","file":"col2/col2-041.html","cat":"2カラム","name":"EVENT","desc":"左に見出しブロック（固定336px）＋右に横型カード2枚"},{"id":"col2-042","file":"col2/col2-042.html","cat":"2カラム","name":"FEATURE","desc":"見出し上・2列×2行のテキストブロック（画像なし）"},{"id":"col2-043","file":"col2/col2-043.html","cat":"2カラム","name":"LIST","desc":"見出し上・2列×3行の横型カード6件"},{"id":"col2-044","file":"col2/col2-044.html","cat":"2カラム","name":"QA","desc":"見出しを置かない2列×3行のテキストカード6件"},{"id":"col2-045","file":"col2/col2-045.html","cat":"2カラム","name":"PICKUP","desc":"左に見出しブロック（固定336px）＋右に大きめカード2枚"},{"id":"col2-046","file":"col2/col2-046.html","cat":"2カラム","name":"INDEX","desc":"2列×4行のリンク行（8項目・上下罫線）"},{"id":"col2-047","file":"col2/col2-047.html","cat":"2カラム","name":"ACCESS","desc":"左に地図660×420、右に住所・TEL＋交通手段リスト"},{"id":"col2-048","file":"col2/col2-048.html","cat":"2カラム","name":"CONTACT","desc":"左に見出し・リード・電話、右にフォーム（2カラム）"},{"id":"col2-049","file":"col2/col2-049.html","cat":"2カラム","name":"LIST","desc":"見出し上・2列×4行の横型カード8件"},{"id":"col3-001","file":"col3/col3-001.html","cat":"3カラム","name":"FEATURE","desc":"特長・強みを3カラムのカードで並べる定番型"},{"id":"col3-002","file":"col3/col3-002.html","cat":"3カラム","name":"SERVICE","desc":"英字56pxの見出し＋右にリード。下に大小カードを組み合わせたグリッド"},{"id":"col3-003","file":"col3/col3-003.html","cat":"3カラム","name":"INTERVIEW","desc":"見出し＋3カラムのインタビューカード"},{"id":"col3-004","file":"col3/col3-004.html","cat":"3カラム","name":"INTERVIEW","desc":"英字90pxの見出し＋右上にView All、下に縦長カードを横並び"},{"id":"col3-005","file":"col3/col3-005.html","cat":"3カラム","name":"CASE","desc":"コンパクトな見出し＋段違い3カラムのカード"},{"id":"col3-006","file":"col3/col3-006.html","cat":"3カラム","name":"CASE","desc":"縦長カード3枚の実績一覧"},{"id":"col3-007","file":"col3/col3-007.html","cat":"3カラム","name":"MAGAZINE","desc":"英字見出し＋リンク、下に3カラムの記事グリッド（2行）"},{"id":"col3-008","file":"col3/col3-008.html","cat":"3カラム","name":"MAGAZINE","desc":"見出し＋記事カードの横並び（スライダーを中央静止で表示）"},{"id":"col3-009","file":"col3/col3-009.html","cat":"3カラム","name":"MAGAZINE","desc":"中央見出し＋リード。下に3カラムの記事カード"},{"id":"col3-010","file":"col3/col3-010.html","cat":"3カラム","name":"MAGAZINE","desc":"英字130pxの見出し＋カテゴリ、下に「画像＋日付＋見出し」の記事"},{"id":"col3-011","file":"col3/col3-011.html","cat":"3カラム","name":"GALLERY","desc":"写真・実績を並べる定番の画像グリッド（3列×2行）"},{"id":"col3-012","file":"col3/col3-012.html","cat":"3カラム","name":"GALLERY","desc":"左に英字90pxの見出し＋View All、右に正方形の画像グリッド"},{"id":"col3-013","file":"col3/col3-013.html","cat":"3カラム","name":"MOVIE","desc":"左に見出し＋テキストリンク2本、右に縦長サムネ3枚"},{"id":"col3-014","file":"col3/col3-014.html","cat":"3カラム","name":"BANNER","desc":"縦長カード3枚を上下中央に揃えて並べる。英字50px＋和文14px を画像下に置く"},{"id":"col3-015","file":"col3/col3-015.html","cat":"3カラム","name":"3カラム","desc":"大きな番号＋正方形の画像＋見出し＋本文"},{"id":"col3-016","file":"col3/col3-016.html","cat":"3カラム","name":"3カラム","desc":"年＋対象タグ＋タイトル＋「開催日」の定義リストを持つイベントカード"},{"id":"col3-017","file":"col3/col3-017.html","cat":"3カラム","name":"3カラム","desc":"業種ラベル＋見出し＋2行のクレジットを持つ事例カード"},{"id":"col3-018","file":"col3/col3-018.html","cat":"3カラム","name":"COLUMN","desc":"中央見出し＋画像なしの記事カード3枚＋一覧リンク"},{"id":"col3-019","file":"col3/col3-019.html","cat":"3カラム","name":"NEWS","desc":"見出し上・3列×2行の記事カード6件"},{"id":"col3-020","file":"col3/col3-020.html","cat":"3カラム","name":"INDEX","desc":"見出し上・3列×3行のテキスト項目9件（画像なし）"},{"id":"col3-021","file":"col3/col3-021.html","cat":"3カラム","name":"MENU","desc":"見出し上・3列×2行の正方形カード6件"},{"id":"col3-022","file":"col3/col3-022.html","cat":"3カラム","name":"WORKS","desc":"左に見出しブロック（固定336px）＋右に3列×2行のカード6件"},{"id":"col3-023","file":"col3/col3-023.html","cat":"3カラム","name":"SERVICE","desc":"テキストが上・画像が下の3カラム"},{"id":"col3-024","file":"col3/col3-024.html","cat":"3カラム","name":"DOWNLOAD","desc":"資料ダウンロードのカード3枚"},{"id":"col3-025","file":"col3/col3-025.html","cat":"3カラム","name":"PRICING","desc":"料金プランを3列で比較"},{"id":"col3-026","file":"col3/col3-026.html","cat":"3カラム","name":"INDEX","desc":"見出し上・3列×4行のテキスト項目12件（画像なし）"},{"id":"col4-001","file":"col4/col4-001.html","cat":"4カラム","name":"FEATURE","desc":"中央見出し＋リード。下に横並びのカード5枚（画像＋見出しのみ）"},{"id":"col4-002","file":"col4/col4-002.html","cat":"4カラム","name":"COMPANY","desc":"左に英字大見出し（2行）、右に4カラムのカード"},{"id":"col4-003","file":"col4/col4-003.html","cat":"4カラム","name":"COMPANY","desc":"英字130pxの見出し＋幅いっぱいのリード。下にカード4枚（上揃え）"},{"id":"col4-004","file":"col4/col4-004.html","cat":"4カラム","name":"DATA","desc":"数字で見る。定番の4カラム均等グリッド"},{"id":"col4-005","file":"col4/col4-005.html","cat":"4カラム","name":"PRODUCT","desc":"ラベル＋英字大見出し＋Prev"},{"id":"col4-006","file":"col4/col4-006.html","cat":"4カラム","name":"CAREER","desc":"見出し＋和文リード、右にボタン。下に写真スライダー"},{"id":"col4-007","file":"col4/col4-007.html","cat":"4カラム","name":"CAREER","desc":"左に見出しブロック、右に4カード（見出し→英字→画像の順）"},{"id":"col4-008","file":"col4/col4-008.html","cat":"4カラム","name":"4カラム","desc":"正方形の画像＋タイトル＋所属ラベルのカード"},{"id":"col4-009","file":"col4/col4-009.html","cat":"4カラム","name":"4カラム","desc":"アイコン＋テキストのリンクを4列で敷き詰める一覧"},{"id":"col4-010","file":"col4/col4-010.html","cat":"4カラム","name":"4カラム","desc":"画像を使わない、日付＋タイトル＋タグだけの記事カード"},{"id":"col4-011","file":"col4/col4-011.html","cat":"4カラム","name":"INDEX","desc":"縦書きの小見出し＋リンク行リストを4カラム"},{"id":"col4-012","file":"col4/col4-012.html","cat":"4カラム","name":"CASE","desc":"正方形アイコン126＋タグ＋タイトル24px＋2行クレジットの4カラム"},{"id":"col4-013","file":"col4/col4-013.html","cat":"4カラム","name":"GALLERY","desc":"見出し上・4列×2行のカード8件"},{"id":"col4-014","file":"col4/col4-014.html","cat":"4カラム","name":"INDEX","desc":"見出し上・4列×3行のリンク索引12項目"},{"id":"col4-015","file":"col4/col4-015.html","cat":"4カラム","name":"LINEUP","desc":"左に見出しブロック（固定336px）＋右に4カード"},{"id":"col4-016","file":"col4/col4-016.html","cat":"4カラム","name":"FLOW","desc":"見出し上・4列×2行のテキストカード8件（画像なし）"},{"id":"col4-017","file":"col4/col4-017.html","cat":"4カラム","name":"TOPICS","desc":"タグ＋見出しが上、画像が下の4カラム"},{"id":"col5-001","file":"col5/col5-001.html","cat":"5カラム","name":"DATA","desc":"見出し＋リードの下に、実績カードを5枚均等に並べる"},{"id":"col5-002","file":"col5/col5-002.html","cat":"5カラム","name":"5カラム以上","desc":"正方形のバナーを横に6枚並べる"},{"id":"col5-003","file":"col5/col5-003.html","cat":"5カラム","name":"5カラム以上","desc":"よくある質問を横に5枚並べるカード"},{"id":"col5-004","file":"col5/col5-004.html","cat":"5カラム","name":"RANKING","desc":"左に見出しブロック（固定336px）＋右に正方形サムネの小カード5枚"},{"id":"col5-005","file":"col5/col5-005.html","cat":"5カラム","name":"SUPPORT","desc":"見出し上・5列×2行の円アイコンカード10件"},{"id":"col5-006","file":"col5/col5-006.html","cat":"5カラム","name":"BANNER","desc":"見出しを置かない5列×2行のバナー10枚"},{"id":"col5-007","file":"col5/col5-007.html","cat":"5カラム","name":"STEP","desc":"見出し上・縦罫線で等分した5カラムのテキスト（画像なし）"},{"id":"col5-008","file":"col5/col5-008.html","cat":"5カラム","name":"LOGOS","desc":"見出し上・6列×3行のロゴ一覧18枠"},{"id":"col5-009","file":"col5/col5-009.html","cat":"5カラム","name":"LINEUP","desc":"見出しを置かない5列×2行の縦長サムネ10件"},{"id":"col5-010","file":"col5/col5-010.html","cat":"5カラム","name":"INDEX","desc":"見出し上・5列×2行のテキスト項目10件（画像なし）"},{"id":"news-001","file":"news/news-001.html","cat":"お知らせ","name":"","desc":""},{"id":"news-002","file":"news/news-002.html","cat":"お知らせ","name":"NEWS","desc":"左に主記事（サムネ＋日付＋大見出し）、右に一覧5件"},{"id":"news-003","file":"news/news-003.html","cat":"お知らせ","name":"NEWS","desc":"左にカテゴリナビ、右に一覧＋ボタン"},{"id":"news-004","file":"news/news-004.html","cat":"お知らせ","name":"NEWS","desc":"左にラベル＋英字大見出し＋ピルボタン、右に一覧3件"},{"id":"news-005","file":"news/news-005.html","cat":"お知らせ","name":"NEWS","desc":"左にラベル＋英字見出し＋丸矢印つきリンク、右に一覧4件"},{"id":"news-006","file":"news/news-006.html","cat":"お知らせ","name":"NEWS","desc":"左に画像つきの一覧、右に英字大ラベルの見出し"},{"id":"news-007","file":"news/news-007.html","cat":"お知らせ","name":"NEWS","desc":"左に英字大見出し、右に「すべて見る」。下に1行122pxの一覧3件"},{"id":"news-008","file":"news/news-008.html","cat":"お知らせ","name":"NEWS","desc":"左に和文ラベル＋英字80pxの見出し、右上にリンク。一覧3件"},{"id":"news-009","file":"news/news-009.html","cat":"お知らせ","name":"NEWS","desc":"左にカテゴリフィルタ、右にサムネ付きの一覧"},{"id":"news-010","file":"news/news-010.html","cat":"お知らせ","name":"NEWS","desc":"左に英字100pxの見出し＋View all、右に日付＋見出しの一覧3件"},{"id":"news-011","file":"news/news-011.html","cat":"お知らせ","name":"NEWS","desc":"左に正方形の画像＋一覧ボタン、右に「日付／カテゴリ／タイトル」の行リスト"},{"id":"news-012","file":"news/news-012.html","cat":"お知らせ","name":"NEWS","desc":"英字50pxの見出し＋横タブ（すべて／カテゴリ）＋2カラムの一覧"},{"id":"news-013","file":"news/news-013.html","cat":"お知らせ","name":"NEWS","desc":"和文42pxの見出し。日付を「日.月／年」の縦2段で見せる一覧"},{"id":"news-014","file":"news/news-014.html","cat":"お知らせ","name":"NEWS","desc":"見出し＋左の縦フィルタ／右に一覧、下に誘導ブロック2枚"},{"id":"footer-001","file":"footer/footer-001.html","cat":"フッター","name":"","desc":""},{"id":"footer-002","file":"footer/footer-002.html","cat":"フッター","name":"FOOTER","desc":"濃色。背面に巨大な英字マーキー、中央リード、枠線の巨大ピルCTA、下部にリンク列"},{"id":"footer-003","file":"footer/footer-003.html","cat":"フッター","name":"FOOTER","desc":"濃色。左にロゴ・住所、右にサイトマップ2列"},{"id":"footer-004","file":"footer/footer-004.html","cat":"フッター","name":"FOOTER","desc":"1段組みのシンプルなフッター（ロゴ＋リンク列＋コピーライト）"},{"id":"footer-005","file":"footer/footer-005.html","cat":"フッター","name":"FOOTER","desc":"左にロゴ・住所・DLボタン、右にサイトマップ3列"},{"id":"footer-006","file":"footer/footer-006.html","cat":"フッター","name":"FOOTER","desc":"左にロゴ、右にリンク3行＋SNSアイコン縦並び。下に罫線＋コピーライト＋PageTopの丸"},{"id":"footer-007","file":"footer/footer-007.html","cat":"フッター","name":"FOOTER","desc":"左にロゴ、右にサイトマップ3列。下部に小さなポリシーリンク"},{"id":"footer-008","file":"footer/footer-008.html","cat":"フッター","name":"FOOTER","desc":"濃色。左に社名・住所・SNS、右に「英字48px＋和文」のリンクを2列4行"},{"id":"footer-009","file":"footer/footer-009.html","cat":"フッター","name":"FOOTER","desc":"左にロゴ＋コーポレートサイトリンク＋コピーライト、右にリンクを2階層で縦積み"},{"id":"footer-010","file":"footer/footer-010.html","cat":"フッター","name":"FOOTER","desc":"左にロゴ、中央にリンク列。下にポリシーリンクとコピーライト"},{"id":"footer-011","file":"footer/footer-011.html","cat":"フッター","name":"FOOTER","desc":"左にロゴ＋タグライン、右にリンク2列。下にポリシーとコピーライト"},{"id":"footer-012","file":"footer/footer-012.html","cat":"フッター","name":"FOOTER","desc":"上部に採用バナー2枚（アイコン108角＋見出し24px＋丸矢印）、下にロゴとリンク"},{"id":"footer-013","file":"footer/footer-013.html","cat":"フッター","name":"FOOTER","desc":"親子2階層のサイトマップを4カラムで並べる"},{"id":"footer-014","file":"footer/footer-014.html","cat":"フッター","name":"FOOTER","desc":"左に社名・住所、右に「英字見出し＋和文リンク」の列を4つ"},{"id":"footer-015","file":"footer/footer-015.html","cat":"フッター","name":"FOOTER","desc":"店舗・医院の情報型フッター"}];
+const grid = document.getElementById('grid'), q = document.getElementById('q'), countEl = document.getElementById('count');
+let cat = '';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(){
+  const w = q.value.trim().toLowerCase();
+  const hit = DATA.filter(t => (!cat || t.cat === cat) &&
+    (!w || [t.id, t.cat, t.name, t.desc].join(' ').toLowerCase().includes(w)));
+  countEl.textContent = hit.length + ' / ' + DATA.length + ' 型';
+  grid.innerHTML = hit.map(t => `
+    <article class="card">
+      <a class="shot" href="p/${esc(t.id)}.html"><iframe data-src="${esc(t.file)}" title="${esc(t.id)}" scrolling="no"></iframe></a>
+      <div class="body">
+        <a class="head" href="p/${esc(t.id)}.html">
+          <p class="name">${esc(t.id)}${t.name ? '｜' + esc(t.name) : ''}</p>
+          <p class="meta">${esc(t.cat)}${t.desc ? ' ／ ' + esc(t.desc) : ''}</p>
+        </a>
+        <div class="act"><button data-id="${esc(t.id)}">mdをコピー</button></div>
+      </div>
+    </article>`).join('');
+  lazy();
+}
+// プレビューは画面に入ってから読み込む（167枚を一度に開かない）
+let io;
+function lazy(){
+  io?.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const f = e.target; if (f.dataset.src){ f.src = f.dataset.src; delete f.dataset.src; }
+    io.unobserve(f);
+  }), { rootMargin: '400px' });
+  grid.querySelectorAll('iframe[data-src]').forEach(f => io.observe(f));
+}
+q.addEventListener('input', render);
+document.getElementById('cats').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  cat = b.dataset.c;
+  document.querySelectorAll('#cats button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  render();
 });
-
-const REPO = 'https://github.com/hiroho-t/site-wireframe';
-
-/* ------------------------------------------------------------
-   カテゴリ定義：セクションを追加したら、ここに1行足すだけ
-   [表示名, ディレクトリ名, [ファイルID...]]
-   ------------------------------------------------------------ */
-const DATA = [
-  ["下層ページタイトル", "pagetitle", ["pagetitle-001", "pagetitle-002", "pagetitle-003"]],
-  ["MV / メインビジュアル", "mv", ["mv-001", "mv-002", "mv-003", "mv-004", "mv-005", "mv-006", "mv-007", "mv-008", "mv-009", "mv-010", "mv-011", "mv-012", "mv-013", "mv-014"]],
-  ["1カラム", "col1", [
-    "col1-001", "col1-002", "col1-003", "col1-004", "col1-005", "col1-006", "col1-007", "col1-008", "col1-009", "col1-010", "col1-011", "col1-012", "col1-013", "col1-014", "col1-015", "col1-016", "col1-017", "col1-018", "col1-019"
-  ]],
-  ["2カラム", "col2", [
-    "col2-001", "col2-002", "col2-003", "col2-004", "col2-005", "col2-006", "col2-007", "col2-008", "col2-009", "col2-010", "col2-011", "col2-012", "col2-013", "col2-014", "col2-015", "col2-016", "col2-017", "col2-018", "col2-019", "col2-020", "col2-021", "col2-022", "col2-023", "col2-024", "col2-025", "col2-026", "col2-027", "col2-028", "col2-029", "col2-030", "col2-031", "col2-032", "col2-033", "col2-034", "col2-035", "col2-036", "col2-037", "col2-038", "col2-039", "col2-040", "col2-041", "col2-042", "col2-043", "col2-044", "col2-045", "col2-046", "col2-047", "col2-048", "col2-049"
-  ]],
-  ["3カラム", "col3", [
-    "col3-001", "col3-002", "col3-003", "col3-004", "col3-005", "col3-006", "col3-007", "col3-008", "col3-009", "col3-010", "col3-011", "col3-012", "col3-013", "col3-014", "col3-015", "col3-016", "col3-017", "col3-018", "col3-019", "col3-020", "col3-021", "col3-022", "col3-023", "col3-024", "col3-025", "col3-026"
-  ]],
-  ["4カラム", "col4", [
-    "col4-001", "col4-002", "col4-003", "col4-004", "col4-005", "col4-006", "col4-007", "col4-008", "col4-009", "col4-010", "col4-011", "col4-012", "col4-013", "col4-014", "col4-015", "col4-016", "col4-017"
-  ]],
-  ["5カラム", "col5", [
-    "col5-001", "col5-002", "col5-003", "col5-004", "col5-005", "col5-006", "col5-007", "col5-008", "col5-009", "col5-010"
-  ]],
-  ["お知らせ", "news", ["news-001", "news-002", "news-003", "news-004", "news-005", "news-006", "news-007", "news-008", "news-009", "news-010", "news-011", "news-012", "news-013", "news-014"]],
-  ["フッター", "footer", ["footer-001", "footer-002", "footer-003", "footer-004", "footer-005", "footer-006", "footer-007", "footer-008", "footer-009", "footer-010", "footer-011", "footer-012", "footer-013", "footer-014", "footer-015"]]
-];
-
-document.getElementById('app').innerHTML = DATA.map(([label, dir, items]) => `
-  <section id="${dir}">
-    <h2>${label}<span>${dir}/ ・ ${items.length}種</span></h2>
-    <div class="grid">
-      ${items.map(id => `
-        <div class="card">
-          <a class="thumb" href="${dir}/${id}.html" target="_blank" rel="noopener"><iframe src="${dir}/${id}.html" loading="lazy" scrolling="no" title="${id}"></iframe></a>
-          <div class="cap">
-            <button type="button" class="id" data-id="${id}" title="IDをコピー">${id}<i class="fa-regular fa-copy"></i></button>
-            <a class="dl" href="${REPO}/blob/main/${dir}/${id}.html" target="_blank" rel="noopener">コードをダウンロード</a>
-          </div>
-        </div>`).join('')}
-    </div>
-  </section>`).join('');
-
-const LINKS = DATA.map(([label, dir, items]) =>
-  `<a href="#${dir}">${label}<span>${items.length}</span></a>`).join('');
-const nav = document.getElementById('catnav');
-nav.innerHTML = LINKS;
-document.getElementById('catbar').innerHTML = LINKS;
-
-// 追従ハンバーガーでカテゴリーメニューを開閉
-const menubtn = document.getElementById('menubtn'), mask = document.getElementById('mask');
-const setOpen = (open) => {
-  menubtn.setAttribute('aria-expanded', open);
-  nav.hidden = !open; mask.hidden = !open;
-};
-menubtn.addEventListener('click', () => setOpen(menubtn.getAttribute('aria-expanded') !== 'true'));
-mask.addEventListener('click', () => setOpen(false));
-nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
-addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
-
-document.getElementById('app').addEventListener('click', async (e) => {
-  const btn = e.target.closest('.id');
-  if (!btn) return;
-  const id = btn.dataset.id;
-  try { await navigator.clipboard.writeText(id); }
-  catch { const r = document.createRange(); r.selectNodeContents(btn);
-          getSelection().removeAllRanges(); getSelection().addRange(r); }
-  btn.classList.add('done');
-  btn.innerHTML = 'コピーしました<i class="fa-solid fa-check"></i>';
-  setTimeout(() => { btn.classList.remove('done');
-    btn.innerHTML = id + '<i class="fa-regular fa-copy"></i>'; }, 1200);
+grid.addEventListener('click', async e => {
+  const b = e.target.closest('button[data-id]'); if (!b) return;
+  const t = b.textContent;
+  try { const md = await fetch('s/' + b.dataset.id + '.md').then(r => r.text());
+    await navigator.clipboard.writeText(md); b.textContent = 'コピーしました'; b.classList.add('done'); }
+  catch { b.textContent = 'コピーできません'; }
+  setTimeout(() => { b.textContent = t; b.classList.remove('done'); }, 1500);
 });
+render();
 </script>
-</body>
-</html>
+</body></html>

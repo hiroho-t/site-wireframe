@@ -1,228 +1,104 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>site-wireframe｜ページ丸ごとの型</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ページ丸ごとの型｜site-wireframe</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#fafafa;          /* ベース */
-    --ink:#2f2725;         /* 文字（やや温かみのある黒） */
-    --sub:#8b8583;         /* 補助文字 */
-    --line:#e2dfdd;        /* 罫線 */
-    --field:#f1f1f1;       /* 入力欄・コード欄の地色 */
-    --link:#0062db;        /* アクセント（リンク） */
-    --r:6px;               /* 角丸 */
-  }
+  :root{--bg:#fff;--ink:#141414;--sub:#767676;--line:#e6e4e2;--field:#f4f3f1;--r:6px}
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
-    color:var(--ink);-webkit-font-smoothing:antialiased}
-  header{padding:40px 40px 30px;border-bottom:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:flex-start;gap:48px;flex-wrap:wrap}
-  h1{font-size:22px;font-weight:800;letter-spacing:.06em}
-  header p{font-size:12px;color:var(--sub);margin-top:10px;line-height:1.9;letter-spacing:.04em}
-
-  /* 取得ボタン */
-  .get{flex:1 1 340px;min-width:0;max-width:400px;padding:16px 18px;
-    background:#fff;border:1px solid var(--line);border-radius:8px}
-  .btns{display:flex;flex-wrap:wrap;gap:10px}
-  .btn{flex:1 1 140px;display:flex;align-items:center;justify-content:center;gap:8px;height:38px;
-    font-size:12px;font-weight:700;letter-spacing:.06em;text-decoration:none;border-radius:var(--r);
-    border:1px solid var(--ink);background:var(--ink);color:#fff}
-  .btn.sub{background:transparent;color:var(--ink)}
-  .btn:hover{opacity:.75}
-  .btn.sub:hover{background:var(--field);opacity:1}
-  .btn svg{width:15px;height:15px;fill:currentColor;flex:none}
-  .cmd{display:flex;align-items:stretch;margin-top:10px;background:var(--field);border-radius:8px;overflow:hidden}
-  .cmd code{flex:1;min-width:0;padding:11px 12px 10px;font-size:10px;line-height:1.5;color:#555;background:none;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .cmd button{flex:none;width:62px;border:0;border-left:1px solid #e2e2e2;background:none;
-    font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ink);cursor:pointer;font-family:inherit}
-  .cmd button:hover{background:#e7e7e7}
-
-  @media (max-width:900px){
-    header{padding:30px 24px 24px;gap:24px}
-    .get{flex:1 1 100%;max-width:none}
-    main{padding:0 24px 48px}
-    .catbar{padding:11px 24px 13px}
-    .menubtn{right:16px;bottom:16px}
-    .catnav{right:16px;bottom:80px;width:auto;left:16px;max-width:280px;margin-left:auto}
-  }
-  /* カテゴリー一覧（ヘッダー下・追従しない） */
-  header .pagelink{margin-top:8px;font-size:12px;color:var(--sub)}
-  header p strong{font-weight:700;color:var(--ink)}
-  header p a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
-  header .pagelink a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
-  .catbar{display:flex;flex-wrap:wrap;gap:8px;padding:13px 40px 15px;border-bottom:1px solid var(--line)}
-  .catbar a{display:inline-flex;align-items:baseline;gap:7px;padding:7px 12px 6px;
-    border:1px solid var(--line);border-radius:var(--r);background:#fff;
-    font-size:12px;letter-spacing:.06em;color:var(--ink);text-decoration:none}
-  .catbar a:hover{border-color:var(--ink)}
-  .catbar a span{font-size:10px;color:var(--sub);letter-spacing:0}
-
-  /* カテゴリーメニュー（追従するのはハンバーガーボタン1つだけ） */
-  .menubtn{position:fixed;right:24px;bottom:24px;z-index:40;width:52px;height:52px;padding:0;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-    border:1px solid var(--ink);border-radius:var(--r);background:var(--ink);cursor:pointer}
-  .menubtn i{display:block;width:20px;height:1.5px;background:#fff}
-  .menubtn[aria-expanded="true"] i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-  .menubtn[aria-expanded="true"] i:nth-child(2){opacity:0}
-  .menubtn[aria-expanded="true"] i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-  .mask{position:fixed;inset:0;z-index:30;background:none}
-  .mask[hidden],.catnav[hidden]{display:none}
-  .catnav{position:fixed;right:24px;bottom:88px;z-index:40;width:272px;
-    max-height:calc(100vh - 136px);overflow-y:auto;padding:8px;
-    background:#fff;border:1px solid var(--line);border-radius:8px;
-    box-shadow:0 8px 28px rgba(47,39,37,.10)}
-  .catnav a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-    padding:9px 11px;border-radius:var(--r);
-    font-size:12px;letter-spacing:.06em;color:var(--ink);text-decoration:none}
-  .catnav a:hover{background:var(--field)}
-  .catnav a span{font-size:10px;color:var(--sub);letter-spacing:0}
-
-  main{padding:0 40px 64px}
-  section{padding-top:44px;scroll-margin-top:24px}
-  h2{font-size:15px;font-weight:800;letter-spacing:.1em;padding-bottom:14px;border-bottom:1px solid var(--line)}
-  h2 span{font-size:11px;font-weight:400;color:var(--sub);margin-left:12px;letter-spacing:.04em}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px;margin-top:24px}
-  .card{display:block}
-  .thumb{position:relative;display:block;width:100%;aspect-ratio:1440/800;background:#fff;
-    border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-  .thumb iframe{width:100%;height:100%;border:0;pointer-events:none;display:block}
-  .thumb::after{content:"";position:absolute;inset:0}
-  .thumb:hover{border-color:var(--ink)}
-  .cap{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;gap:12px}
-  .id{display:inline-flex;align-items:baseline;gap:6px;flex:none;
-    font:inherit;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ink);
-    background:none;border:0;padding:0;cursor:pointer}
-  .id i{font-size:9px;color:#b5b0ad;transform:translateY(-1px)}
-  .id:hover{text-decoration:underline;text-underline-offset:3px}
-  .id:hover i{color:var(--ink)}
-  .id.done{color:var(--sub)}
-  .id.done i{color:var(--sub)}
-  .dl{font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--link);
-    text-decoration:none;white-space:nowrap}
-  .dl:hover{text-decoration:underline;text-underline-offset:2px}
-
-  /* ページ丸ごとの型のサムネ：1440幅の先頭1画面を縮小して見せる */
-  .grid--page{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:30px}
-  .thumb--page{aspect-ratio:1440/900;position:relative;overflow:hidden}
-  .thumb--page iframe{position:absolute;left:0;top:0;width:1440px;height:900px;
-    border:0;pointer-events:none;transform-origin:0 0}
-  .cap .use{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--ink)}
-  .cap .meta{font-size:10px;color:var(--sub);white-space:nowrap}
-  .lead-box{margin:0 40px;padding:18px 20px;background:#fff;border:1px solid var(--line);
-    border-radius:8px;font-size:12px;line-height:2;color:var(--ink)}
-  .lead-box b{font-weight:700}
-  .lead-box a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
-  .lead-box ol{margin:8px 0 0 1.3em;color:var(--sub)}
-  .lead-box li{margin-top:2px}
-  @media (max-width:900px){ .lead-box{margin:0 24px} }
-</style>
-</head>
-<body>
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  header{padding:40px 32px 24px;border-bottom:1px solid var(--line)}
+  h1{font-size:19px;font-weight:700;letter-spacing:.04em}
+  header p{margin-top:10px;font-size:13px;color:var(--sub);max-width:680px}
+  header a{color:var(--ink)}
+  .bar{position:sticky;top:0;z-index:5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    padding:14px 32px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  #q{flex:1 1 220px;max-width:320px;height:38px;padding:0 12px;font:inherit;font-size:13px;
+    border:1px solid var(--line);border-radius:var(--r);background:var(--field);color:var(--ink)}
+  #q:focus{outline:2px solid var(--ink);outline-offset:-1px;background:#fff}
+  .cats{display:flex;gap:6px;flex-wrap:wrap}
+  .cats button{font:inherit;font-size:12px;padding:5px 12px;border:1px solid var(--line);border-radius:99px;
+    background:#fff;color:var(--ink);cursor:pointer}
+  .cats button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .count{font-size:12px;color:var(--sub);margin-left:auto}
+  main{padding:28px 32px 64px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+  .card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .shot{display:block;aspect-ratio:1440/800;background:var(--field);border-bottom:1px solid var(--line);position:relative}
+  .shot iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
+  .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .name{font-size:13px;font-weight:700;line-height:1.5}
+  .meta{font-size:11px;color:var(--sub);line-height:1.7}
+  .act{display:flex;gap:8px;margin-top:auto}
+  .act button{flex:1;height:34px;font:inherit;font-size:12px;font-weight:700;border-radius:var(--r);
+    border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer}
+  .act button:hover{opacity:.78}.act button.done{background:#fff;color:var(--ink)}
+  .head{text-decoration:none;color:inherit;display:block}
+  .head:hover .name{text-decoration:underline;text-underline-offset:3px}
+  footer{border-top:1px solid var(--line);padding:28px 32px 56px;font-size:12px;color:var(--sub)}
+  footer a{color:var(--ink)}
+  @media (max-width:640px){header,.bar,main,footer{padding-left:20px;padding-right:20px}}
+</style></head><body>
 <header>
-  <div>
-    <h1>site-wireframe｜ページ丸ごとの型</h1>
-    <p>実在サイトのレイアウトを、このライブラリのルール（モノトーン・Noto Sans JP／Poppins・ダミー文言・Unsplashの写真・Font Awesomeのアイコン）に整えた<strong>完成ページ 6枚</strong>。<br>
-      Claude CodeのWebサイトのワイヤーフレームのテンプレートとして、Githubからダウンロードしてご利用いただけます。</p>
-    <p class="pagelink">差し替え用の <a href="sections.html">セクションの型 167種</a> ／ 増やし方は
-      <a href="https://github.com/hiroho-t/site-wireframe/blob/main/PAGES.md">PAGES.md</a></p>
-  </div>
-
-  <div class="get">
-    <div class="btns">
-      <a class="btn" href="https://github.com/hiroho-t/site-wireframe" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-        GitHub リポジトリ
-      </a>
-      <a class="btn sub" href="https://github.com/hiroho-t/site-wireframe/archive/refs/heads/main.zip">
-        ZIP ダウンロード
-      </a>
-    </div>
-    <div class="cmd">
-      <code id="cmd">git clone https://github.com/hiroho-t/site-wireframe.git ~/.claude/skills/site-wireframe</code>
-      <button type="button" id="copy">コピー</button>
-    </div>
-  </div>
+  <h1>ページ丸ごとの型</h1>
+  <p>実在サイトのトップページを、白黒グレー・ダミーテキストのルールに整えた完成ページ。カードから<strong>レイアウトmdをコピー</strong>して Claude Code に貼れば、そのまま組み立ての指示になります ／ <a href="sections.html">セクションの型を見る</a></p>
 </header>
-
-<main id="app">
-  <div class="lead-box">
-    <b>使い方</b>
-    <ol>
-      <li>入れる情報を数える（見出し何行／項目何件／導線いくつ）</li>
-      <li>骨格の近いページ型を1枚選び、コピーする</li>
-      <li>件数が合わないセクションだけ <a href="sections.html">セクションの型</a> で差し替える（選び方は <a href="https://github.com/hiroho-t/site-wireframe/blob/main/SELECT.md">SELECT.md</a> 6章）</li>
-    </ol>
-  </div>
-  <section id="page">
-    <h2>ページ丸ごとの型<span>page/ ・ 6枚</span></h2>
-    <div class="grid grid--page">
-        <div class="card">
-          <a class="thumb thumb--page" href="page/page-001.html" target="_blank" rel="noopener"><iframe src="page/page-001.html" loading="lazy" scrolling="no" title="page-001"></iframe></a>
-          <div class="cap">
-            <span class="use">page-001｜BtoBサービス</span>
-            <span class="meta">9,557px ／ 304KB</span>
-          </div>
-        </div>
-        <div class="card">
-          <a class="thumb thumb--page" href="page/page-003.html" target="_blank" rel="noopener"><iframe src="page/page-003.html" loading="lazy" scrolling="no" title="page-003"></iframe></a>
-          <div class="cap">
-            <span class="use">page-003｜採用支援サービス</span>
-            <span class="meta">12,814px ／ 250KB</span>
-          </div>
-        </div>
-        <div class="card">
-          <a class="thumb thumb--page" href="page/page-005.html" target="_blank" rel="noopener"><iframe src="page/page-005.html" loading="lazy" scrolling="no" title="page-005"></iframe></a>
-          <div class="cap">
-            <span class="use">page-005｜ギャラリー・メディア</span>
-            <span class="meta">12,544px ／ 250KB</span>
-          </div>
-        </div>
-        <div class="card">
-          <a class="thumb thumb--page" href="page/page-007.html" target="_blank" rel="noopener"><iframe src="page/page-007.html" loading="lazy" scrolling="no" title="page-007"></iframe></a>
-          <div class="cap">
-            <span class="use">page-007｜病院グループ</span>
-            <span class="meta">7,015px ／ 189KB</span>
-          </div>
-        </div>
-        <div class="card">
-          <a class="thumb thumb--page" href="page/page-008.html" target="_blank" rel="noopener"><iframe src="page/page-008.html" loading="lazy" scrolling="no" title="page-008"></iframe></a>
-          <div class="cap">
-            <span class="use">page-008｜BtoBテック企業</span>
-            <span class="meta">8,865px ／ 203KB</span>
-          </div>
-        </div>
-        <div class="card">
-          <a class="thumb thumb--page" href="page/page-014.html" target="_blank" rel="noopener"><iframe src="page/page-014.html" loading="lazy" scrolling="no" title="page-014"></iframe></a>
-          <div class="cap">
-            <span class="use">page-014｜メーカー</span>
-            <span class="meta">6,406px ／ 113KB</span>
-          </div>
-        </div>
-    </div>
-  </section>
-</main>
-
+<div class="bar">
+  <input id="q" type="search" placeholder="型番・種類・説明でしぼる" autocomplete="off">
+  <div class="cats" id="cats"><button aria-pressed="true" data-c="">すべて</button><button aria-pressed="false" data-c="ページ丸ごと">ページ丸ごと</button></div>
+  <span class="count" id="count"></span>
+</div>
+<main><div class="grid" id="grid"></div></main>
+<footer><p>各カードの「mdをコピー」は、その型のレイアウトを数値で書いた指示書をクリップボードに入れます。Claude Code に貼れば、そのまま組み立ての指示になります。</p></footer>
 <script>
-document.getElementById('copy').addEventListener('click', async (e) => {
-  const btn = e.currentTarget, text = document.getElementById('cmd').textContent;
-  try { await navigator.clipboard.writeText(text); btn.textContent = 'コピー済'; }
-  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('cmd'));
-          getSelection().removeAllRanges(); getSelection().addRange(r); btn.textContent = '選択'; }
-  setTimeout(() => btn.textContent = 'コピー', 1600);
+const DATA = [{"id":"page-001","file":"page/page-001.html","cat":"ページ丸ごと","name":"","desc":""},{"id":"page-003","file":"page/page-003.html","cat":"ページ丸ごと","name":"","desc":""},{"id":"page-005","file":"page/page-005.html","cat":"ページ丸ごと","name":"","desc":""},{"id":"page-007","file":"page/page-007.html","cat":"ページ丸ごと","name":"","desc":""},{"id":"page-008","file":"page/page-008.html","cat":"ページ丸ごと","name":"","desc":""},{"id":"page-014","file":"page/page-014.html","cat":"ページ丸ごと","name":"","desc":""}];
+const grid = document.getElementById('grid'), q = document.getElementById('q'), countEl = document.getElementById('count');
+let cat = '';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function render(){
+  const w = q.value.trim().toLowerCase();
+  const hit = DATA.filter(t => (!cat || t.cat === cat) &&
+    (!w || [t.id, t.cat, t.name, t.desc].join(' ').toLowerCase().includes(w)));
+  countEl.textContent = hit.length + ' / ' + DATA.length + ' 型';
+  grid.innerHTML = hit.map(t => `
+    <article class="card">
+      <a class="shot" href="p/${esc(t.id)}.html"><iframe data-src="${esc(t.file)}" title="${esc(t.id)}" scrolling="no"></iframe></a>
+      <div class="body">
+        <a class="head" href="p/${esc(t.id)}.html">
+          <p class="name">${esc(t.id)}${t.name ? '｜' + esc(t.name) : ''}</p>
+          <p class="meta">${esc(t.cat)}${t.desc ? ' ／ ' + esc(t.desc) : ''}</p>
+        </a>
+        <div class="act"><button data-id="${esc(t.id)}">mdをコピー</button></div>
+      </div>
+    </article>`).join('');
+  lazy();
+}
+// プレビューは画面に入ってから読み込む（167枚を一度に開かない）
+let io;
+function lazy(){
+  io?.disconnect();
+  io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const f = e.target; if (f.dataset.src){ f.src = f.dataset.src; delete f.dataset.src; }
+    io.unobserve(f);
+  }), { rootMargin: '400px' });
+  grid.querySelectorAll('iframe[data-src]').forEach(f => io.observe(f));
+}
+q.addEventListener('input', render);
+document.getElementById('cats').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  cat = b.dataset.c;
+  document.querySelectorAll('#cats button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  render();
 });
-
-// サムネは1440幅の先頭1画面。カード幅に合わせて等倍縮小する
-const fit = () => document.querySelectorAll('.thumb--page').forEach(t => {
-  const f = t.querySelector('iframe');
-  if (f) f.style.transform = 'scale(' + (t.clientWidth / 1440) + ')';
+grid.addEventListener('click', async e => {
+  const b = e.target.closest('button[data-id]'); if (!b) return;
+  const t = b.textContent;
+  try { const md = await fetch('s/' + b.dataset.id + '.md').then(r => r.text());
+    await navigator.clipboard.writeText(md); b.textContent = 'コピーしました'; b.classList.add('done'); }
+  catch { b.textContent = 'コピーできません'; }
+  setTimeout(() => { b.textContent = t; b.classList.remove('done'); }, 1500);
 });
-addEventListener('resize', fit);
-addEventListener('load', fit);
-fit();
+render();
 </script>
-</body>
-</html>
+</body></html>
