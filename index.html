@@ -126,6 +126,10 @@ let items = [];
 const BASE = document.body.dataset.base || '';
 const menubtn = document.getElementById('menubtn'), catnav = document.getElementById('catnav'), catlist = document.getElementById('catlist');
 let cat = '';
+// 動きは計測していないので、その分類は出さない（持っていない情報を見せない）
+const HIDE_GROUPS = ['動き･技術'];
+const shown = c => !HIDE_GROUPS.includes(CATS[c.slug]?.group);
+
 let CATS = {}, GROUPS = [];
 Promise.all([
   fetch(BASE + 'data.json').then(r => r.json()),
@@ -140,8 +144,8 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 // SANKOU! と同じ大分類（タイプ／業種･ジャンル／…）で並べる
 function fillCats() {
   const n = {};
-  for (const x of items) for (const c of x.cats || []) (n[c.slug] ||= { name: c.name, n: 0 }).n++;
-  const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i);
+  for (const x of items) for (const c of (x.cats || []).filter(shown)) (n[c.slug] ||= { name: c.name, n: 0 }).n++;
+  const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i && !HIDE_GROUPS.includes(v));
   const bucket = {};
   for (const [slug, c] of Object.entries(n)) {
     const g = CATS[slug]?.group || 'その他';
@@ -158,7 +162,7 @@ function render() {
   const w = q.value.trim().toLowerCase();
   const hit = items.filter(x =>
     (!cat || (x.cats || []).some(k => k.slug === cat)) &&
-    (!w || [x.name, x.industry, ...(x.tags || []), ...(x.cats || []).map(k => k.name)]
+    (!w || [x.name, x.industry, ...(x.tags || []), ...(x.cats || []).filter(shown).map(k => k.name)]
       .join(' ').toLowerCase().includes(w)));
   empty.hidden = hit.length > 0;
   grid.innerHTML = hit.map(x => `
