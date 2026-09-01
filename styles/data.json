@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "goodpatch-anywhere",
+    "name": "Goodpatch Anywhere",
+    "url": "https://anywhere.goodpatch.com/",
+    "industry": "デザイン会社・採用",
+    "tags": [
+      "ゴシック",
+      "余白ひろい",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#096fca",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 49.5
+      },
+      {
+        "hex": "#096fca",
+        "pct": 37.8
+      },
+      {
+        "hex": "#e3d7d5",
+        "pct": 7.1
+      }
+    ]
+  },
+  {
+    "slug": "jins-holdings",
+    "name": "JINS HOLDINGS",
+    "url": "https://jinsholdings.com/jp/ja",
+    "industry": "アイウェア・コーポレート",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#6a594e",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 47
+      },
+      {
+        "hex": "#c9d4de",
+        "pct": 6.7
+      },
+      {
+        "hex": "#252625",
+        "pct": 5.5
+      },
+      {
+        "hex": "#959fa3",
+        "pct": 5.5
+      }
+    ]
+  },
+  {
+    "slug": "zoff-recruit",
+    "name": "Zoff Recruitment Site",
+    "url": "https://recruit.zoff.com/",
+    "industry": "アイウェア・採用",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#2299e1",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 57.3
+      },
+      {
+        "hex": "#edeff0",
+        "pct": 18.3
+      },
+      {
+        "hex": "#2299e1",
+        "pct": 7.5
+      },
+      {
+        "hex": "#d3d1ce",
+        "pct": 3.6
+      }
+    ]
+  },
+  {
+    "slug": "goodpatch-careers",
+    "name": "Goodpatch グッドパッチ採用サイト",
+    "url": "https://careers.goodpatch.com/",
+    "industry": "デザイン会社・採用",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角丸",
+      "色つき"
+    ],
+    "accent": "#096fc8",
+    "palette": [
+      {
+        "hex": "#f7f7f7",
+        "pct": 86.3
+      },
+      {
+        "hex": "#cec9c4",
+        "pct": 3.1
+      }
+    ]
+  }
+]
