@@ -65,12 +65,16 @@
   /* 右端にくっつく、画面の縦いっぱいの引き出し */
   .catnav{position:fixed;top:0;right:0;bottom:0;z-index:25;width:min(320px,86vw);
     display:flex;flex-direction:column;background:#fff;border-left:1px solid var(--line)}
+  .catnav[hidden]{display:none}   /* .catnav の display が効いて開きっぱなしになるのを防ぐ */
   .catnav__h{padding:20px 20px 14px;font-size:12px;font-weight:700;letter-spacing:.1em;border-bottom:1px solid var(--line)}
   .catnav__list{overflow:auto;padding:8px 8px 104px}
   .catnav__list button{display:flex;width:100%;gap:8px;align-items:baseline;text-align:left;font:inherit;font-size:13px;
     padding:7px 10px;border:0;border-radius:var(--r);background:none;color:var(--ink);cursor:pointer;line-height:1.6}
   .catnav__list button:hover{background:var(--field)}
   .catnav__list button[aria-pressed=true]{background:var(--ink);color:#fff}
+  .catnav__g{margin:18px 10px 6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--sub);
+    border-top:1px solid var(--line);padding-top:14px}
+  .catnav__g:first-of-type{border-top:0;margin-top:8px;padding-top:0}
   .catnav__list b{margin-left:auto;font-weight:400;font-size:11px;color:var(--sub)}
   .catnav__list button[aria-pressed=true] b{color:rgba(255,255,255,.7)}
   @media (max-width:640px){ .menubtn{right:16px;bottom:16px} }
@@ -100,7 +104,7 @@
 
 <footer>
   <p>スクリーンショットの掲載を希望されない場合はご連絡ください、確認のうえ削除します。</p>
-  <p style="margin-top:12px">運営：<a href="https://startwith.org/" target="_blank" rel="noopener">合同会社StartWith</a></p>
+  <p style="margin-top:12px"><a href="https://startwith.org/" target="_blank" rel="noopener">運営会社</a></p>
 </footer>
 
 <script>
@@ -112,18 +116,32 @@ let items = [];
 const BASE = document.body.dataset.base || '';
 const menubtn = document.getElementById('menubtn'), catnav = document.getElementById('catnav'), catlist = document.getElementById('catlist');
 let cat = '';
-fetch(BASE + 'data.json').then(r => r.json()).then(d => { items = d; fillCats(); render(); })
+let CATS = {}, GROUPS = [];
+Promise.all([
+  fetch(BASE + 'data.json').then(r => r.json()),
+  fetch(BASE + 'categories.json').then(r => r.json()).catch(() => ({})),
+  fetch(BASE + 'groups.json').then(r => r.json()).catch(() => []),
+]).then(([d, c, g]) => { items = d; CATS = c; GROUPS = g; fillCats(); render(); })
   .catch(() => { grid.innerHTML = '<p class="empty">data.json が読めません。file:// ではなく簡易サーバー経由で開いてください。</p>'; });
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 // 載っているサイトが実際に持つカテゴリーだけを、件数の多い順に出す
+// SANKOU! と同じ大分類（タイプ／業種･ジャンル／…）で並べる
 function fillCats() {
   const n = {};
   for (const x of items) for (const c of x.cats || []) (n[c.slug] ||= { name: c.name, n: 0 }).n++;
+  const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i);
+  const bucket = {};
+  for (const [slug, c] of Object.entries(n)) {
+    const g = CATS[slug]?.group || 'その他';
+    (bucket[g] ||= []).push({ slug, ...c, o: CATS[slug]?.order ?? 9999 });
+  }
+  const btn = c => `<button data-c="${esc(c.slug)}" aria-pressed="false">${esc(c.name)}<b>${c.n}</b></button>`;
   catlist.innerHTML = `<button data-c="" aria-pressed="true">すべて<b>${items.length}</b></button>`
-    + Object.entries(n).sort((a, b) => b[1].n - a[1].n)
-      .map(([slug, c]) => `<button data-c="${esc(slug)}" aria-pressed="false">${esc(c.name)}<b>${c.n}</b></button>`).join('');
+    + order.filter(g => bucket[g]?.length).map(g =>
+        `<p class="catnav__g">${esc(g)}</p>` + bucket[g].sort((a, b) => a.o - b.o || b.n - a.n).map(btn).join('')
+      ).join('');
 }
 
 function render() {
