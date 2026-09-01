@@ -6422,5 +6422,1037 @@
         "name": "グレー･灰色"
       }
     ]
+  },
+  {
+    "slug": "findy",
+    "name": "ファインディ株式会社(Findy Inc)",
+    "url": "https://findy.co.jp/",
+    "industry": "コーポレートサイト／自社プロダクト･サービス運営／求人･マッチング･転職･人材ビジネス",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#2061ab",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 60.6
+      },
+      {
+        "hex": "#3f3f41",
+        "pct": 10.2
+      },
+      {
+        "hex": "#2061ab",
+        "pct": 10
+      },
+      {
+        "hex": "#d8e3ef",
+        "pct": 4.9
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "product-service",
+        "name": "自社プロダクト･サービス運営"
+      },
+      {
+        "slug": "joboffer-matching",
+        "name": "求人･マッチング･転職･人材ビジネス"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "form",
+        "name": "図形を多用･幾何学モチーフ"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "shinseidenki",
+    "name": "新生電機",
+    "url": "https://www.shinseidenki.co.jp/",
+    "industry": "コーポレートサイト／製造業･工業･メーカー･商社･物流／スタイリッシュ",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#022a60",
+    "palette": [
+      {
+        "hex": "#fcfcfc",
+        "pct": 46.9
+      },
+      {
+        "hex": "#022a60",
+        "pct": 11.6
+      },
+      {
+        "hex": "#023aa5",
+        "pct": 9
+      },
+      {
+        "hex": "#036ec2",
+        "pct": 6.7
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "life-infrastructure-industry",
+        "name": "製造業･工業･メーカー･商社･物流"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "cool",
+        "name": "かっこいい"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "partial-horizontalscroll",
+        "name": "一部横スクロール"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "aksball",
+    "name": "株式会社天辻鋼球製作所",
+    "url": "https://www.aksball.co.jp/",
+    "industry": "コーポレートサイト／製造業･工業･メーカー･商社･物流／オーソドックス",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#1c2734",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 86.7
+      },
+      {
+        "hex": "#cdd4db",
+        "pct": 6.3
+      },
+      {
+        "hex": "#1c2734",
+        "pct": 2.8
+      },
+      {
+        "hex": "#a4b0c1",
+        "pct": 1.9
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "life-infrastructure-industry",
+        "name": "製造業･工業･メーカー･商社･物流"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "cool",
+        "name": "かっこいい"
+      },
+      {
+        "slug": "3dcg",
+        "name": "3D表現･3Dイラストを使用"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "elaborate",
+        "name": "遊び心がある･作り込まれている"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "inbound-multilingual",
+        "name": "多言語対応"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "movie",
+        "name": "動画が流れる"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "greencoop",
+    "name": "社会福祉法人グリーンコープ",
+    "url": "https://www.fukushi-greencoop.or.jp/",
+    "industry": "コーポレートサイト／福祉･介護／オーソドックス",
+    "tags": [
+      "明朝",
+      "余白つまった",
+      "角丸",
+      "色つき"
+    ],
+    "accent": "#d9ccb5",
+    "palette": [
+      {
+        "hex": "#f7f4e9",
+        "pct": 78.1
+      },
+      {
+        "hex": "#d9ccb5",
+        "pct": 4.4
+      },
+      {
+        "hex": "#b3977f",
+        "pct": 3.8
+      },
+      {
+        "hex": "#684e47",
+        "pct": 3.8
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "care-old",
+        "name": "福祉･介護"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "portrait",
+        "name": "印象的な人物写真･動画を使用"
+      },
+      {
+        "slug": "typography",
+        "name": "魅力的な文字･タイポグラフィ"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "elaborate",
+        "name": "遊び心がある･作り込まれている"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      }
+    ]
+  },
+  {
+    "slug": "toyoenergy",
+    "name": "TOP",
+    "url": "https://www.toyo-e.co.jp/",
+    "industry": "コーポレートサイト／ノーコードツールで制作されたサイト／ノーコードツール｢Studio｣で制作されたサイト",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#404460",
+    "palette": [
+      {
+        "hex": "#f6f7fa",
+        "pct": 64.3
+      },
+      {
+        "hex": "#404460",
+        "pct": 14.4
+      },
+      {
+        "hex": "#243dc9",
+        "pct": 9.1
+      },
+      {
+        "hex": "#3e54d0",
+        "pct": 5.3
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "nocode",
+        "name": "ノーコードツールで制作されたサイト"
+      },
+      {
+        "slug": "studio",
+        "name": "ノーコードツール｢Studio｣で制作されたサイト"
+      },
+      {
+        "slug": "life-infrastructure-industry",
+        "name": "製造業･工業･メーカー･商社･物流"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "cool",
+        "name": "かっこいい"
+      },
+      {
+        "slug": "3dcg",
+        "name": "3D表現･3Dイラストを使用"
+      },
+      {
+        "slug": "elaborate",
+        "name": "遊び心がある･作り込まれている"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "form",
+        "name": "図形を多用･幾何学モチーフ"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "parallax",
+        "name": "パララックス（視差効果）･スクロールエフェクト"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "vuejs-nuxtjs",
+        "name": "Vue.js / Nuxt.js"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "purple",
+        "name": "パープル･ラベンダー･紫色"
+      },
+      {
+        "slug": "cool-color",
+        "name": "寒色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "gateone",
+    "name": "ファミマTV 日本最大級のリテールサイネージネットワーク",
+    "url": "https://gate-one.co.jp/",
+    "industry": "ブランドサイト･サービスサイト／Web･IT･XR･デジタル･テクノロジー／サービス･アプリ･ツール･SaaS",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#99acb6",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 61
+      },
+      {
+        "hex": "#99acb6",
+        "pct": 11.2
+      },
+      {
+        "hex": "#222222",
+        "pct": 9.7
+      },
+      {
+        "hex": "#564c48",
+        "pct": 5.4
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "computer-web",
+        "name": "Web･IT･XR･デジタル･テクノロジー"
+      },
+      {
+        "slug": "service-application",
+        "name": "サービス･アプリ･ツール･SaaS"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "gradation",
+        "name": "グラデーション"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      },
+      {
+        "slug": "green",
+        "name": "グリーン･イエローグリーン･緑色"
+      },
+      {
+        "slug": "blue",
+        "name": "ブルー･青色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      },
+      {
+        "slug": "combination-color",
+        "name": "組み合わせが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "toyotabattery",
+    "name": "トヨタバッテリー株式会社",
+    "url": "https://www.toyota-battery.com/jp/",
+    "industry": "コーポレートサイト／製造業･工業･メーカー･商社･物流／車･乗り物･モビリティ",
+    "tags": [
+      "ゴシック",
+      "余白つまった",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#db0026",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 81.8
+      },
+      {
+        "hex": "#000000",
+        "pct": 10.5
+      },
+      {
+        "hex": "#d2dee2",
+        "pct": 2.3
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "life-infrastructure-industry",
+        "name": "製造業･工業･メーカー･商社･物流"
+      },
+      {
+        "slug": "car-bike-vehicle-airplane",
+        "name": "車･乗り物･モビリティ"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "cool",
+        "name": "かっこいい"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "inbound-multilingual",
+        "name": "多言語対応"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "lakotahouse",
+    "name": "THE LAKOTA HOUSE",
+    "url": "https://lakotahouse.com/",
+    "industry": "ブランドサイト･サービスサイト／ECサイト･オンラインショップ／ファッション･アパレル･アクセサリー･ジュエリー",
+    "tags": [
+      "ゴシック",
+      "余白ひろい",
+      "角ばった",
+      "モノトーン"
+    ],
+    "accent": "#765e46",
+    "palette": [
+      {
+        "hex": "#f7f5f0",
+        "pct": 64.8
+      },
+      {
+        "hex": "#bfbdb7",
+        "pct": 6.1
+      },
+      {
+        "hex": "#765e46",
+        "pct": 5.7
+      },
+      {
+        "hex": "#1d1210",
+        "pct": 4.5
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "ec-onlineshop",
+        "name": "ECサイト･オンラインショップ"
+      },
+      {
+        "slug": "fashion-accessories-jewelry",
+        "name": "ファッション･アパレル･アクセサリー･ジュエリー"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "beige",
+        "name": "ベージュ･グレージュ･アイボリー･クリーム･薄茶色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      }
+    ]
   }
 ]

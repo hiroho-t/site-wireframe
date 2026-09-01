@@ -126,9 +126,20 @@ let items = [];
 const BASE = document.body.dataset.base || '';
 const menubtn = document.getElementById('menubtn'), catnav = document.getElementById('catnav'), catlist = document.getElementById('catlist');
 let cat = '';
-// 動きは計測していないので、その分類は出さない（持っていない情報を見せない）
-const HIDE_GROUPS = ['動き･技術'];
-const shown = c => !HIDE_GROUPS.includes(CATS[c.slug]?.group);
+// mdに書いてあること（実際に計測した値と、引き継いだ業種）だけを分類として出す。
+// 動き・制作ツール・見た印象は観察していないので出さない。
+const KEEP_GROUPS = ['タイプ', '業種･ジャンル', '色･配色', '書体'];
+const KEEP_SLUGS = new Set([
+  'roundedcorners',   // 角丸 … 実測している
+  'jumprate',         // 文字のジャンプ率 … 文字の段を実測している
+  'responsive',       // レスポンシブ … 390pxでも測っている
+  '1column', '2column',   // カラム数 … セクションの並びで数えている
+  'bold-headings', 'thin-headings',   // 見出しの太さ … ウェイトを実測している
+  'whitespace',       // 余白多め … セクションの上下余白を実測している
+  'dividers',         // セクション区切り … 面の切り替えを実測している
+  'card-list',        // カード型UI … 囲みの繰り返しを検出している
+]);
+const shown = c => KEEP_GROUPS.includes(CATS[c.slug]?.group) || KEEP_SLUGS.has(c.slug);
 
 let CATS = {}, GROUPS = [];
 Promise.all([
@@ -145,7 +156,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 function fillCats() {
   const n = {};
   for (const x of items) for (const c of (x.cats || []).filter(shown)) (n[c.slug] ||= { name: c.name, n: 0 }).n++;
-  const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i && !HIDE_GROUPS.includes(v));
+  const order = [...GROUPS, 'その他'].filter((v, i, a) => a.indexOf(v) === i);
   const bucket = {};
   for (const [slug, c] of Object.entries(n)) {
     const g = CATS[slug]?.group || 'その他';
