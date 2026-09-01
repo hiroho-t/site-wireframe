@@ -3536,5 +3536,416 @@
         "name": "キーカラーが効いてる配色"
       }
     ]
+  },
+  {
+    "slug": "sazae",
+    "name": "サザエ食品株式会社",
+    "url": "https://www.sazae.co.jp/",
+    "industry": "コーポレートサイト／ブランドサイト･サービスサイト／カフェ･飲食店･テイクアウト",
+    "tags": [
+      "ゴシック",
+      "余白ひろい",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#ffe7c1",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 59.3
+      },
+      {
+        "hex": "#ffe7c1",
+        "pct": 15.8
+      },
+      {
+        "hex": "#f4e6df",
+        "pct": 15
+      },
+      {
+        "hex": "#bbb8ae",
+        "pct": 1.5
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "cafe-restaurant-tavern",
+        "name": "カフェ･飲食店･テイクアウト"
+      },
+      {
+        "slug": "cooking-food-beverage",
+        "name": "料理･食べ物･飲み物･食品製造"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "friendly-natural",
+        "name": "やさしい･親しみ･ナチュラル"
+      },
+      {
+        "slug": "sizzlefeeling",
+        "name": "シズル感や訴求力のある写真･動画を使用"
+      },
+      {
+        "slug": "typography",
+        "name": "魅力的な文字･タイポグラフィ"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "decorationruled",
+        "name": "飾り罫･フレーム"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "motion-effect",
+        "name": "動き･アニメーション･エフェクト"
+      },
+      {
+        "slug": "moderate-move",
+        "name": "やや動きあり"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "calmdown-color",
+        "name": "落ち着いた配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "agentgrow",
+    "name": "エージェントグロー",
+    "url": "https://www.agent-grow.com/",
+    "industry": "コーポレートサイト／企画･開発･マーケティング･コンサルティング／自社プロダクト･サービス運営",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#eb322d",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 43.5
+      },
+      {
+        "hex": "#292f33",
+        "pct": 25.5
+      },
+      {
+        "hex": "#3e424e",
+        "pct": 5.3
+      },
+      {
+        "hex": "#eb322d",
+        "pct": 5
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "corporatesite",
+        "name": "コーポレートサイト"
+      },
+      {
+        "slug": "business-support",
+        "name": "企画･開発･マーケティング･コンサルティング"
+      },
+      {
+        "slug": "product-service",
+        "name": "自社プロダクト･サービス運営"
+      },
+      {
+        "slug": "joboffer-matching",
+        "name": "求人･マッチング･転職･人材ビジネス"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "trust",
+        "name": "誠実･信頼感"
+      },
+      {
+        "slug": "cool",
+        "name": "かっこいい"
+      },
+      {
+        "slug": "jumprate",
+        "name": "文字のジャンプ率が高い"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "magazine",
+        "name": "雑誌風なレイアウト･あしらい"
+      },
+      {
+        "slug": "nice-layout",
+        "name": "レイアウトに工夫あり"
+      },
+      {
+        "slug": "texture-handle",
+        "name": "質感･柄"
+      },
+      {
+        "slug": "form",
+        "name": "図形を多用･幾何学モチーフ"
+      },
+      {
+        "slug": "roundedcorners",
+        "name": "角丸"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "vuejs-nuxtjs",
+        "name": "Vue.js / Nuxt.js"
+      },
+      {
+        "slug": "red",
+        "name": "レッド･ワインレッド･バーミリオン･赤色"
+      },
+      {
+        "slug": "warm-color",
+        "name": "暖色"
+      },
+      {
+        "slug": "stylish-intellect-color",
+        "name": "クール･知的な配色"
+      },
+      {
+        "slug": "key-color",
+        "name": "キーカラーが効いてる配色"
+      }
+    ]
+  },
+  {
+    "slug": "rebitasumai",
+    "name": "リビタの住まい",
+    "url": "https://sumai.rebita.co.jp/",
+    "industry": "ブランドサイト･サービスサイト／建築･住宅･不動産･空間設計･エクステリア／スタイリッシュ",
+    "tags": [
+      "ゴシック",
+      "余白ふつう",
+      "角ばった",
+      "色つき"
+    ],
+    "accent": "#10242e",
+    "palette": [
+      {
+        "hex": "#ffffff",
+        "pct": 56.6
+      },
+      {
+        "hex": "#777474",
+        "pct": 8.4
+      },
+      {
+        "hex": "#c4c4b4",
+        "pct": 5.2
+      },
+      {
+        "hex": "#10242e",
+        "pct": 4.5
+      }
+    ],
+    "cats": [
+      {
+        "slug": "web",
+        "name": "Webサイト"
+      },
+      {
+        "slug": "brandsite",
+        "name": "ブランドサイト･サービスサイト"
+      },
+      {
+        "slug": "architecture-construction-realestate-home-garden",
+        "name": "建築･住宅･不動産･空間設計･エクステリア"
+      },
+      {
+        "slug": "stylish",
+        "name": "スタイリッシュ"
+      },
+      {
+        "slug": "practical",
+        "name": "オーソドックス"
+      },
+      {
+        "slug": "simple",
+        "name": "シンプル"
+      },
+      {
+        "slug": "elegance",
+        "name": "上品"
+      },
+      {
+        "slug": "sizzlefeeling",
+        "name": "シズル感や訴求力のある写真･動画を使用"
+      },
+      {
+        "slug": "japanese",
+        "name": "日本語主体･英語少なめ"
+      },
+      {
+        "slug": "line",
+        "name": "線を多用"
+      },
+      {
+        "slug": "nice-lowerlayer",
+        "name": "ステキな下層ページ"
+      },
+      {
+        "slug": "nice-banner-button-visual",
+        "name": "ステキなバナー･ボタン･メインビジュアル"
+      },
+      {
+        "slug": "photo",
+        "name": "ステキな写真"
+      },
+      {
+        "slug": "nice-infographics",
+        "name": "ステキなインフォグラフィック"
+      },
+      {
+        "slug": "mincho",
+        "name": "明朝系のフォント"
+      },
+      {
+        "slug": "gothic",
+        "name": "ゴシック系のフォント"
+      },
+      {
+        "slug": "responsive",
+        "name": "レスポンシブ"
+      },
+      {
+        "slug": "1column",
+        "name": "1カラム"
+      },
+      {
+        "slug": "no-move",
+        "name": "ほぼ動きなし･動き少なめ"
+      },
+      {
+        "slug": "slide",
+        "name": "スライド･カルーセル"
+      },
+      {
+        "slug": "loading",
+        "name": "ローディング･オープニングアニメーション"
+      },
+      {
+        "slug": "movie",
+        "name": "動画が流れる"
+      },
+      {
+        "slug": "white",
+        "name": "ホワイト･白色"
+      },
+      {
+        "slug": "grey",
+        "name": "グレー･灰色"
+      }
+    ]
   }
 ]

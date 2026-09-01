@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>リビタの住まい のスタイル｜Claude Code用のデザイン参考集</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#fff; --ink:#141414; --sub:#767676; --line:#e6e4e2; --field:#f4f3f1; --r:6px }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .top{padding:20px 32px;border-bottom:1px solid var(--line);font-size:12px;color:var(--sub)}
+  .top a{text-decoration:none} .top a:hover{text-decoration:underline}
+
+  .wrap{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;padding:32px;align-items:start}
+  section{padding:28px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0;padding-top:0}
+  h2{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sub);margin-bottom:18px}
+  h1{font-size:24px;font-weight:700;line-height:1.5}
+  .lead{margin-top:10px;font-size:14px;color:var(--sub);max-width:640px}
+  .shot{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:22px}
+  .shot img{width:100%;display:block}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tags span{font-size:11px;color:var(--sub);border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+  .src{margin-top:16px}
+  .src a{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;font-size:13px;
+    border:1px solid var(--line);border-radius:var(--r);text-decoration:none;color:var(--ink)}
+  .src a:hover{background:var(--field)}
+  .src svg{width:14px;height:14px;fill:currentColor;flex:none}
+  .src span{color:var(--sub);font-size:11px}
+
+  .ratio{display:flex;height:40px;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:20px}
+  .ratio i{box-shadow:1px 0 0 var(--line) inset} .ratio i:first-child{box-shadow:none}
+  .colors{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .c{display:flex;gap:12px;border:1px solid var(--line);border-radius:8px;padding:12px}
+  .chip{flex:0 0 44px;height:44px;border-radius:6px;border:1px solid var(--line)}
+  .crole{font-size:12px;font-weight:700;line-height:1.6;display:flex;gap:8px;align-items:baseline}
+  .crole span{font-weight:400;color:var(--sub);font-size:11px}
+  .hex{font:inherit;font-size:12px;font-family:ui-monospace,Menlo,monospace;background:var(--field);
+    border:0;border-radius:4px;padding:1px 7px;cursor:pointer;color:var(--ink);margin:2px 0}
+  .hex:hover{background:#e8e6e3}
+  .cuse{font-size:11px;color:var(--sub);line-height:1.7}
+
+  .fonts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:24px}
+  .fonts div{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+  .fonts p{font-size:11px;color:var(--sub);letter-spacing:.1em}
+  .fonts strong{display:block;font-size:14px;margin-top:4px;line-height:1.6}
+  .fonts em{font-style:normal;font-size:11px;color:var(--sub)}
+  .sp{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .sp:last-child{border-bottom:0}
+  .spmeta{font-size:11px;color:var(--sub);display:flex;gap:10px;margin-bottom:2px}
+  .spdemo{font-family:"Noto Sans JP","Noto Sans JP",sans-serif;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-weight:500;color:var(--sub);width:180px;vertical-align:top;padding:12px 0}
+  td{padding:12px 0;vertical-align:top} td:first-of-type{width:220px}
+  tr+tr th,tr+tr td{border-top:1px solid var(--line)}
+  .pv span{display:block;background:var(--ink);height:3px}
+  .pv.gaps{display:flex;gap:6px;align-items:center}
+  .pv.gaps span{height:20px;background:var(--field);border:1px solid var(--line)}
+  .pv b{display:inline-block;width:56px;height:36px;border:1px solid var(--ink);margin-right:8px}
+
+  .btnrow{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:20px;border-radius:8px;margin-bottom:10px}
+  .btnrow:last-child{margin-bottom:0}
+  .btnrow .demo{display:inline-flex;align-items:center;justify-content:center;font-family:inherit}
+  .btnrow code{font-size:11px;font-family:ui-monospace,Menlo,monospace;color:inherit}
+
+  aside{position:sticky;top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+  .ahead{display:flex;gap:8px;padding:12px;border-bottom:1px solid var(--line);align-items:center}
+  .ahead p{font-size:12px;font-weight:700;flex:1}
+  .ahead button,.ahead a{height:32px;padding:0 12px;display:inline-flex;align-items:center;font:inherit;font-size:11px;
+    font-weight:700;border-radius:var(--r);cursor:pointer;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:#fff}
+  .ahead a{background:transparent;color:var(--ink);border-color:var(--line);font-weight:500}
+  .ahead button.done{background:#fff;color:var(--ink)}
+  pre{margin:0;padding:14px;max-height:62vh;overflow:auto;font-size:11px;line-height:1.8;
+    font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-word;color:#333}
+
+  .sub{font-size:12px;font-weight:700;margin:26px 0 8px}
+  .usage th{width:auto;display:flex;align-items:center;gap:8px;color:var(--ink)}
+  .usage th i{width:14px;height:14px;border-radius:3px;border:1px solid var(--line);flex:none}
+  .usage td{width:auto;text-align:right;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+  .usage tr:first-child td,.usage tr:first-child th{color:var(--sub);font-size:11px;font-weight:400}
+  .note{font-size:12px;color:var(--sub);margin:12px 0}
+  .note code{font-family:ui-monospace,Menlo,monospace;font-size:11px}
+  .secs{display:flex;flex-direction:column;gap:3px}
+  .sec{display:flex;align-items:center;gap:12px;padding:0 14px;border-radius:4px;font-size:12px;overflow:hidden}
+  .secno{opacity:.6;font-size:11px;width:16px;flex:none}
+  .secname{font-weight:700}
+  .sech{margin-left:auto;opacity:.65;font-size:11px;font-family:ui-monospace,Menlo,monospace}
+  .stage{padding:28px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+  .carddemo{width:min(320px,100%);display:flex;flex-direction:column;gap:10px}
+  .carddemo i{display:block;height:8px;border-radius:2px}
+  .chipdemo{display:inline-flex;align-items:center;justify-content:center;line-height:1.6}
+  .imgs{display:flex;gap:16px;flex-wrap:wrap}
+  .imgs div{width:150px}
+  .imgs span{display:block;width:100%;background:var(--field);border:1px solid var(--line)}
+  .imgs em{display:block;font-style:normal;font-size:11px;color:var(--sub);margin-top:6px}
+
+  footer{border-top:1px solid var(--line);padding:28px 32px 56px;font-size:12px;color:var(--sub)}
+  footer p{max-width:720px} footer a{color:var(--ink)}
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr;gap:28px;padding:24px 20px}
+    aside{position:static} .top,footer{padding-left:20px;padding-right:20px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top"><a href="../index.html">一覧</a> ／ リビタの住まい</nav>
+
+<div class="wrap">
+<main>
+  <section>
+    <a class="shot" href="https://sumai.rebita.co.jp/" target="_blank" rel="noopener"><img src="../shot/rebitasumai.jpg" alt="リビタの住まい のトップページ"></a>
+    <h1>リビタの住まい</h1>
+    <p class="lead">白地に #10242e を大きな面で置く配色。影も枠線もほとんど使わない。本文 14px・行間 1.75、セクション間 72px。</p>
+    <div class="tags"><span>ゴシック</span><span>余白ふつう</span><span>角ばった</span><span>色つき</span><span>ブランドサイト･サービスサイト／建築･住宅･不動産･空間設計･エクステリア／スタイリッシュ</span></div>
+    <p class="src"><a href="https://sumai.rebita.co.jp/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7h-1.5V5.56L5.06 12 4 10.94 10.44 4.5H6V3Z"/><path d="M3 5h2v1.5H4.5v5H10V11h1.5v2H3V5Z"/></svg>sumai.rebita.co.jp<span>参考サイトを開く</span></a></p>
+  </section>
+
+  <section>
+    <h2>配色</h2>
+    <div class="ratio"><i style="background:#ffffff;flex:56.6"></i><i style="background:#777474;flex:8.4"></i><i style="background:#c4c4b4;flex:5.2"></i><i style="background:#10242e;flex:4.5"></i><i style="background:#433e34;flex:3.4"></i><i style="background:#1d1711;flex:3.4"></i></div>
+    <div class="colors"><div class="c">
+      <div class="chip" style="background:#ffffff"></div>
+      <div class="cmeta">
+        <p class="crole">地<span>56.6%</span></p>
+        <button class="hex" data-copy="#ffffff">#ffffff</button>
+        <p class="cuse">ページ全体の下地</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#777474"></div>
+      <div class="cmeta">
+        <p class="crole">主色<span>8.4%</span></p>
+        <button class="hex" data-copy="#777474">#777474</button>
+        <p class="cuse">面で置く色。ボタンや線だけに使うと別物になる</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#c4c4b4"></div>
+      <div class="cmeta">
+        <p class="crole">副色<span>5.2%</span></p>
+        <button class="hex" data-copy="#c4c4b4">#c4c4b4</button>
+        <p class="cuse">主色を受ける面。区切りや帯に</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#10242e"></div>
+      <div class="cmeta">
+        <p class="crole">差し色<span>4.5%</span></p>
+        <button class="hex" data-copy="#10242e">#10242e</button>
+        <p class="cuse">部分的なアクセント</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#433e34"></div>
+      <div class="cmeta">
+        <p class="crole">差し色<span>3.4%</span></p>
+        <button class="hex" data-copy="#433e34">#433e34</button>
+        <p class="cuse">部分的なアクセント</p>
+      </div>
+    </div><div class="c">
+      <div class="chip" style="background:#1d1711"></div>
+      <div class="cmeta">
+        <p class="crole">差し色<span>3.4%</span></p>
+        <button class="hex" data-copy="#1d1711">#1d1711</button>
+        <p class="cuse">部分的なアクセント</p>
+      </div>
+    </div></div>
+    <p class="cuse" style="margin-top:14px">文字色は <code>#222222</code> / <code>#ffffff</code> / <code>#888888</code> / <code>#f0f0f0</code>。</p>
+    <h3 class="sub">どこに使っているか（箇所数）</h3>
+    <table class="usage">
+      <tr><th>色</th><td>面</td><td>文字</td><td>枠線</td><td>ボタンの地</td></tr>
+      <tr><th><i style="background:#f0f0f0"></i><code>#f0f0f0</code></th>
+        <td>1</td><td>2</td><td>0</td><td>0</td></tr><tr><th><i style="background:#ffffff"></i><code>#ffffff</code></th>
+        <td>13</td><td>29</td><td>0</td><td>8</td></tr><tr><th><i style="background:#c4c4b4"></i><code>#c4c4b4</code></th>
+        <td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><th><i style="background:#10242e"></i><code>#10242e</code></th>
+        <td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><th><i style="background:#e5e5e5"></i><code>#e5e5e5</code></th>
+        <td>11</td><td>0</td><td>12</td><td>6</td></tr><tr><th><i style="background:#222222"></i><code>#222222</code></th>
+        <td>0</td><td>104</td><td>1</td><td>0</td></tr><tr><th><i style="background:#888888"></i><code>#888888</code></th>
+        <td>0</td><td>19</td><td>2</td><td>0</td></tr>
+    </table>
+    <p class="note"><code>#10242e</code> は面として1箇所、文字として0箇所。塗りが主役。ボタンの地には使っていない。</p>
+  </section>
+
+  <section>
+    <h2>文字</h2>
+    <div class="fonts">
+      <div><p>和文</p><strong>Noto Sans JP</strong></div>
+      <div><p>欧文</p><strong>NumberFont</strong></div>
+      <div><p>本文</p><strong>14px / 行間 1.75</strong><em>この見本は Noto Sans JP で表示しています</em></div>
+    </div>
+    <div class="sp">
+      <p class="spmeta">大見出し<span>27px / 行間 1.3</span></p>
+      <p class="spdemo" style="font-size:27px;line-height:1.3">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">見出し<span>20px</span></p>
+      <p class="spdemo" style="font-size:20px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">本文<span>14px / 行間 1.75</span></p>
+      <p class="spdemo" style="font-size:14px;line-height:1.75">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">補助<span>13px</span></p>
+      <p class="spdemo" style="font-size:13px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">注記<span>11px</span></p>
+      <p class="spdemo" style="font-size:11px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div><div class="sp">
+      <p class="spmeta">注記<span>10px</span></p>
+      <p class="spdemo" style="font-size:10px;line-height:1.5">あのイーハトーヴォのすきとおった風</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>余白とかたち</h2>
+    <table><tr><th>コンテンツ幅</th><td>632px</td><td class="pvcell"><div class="pv"><span style="width:100%;max-width:158px"></span></div></td></tr><tr><th>読ませる段の幅</th><td>720px</td><td class="pvcell"><div class="pv"><span style="width:180px"></span></div></td></tr><tr><th>セクションの上下余白</th><td>72px</td><td class="pvcell"><div class="pv"><span style="height:72px;width:3px"></span></div></td></tr><tr><th>並びの間隔</th><td>4 / 7 / 14 / 36px</td><td class="pvcell"><div class="pv gaps"><span style="width:4px"></span><span style="width:7px"></span><span style="width:14px"></span><span style="width:36px"></span></div></td></tr><tr><th>角丸</th><td>0px（大きな面は 40px）</td><td class="pvcell"><div class="pv"><b style="border-radius:0px"></b><b style="border-radius:40px"></b></div></td></tr><tr><th>影</th><td>なし</td><td class="pvcell"><div class="pv"><b></b></div></td></tr><tr><th>画面幅の切り替え</th><td>782 / 781 / 768 / 767 / 600px</td><td class="pvcell"></td></tr></table>
+  </section>
+
+  <section>
+    <h2>ボタン</h2>
+    <div class="btnrow" style="background:var(--field);color:var(--sub)">
+      <span class="demo" style="background:#ffffff;color:#222222;border:1px solid #e7e7e7;border-radius:40px;padding:5px 14px;min-height:35px;font-size:13px;font-weight:400;letter-spacing:0">お問い合わせ</span>
+      <code>#ffffff / 13px / 400 / 角丸 40px</code>
+    </div><div class="btnrow" style="background:var(--field);color:var(--sub)">
+      <span class="demo" style="background:#e5e5e5;color:#222222;border-radius:0px;padding:0px 0px;min-height:60px;font-size:14px;font-weight:400;letter-spacing:0">もっと見る</span>
+      <code>#e5e5e5 / 14px / 400 / 角丸 0px</code>
+    </div><div class="btnrow" style="background:#10242e;color:rgba(255,255,255,.72)">
+      <span class="demo" style="background:transparent;color:#ffffff;border-radius:0px;padding:22px 0px;min-height:62px;font-size:13px;font-weight:400;letter-spacing:0">もっと見る</span>
+      <code>transparent / 13px / 400 / 角丸 0px</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>ページの組み立て</h2>
+    <p class="note">上から順に、実際に並んでいたセクション。高さの比率もそのまま。</p>
+    <div class="secs"><div class="sec" style="height:100px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">1</span>
+        <span class="secname">ヒーロー（画像）</span>
+        <span class="sech">1800px</span>
+      </div><div class="sec" style="height:73px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">2</span>
+        <span class="secname">6カラム・画像あり</span>
+        <span class="sech">1320px</span>
+      </div><div class="sec" style="height:77px;background:#f0f0f0;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">3</span>
+        <span class="secname">6カラム・画像あり</span>
+        <span class="sech">1380px ・ #f0f0f0</span>
+      </div><div class="sec" style="height:37px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">4</span>
+        <span class="secname">4カラム・画像あり</span>
+        <span class="sech">660px</span>
+      </div><div class="sec" style="height:26px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">5</span>
+        <span class="secname">1カラム・画像あり</span>
+        <span class="sech">340px</span>
+      </div><div class="sec" style="height:46px;background:#c4c4b4;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">6</span>
+        <span class="secname">2カラム・画像あり</span>
+        <span class="sech">820px ・ #c4c4b4</span>
+      </div><div class="sec" style="height:26px;background:#ffffff;color:var(--ink);
+        border:1px solid var(--line)">
+        <span class="secno">7</span>
+        <span class="secname">2カラム・画像あり</span>
+        <span class="sech">340px ・ #ffffff</span>
+      </div></div>
+    <p class="note">全7セクション、すべて全幅。</p>
+    <h3 class="sub">面と、その上に置く線・文字</h3>
+    <table class="usage">
+      <tr><th>面</th><td>使用箇所</td><td>線と文字</td></tr>
+      <tr>
+        <th><i style="background:#ffffff"></i><code>#ffffff</code></th>
+        <td>5</td>
+        <td><i style="background:#10242e;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#10242e</code></td>
+      </tr><tr>
+        <th><i style="background:#f0f0f0"></i><code>#f0f0f0</code></th>
+        <td>1</td>
+        <td><i style="background:#10242e;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#10242e</code></td>
+      </tr><tr>
+        <th><i style="background:#c4c4b4"></i><code>#c4c4b4</code></th>
+        <td>1</td>
+        <td><i style="background:#10242e;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#10242e</code></td>
+      </tr><tr>
+        <th><i style="background:#10242e"></i><code>#10242e</code></th>
+        <td>1</td>
+        <td><i style="background:#ffffff;display:inline-block;width:12px;height:12px;border-radius:3px;border:1px solid var(--line);vertical-align:-2px;margin-right:6px"></i><code>#ffffff</code></td>
+      </tr>
+    </table>
+    <p class="note">線と文字の色は固定ではなく、乗っている面で入れ替える。</p>
+  </section>
+
+  <section>
+    <h2>部品</h2>
+    <div class="stage" style="background:#10242e">
+        <div class="carddemo" style="background:#ffffff;border:2px solid #e5e5e5;
+          border-radius:0px;padding:0px 0px;">
+          <i style="background:rgba(255,255,255,.5)"></i>
+          <i style="width:60%;background:rgba(255,255,255,.5)"></i>
+        </div>
+      </div>
+      <p class="note">同じ形が 4 箇所。角丸 0px ／ 2px #e5e5e5 の線 ／ 影なし</p>
+    
+    <div class="stage" style="background:var(--field)">
+        <span class="chipdemo" style="background:#ffffff;color:#222222;border-radius:999px;
+          padding:5px 14px;font-size:13px;border:1px solid currentColor;">タグ</span>
+      </div>
+      <p class="note">角丸 999px ／ 13px</p>
+  </section>
+
+  <section>
+    <h2>PCとスマホ</h2>
+    <p class="note">同じサイトを390px幅で測り直した値。</p>
+    <table>
+      <tr><th></th><td>PC 1440px</td><td>スマホ 390px</td></tr>
+      <tr><th>本文</th><td>14px / 行間 1.75</td><td>12px / 行間 1.8</td></tr>
+      <tr><th>見出し</th><td>27px</td><td>23px</td></tr>
+      <tr><th>セクションの上下余白</th><td>72px</td><td>24px</td></tr>
+      <tr><th>左右の余白</th><td>—</td><td>21px</td></tr>
+      <tr><th>並びの間隔</th><td>14px</td><td>17px</td></tr>
+    </table>
+    <p class="note">文字サイズの段は 23 / 19 / 15 / 12 / 10px。セクション余白はPCの33%まで詰める。</p>
+  </section>
+
+  <section>
+    <h2>画像</h2>
+    <div class="imgs"><div><span style="aspect-ratio:3/2;border-radius:0px"></span>
+        <em>3:2・31枚</em></div></div>
+    <p class="note">31枚。うち 1 枚は画面いっぱいに置く。角丸 0px。</p>
+  </section>
+</main>
+
+<aside>
+  <div class="ahead">
+    <p>DESIGN.md</p>
+    <button id="copy">mdをコピー</button>
+    <a href="https://github.com/hiroho-t/jp-styles/blob/main/s/rebitasumai.md" target="_blank" rel="noopener">mdファイル</a>
+  </div>
+  <pre id="md"># リビタの住まい ふうのデザイン
+
+- 出典: https://sumai.rebita.co.jp/
+- 実測: 2026-09-02／ブラウザ幅1440pxで実際に描かれた値を測ったもの
+- 印象: ゴシック / 余白ふつう / 角ばった / 色つき
+- 業種: ブランドサイト･サービスサイト／建築･住宅･不動産･空間設計･エクステリア／スタイリッシュ
+
+白地に `#10242e` を文字と細部だけで効かせる配色。影も枠線もほとんど使わない。本文 14px・行間 1.75、セクション間 72px。
+
+このファイルに書いてあるのは色と寸法だけ。文言・写真・ロゴは真似せず、自分で用意すること。
+
+## そのまま使う変数
+
+```css
+:root{
+  --bg: #ffffff;
+  --main: #10242e;
+  --sub: #c4c4b4;
+  --ink: #222222;
+  --ink-rev: #ffffff;
+  --on: #10242e;   /* いま乗っている面の上で使う線と文字の色。面ごとに入れ替える */
+  --font-ja: &quot;Noto Sans JP&quot;, sans-serif;
+  --font-en: &quot;NumberFont&quot;, sans-serif;
+  --fs-body: 14px;
+  --lh-body: 1.75;
+  --container: 632px;
+  --read: 720px;
+  --section-y: 72px;
+  --gap: 14px;
+  --radius: 0px;
+}
+```
+
+## 配色
+
+| 役割 | 色 | 画面に占める割合 |
+|---|---|---|
+| 地 | `#ffffff` | 56.6% |
+| 主色 | `#777474` | 8.4% |
+| 副色 | `#c4c4b4` | 5.2% |
+| 差し色 | `#10242e` | 4.5% |
+| 差し色 | `#433e34` | 3.4% |
+| 差し色 | `#1d1711` | 3.4% |
+
+文字色は `#222222` / `#ffffff` / `#888888` / `#f0f0f0`。
+
+- 主色 `#10242e` は塗りにはほとんど使わない。文字・線・小さな部品だけで効かせる。
+- 影は**使わない**（計測0件）。段差は色面の切り替えだけでつくる。
+
+## 色の使い分け
+
+同じ色でも、面に使うのか文字に使うのかで印象が変わる。実際に数えた箇所数。
+
+| 色 | 面 | 文字 | 枠線 | ボタンの地 |
+|---|---|---|---|---|
+| `#f0f0f0` | 1 | 2 | 0 | 0 |
+| `#ffffff` | 13 | 29 | 0 | 8 |
+| `#c4c4b4` | 1 | 0 | 0 | 0 |
+| `#10242e` | 1 | 0 | 0 | 0 |
+| `#e5e5e5` | 11 | 0 | 12 | 6 |
+| `#222222` | 0 | 104 | 1 | 0 |
+| `#888888` | 0 | 19 | 2 | 0 |
+
+- `#10242e` は面として1箇所、文字として0箇所。塗りが主役。ボタンの地には使っていない。
+
+## 面と線の関係
+
+線・文字・囲みの色は固定ではない。**乗っている面によって入れ替える。**
+
+| 面 | その上に置く線と文字 |
+|---|---|
+| `#ffffff`（地） | `#10242e` |
+| `#f0f0f0` | `#10242e` |
+| `#c4c4b4` | `#10242e` |
+| `#10242e`（主色） | `#ffffff` |
+
+```css
+.section{ --on:#10242e }                     /* 地の面 */
+.section--main{ background:var(--main); color:#ffffff; --on:#ffffff }
+.card{ border:1px solid var(--on) }
+.btn--fill{ background:var(--main); color:#ffffff }
+.section--main .btn--fill{ background:#ffffff; color:var(--main) }   /* 主色の面では反転 */
+```
+
+- 実測した囲みの線は `#e5e5e5`。ただしその囲みは `#ffffff` の面の上にしか無かった。**別の面に置くときは、その面の反対色にする。**
+
+## 文字
+
+- 和文: Noto Sans JP
+- 欧文: NumberFont
+- ウェイトは 400 が中心。太さで強弱をつけず、大きさで差をつける。
+
+| 用途 | サイズ | 行間 |
+|---|---|---|
+| 大見出し | 27px | 1.3 |
+| 見出し | 20px | — |
+| 本文 | 14px | 1.75 |
+| 補助 | 13px | — |
+| 注記 | 11px | — |
+| 注記 | 10px | — |
+
+- 本文は 14px・行間 1.75。
+
+## レイアウト
+
+- コンテンツ幅: 最大 632px／読ませる段は 720px
+- セクションの上下余白: 72 / 56 / 36 / 44px（基本は 72px）
+- 並びの間隔: 4 / 7 / 14 / 36px
+- 角丸: 0px が基本。大きな面だけ 40px。中途半端な角丸を混ぜない
+- 画面幅の切り替え: 782 / 781 / 768 / 767 / 600px
+
+## スマホ（390px）
+
+同じサイトを390px幅で測り直した値。
+
+| | PC 1440px | スマホ 390px |
+|---|---|---|
+| 本文 | 14px / 行間 1.75 | 12px / 行間 1.8 |
+| 見出し | 27px | 23px / 行間 1.3 |
+| セクションの上下余白 | 72px | 24px |
+| 左右の余白 | — | 21px |
+| 並びの間隔 | 14px | 17px |
+
+- 本文は 14px → 12px、セクション余白は 72px → 24px（PCの33%）。
+- 文字サイズの段は 23 / 19 / 15 / 12 / 10px。
+
+## ボタン
+
+```css
+.btn{
+  background: #ffffff; color: #222222;
+  border: 1px solid #e7e7e7;
+  border-radius: 40px; padding: 5px 14px; min-height: 35px;
+  font-size: 13px; font-weight: 400; letter-spacing: 0;
+}
+.btn-sub{
+  background: #e5e5e5; color: #222222;
+  border-radius: 0px; padding: 0px 0px; min-height: 60px;
+  font-size: 14px; font-weight: 400; letter-spacing: 0;
+}
+.btn-sub{
+  background: transparent; color: #ffffff;
+  border-radius: 0px; padding: 22px 0px; min-height: 62px;
+  font-size: 13px; font-weight: 400; letter-spacing: 0;
+}
+```
+
+## ページの組み立て
+
+上から順に、実際に並んでいたセクション。
+
+| # | 高さ | 地色 | 中身 | 見出し | 画像 |
+|---|---|---|---|---|---|
+| 1 | 1800px | — | ヒーロー（画像） | — | 全幅 |
+| 2 | 1320px | — | 6カラム・画像あり | 左 | 見出しの下 |
+| 3 | 1380px | `#f0f0f0` | 6カラム・画像あり | 左 | 見出しの下 |
+| 4 | 660px | — | 4カラム・画像あり | 左 | 見出しの下 |
+| 5 | 340px | — | 1カラム・画像あり | — | 全面 |
+| 6 | 820px | `#c4c4b4` | 2カラム・画像あり | — | 全面 |
+| 7 | 340px | `#ffffff` | 2カラム・画像あり | — | — |
+
+- 全7セクション、すべて全幅。中央に寄せた箱を積むのではなく、色面を全幅で切り替えながら進む。
+- 使われている面の色: `#ffffff`（5） / `#f0f0f0`（1） / `#c4c4b4`（1） / `#10242e`（1）
+- 見出しは**全部左寄せ**。中央寄せは1つもない。
+
+
+## 部品
+
+囲み（4箇所で同じ形）
+
+```css
+.card{
+  background: #ffffff;
+  border: 2px solid var(--on);   /* 実測は #e5e5e5。面によって入れ替える */
+  border-radius: 0px;
+  padding: 0px 0px;
+}
+```
+
+ラベル・タグ
+
+```css
+.chip{
+  background: #ffffff; color: #222222;
+  border: 1px solid currentColor;
+  border-radius: 999px; padding: 5px 14px; font-size: 13px;
+}
+```
+
+## 画像
+
+- 31枚使っている。うち 1 枚は画面いっぱいに置く
+- 比率は 3:2（31枚）
+- 角丸 0px。切り抜かず四角のまま置く
+
+## すぐ使う骨格
+
+上の `:root` と合わせて、これをそのまま置けば土台になる。
+
+```css
+body{ background:var(--bg); color:var(--ink);
+  font-family:var(--font-ja); font-size:var(--fs-body); line-height:var(--lh-body) }
+
+.section{ padding:var(--section-y) 0; --on:#10242e }
+.container{ width:min(100% - 42px, var(--container)); margin-inline:auto }
+.read{ max-width:var(--read) }
+
+.hero{ min-height:1800px; display:grid; align-content:center }
+.section--main{ background:var(--main); color:#ffffff; --on:#ffffff }
+.section--main .btn--fill{ background:#ffffff; color:var(--main) }
+.card{ background:#ffffff; border:2px solid var(--on);
+  border-radius:0px; padding:0px 0px }
+.btn{ display:inline-flex; align-items:center; justify-content:center;
+  background:#ffffff; color:#222222; border-radius:40px;
+  padding:5px 14px; min-height:35px;
+  font-size:13px; font-weight:400 }
+
+img{ width:100%; height:auto; border-radius:0px; aspect-ratio:3/2; object-fit:cover }
+
+@media (max-width:782px){
+  :root{ --fs-body:12px; --section-y:24px; --gap:17px; }
+  .container{ width:calc(100% - 42px) }
+}
+```
+
+## 守ること
+
+やること
+
+- 地は `#ffffff` のまま。主色 `#10242e` は文字と小さな部品にだけ使う。
+- 余白 72px と行間 1.75 を先に決めてから中身を入れる。
+- 画像は 3:2 に統一し、角丸は 0px。
+- 線と文字の色は面ごとに入れ替える（`--on` を面のクラスで上書きする）。固定色で書かない。
+- 囲みは 2px の線＋角丸 0px でそろえる。
+
+やらないこと
+
+- 影をつけない（このサイトには1つもない）。
+- 主色を大きな面に塗らない。塗った瞬間に別物になる。
+- 本文の行間を 1.75 より詰めない。角を丸めない。
+- 中途半端な角丸（0px と 40px 以外）を混ぜない。
+</pre>
+</aside>
+</div>
+
+<footer>
+  <p>スクリーンショットの掲載を希望されない場合はご連絡ください、確認のうえ削除します。</p>
+  <p style="margin-top:12px">運営：<a href="https://startwith.org/" target="_blank" rel="noopener">合同会社StartWith</a></p>
+</footer>
+
+<script>
+const flash = (el, msg) => { const b = el.textContent; el.textContent = msg; el.classList.add('done');
+  setTimeout(() => { el.textContent = b; el.classList.remove('done'); }, 1500); };
+document.getElementById('copy').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(document.getElementById('md').textContent); flash(e.target, 'コピーしました'); }
+  catch { flash(e.target, 'コピーできません'); }
+});
+document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(b.dataset.copy); flash(b, 'コピー'); } catch {}
+}));
+</script>
+</body>
+</html>
